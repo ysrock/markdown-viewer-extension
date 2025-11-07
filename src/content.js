@@ -273,7 +273,20 @@ function createAsyncPlaceholder(id, type, description = '') {
  * Process all async tasks in queue sequentially (one by one)
  */
 async function processAsyncTasks() {
+  if (asyncTaskQueue.length === 0) {
+    console.log('No async tasks to process');
+    return;
+  }
+  
+  const totalTasks = asyncTaskQueue.length;
+  console.log(`Processing ${totalTasks} async tasks`);
+  
+  // Show processing indicator and set initial progress (full circle)
+  showProcessingIndicator();
+  updateProgress(0, totalTasks); // 0 completed out of totalTasks
+  
   // Process tasks one by one to avoid offscreen document conflicts
+  let completedTasks = 0;
   while (asyncTaskQueue.length > 0) {
     const taskInfo = asyncTaskQueue.shift();
     try {
@@ -284,9 +297,83 @@ async function processAsyncTasks() {
         // New format with data
         await Promise.resolve().then(() => taskInfo.callback(taskInfo.data));
       }
+      
+      // Update progress after each task completion
+      completedTasks++;
+      updateProgress(completedTasks, totalTasks);
+      
     } catch (error) {
       console.error('Async task error:', error);
+      // Still count as completed to maintain progress accuracy
+      completedTasks++;
+      updateProgress(completedTasks, totalTasks);
     }
+  }
+  
+  // Hide processing indicator when all tasks are done
+  hideProcessingIndicator();
+  console.log('All async tasks completed');
+}
+
+/**
+ * Update progress circle based on completed vs total tasks
+ */
+function updateProgress(completed, total) {
+  const progressCircle = document.querySelector('.progress-circle-progress');
+  if (!progressCircle) return;
+  
+  // Calculate progress percentage
+  const progress = completed / total;
+  const circumference = 43.98; // 2 * PI * 7 (radius)
+  
+  // Calculate stroke-dashoffset (starts at full circle, decreases as progress increases)
+  const offset = circumference * (1 - progress);
+  
+  progressCircle.style.strokeDashoffset = offset;
+  
+  console.log(`Progress: ${completed}/${total} (${Math.round(progress * 100)}%)`);
+}
+
+/**
+ * Show processing indicator in TOC header
+ */
+function showProcessingIndicator() {
+  console.log('Attempting to show processing indicator...');
+  
+  // Debug: check if the elements exist
+  const tocDiv = document.getElementById('table-of-contents');
+  const tocHeader = document.querySelector('.toc-header');
+  const indicator = document.getElementById('processing-indicator');
+  
+  console.log('TOC div exists:', !!tocDiv);
+  console.log('TOC header exists:', !!tocHeader);
+  console.log('Processing indicator exists:', !!indicator);
+  
+  if (tocHeader) {
+    console.log('TOC header HTML:', tocHeader.innerHTML);
+  }
+  
+  if (indicator) {
+    console.log('Showing processing indicator');
+    indicator.classList.remove('hidden');
+  } else {
+    console.log('Processing indicator element not found');
+    // Try to find it by class
+    const indicatorByClass = document.querySelector('.processing-indicator');
+    console.log('Indicator by class exists:', !!indicatorByClass);
+  }
+}
+
+/**
+ * Hide processing indicator in TOC header
+ */
+function hideProcessingIndicator() {
+  const indicator = document.getElementById('processing-indicator');
+  if (indicator) {
+    console.log('Hiding processing indicator');
+    indicator.classList.add('hidden');
+  } else {
+    console.log('Processing indicator element not found');
   }
 }/**
  * Remark plugin to convert Mermaid code blocks to PNG (async callback version)
@@ -553,7 +640,16 @@ const rawMarkdown = document.body.textContent;
 // Create a new container for the rendered content
 document.body.innerHTML = `
   <div id="table-of-contents">
-    <div class="toc-header">目录</div>
+    <div class="toc-header">
+      <span class="toc-title">目录</span>
+      <div id="processing-indicator" class="processing-indicator hidden">
+        <svg class="progress-circle" width="18" height="18" viewBox="0 0 18 18">
+          <circle class="progress-circle-bg" cx="9" cy="9" r="7" stroke="#666" stroke-width="2" fill="none"/>
+          <circle class="progress-circle-progress" cx="9" cy="9" r="7" stroke="#00d4aa" stroke-width="2" fill="none"
+                  stroke-dasharray="43.98" stroke-dashoffset="43.98" transform="rotate(-90 9 9)"/>
+        </svg>
+      </div>
+    </div>
   </div>
   <div id="toc-overlay" class="hidden"></div>
   <div id="markdown-wrapper">
@@ -574,6 +670,13 @@ setTimeout(async () => {
 
   // Setup responsive behavior
   setupResponsiveToc();
+  
+  // Now that all DOM is ready, process async tasks
+  // Add a small delay to ensure DOM is fully rendered and visible
+  setTimeout(() => {
+    console.log('Starting async task processing...');
+    processAsyncTasks();
+  }, 200);
 }, 100);
 
 // Listen for scroll events and save position to background script
@@ -644,10 +747,7 @@ async function renderMarkdown(markdown, savedScrollPosition = 0) {
     // Restore scroll position immediately
     restoreScrollPosition(savedScrollPosition);
     
-    // Start processing async tasks in the background
-    setTimeout(() => {
-      processAsyncTasks();
-    }, 100);
+    // Don't process async tasks here - let main flow handle it
   } catch (error) {
     console.error('Markdown processing error:', error);
     console.error('Error stack:', error.stack);
@@ -669,7 +769,19 @@ function generateTOC() {
     return;
   }
 
-  let tocHTML = '<div class="toc-header">目录</div><ul class="toc-list">';
+  // Preserve the existing header structure with processing indicator
+  let tocHTML = `
+    <div class="toc-header">
+      <span class="toc-title">目录</span>
+      <div id="processing-indicator" class="processing-indicator hidden">
+        <svg class="progress-circle" width="18" height="18" viewBox="0 0 18 18">
+          <circle class="progress-circle-bg" cx="9" cy="9" r="7" stroke="#666" stroke-width="2" fill="none"/>
+          <circle class="progress-circle-progress" cx="9" cy="9" r="7" stroke="#00d4aa" stroke-width="2" fill="none"
+                  stroke-dasharray="43.98" stroke-dashoffset="43.98" transform="rotate(-90 9 9)"/>
+        </svg>
+      </div>
+    </div>
+    <ul class="toc-list">`;
 
   headings.forEach((heading, index) => {
     const level = parseInt(heading.tagName[1]);

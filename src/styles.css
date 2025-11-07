@@ -48,6 +48,9 @@ body.toc-hidden #markdown-content {
   font-size: 16px;
   font-weight: 600;
   border-bottom: 1px solid #34495e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .toc-list {
@@ -313,7 +316,42 @@ body.toc-hidden #markdown-content {
   }
 }
 
-/* Async Processing Placeholder Styles */
+/* Processing indicator for TOC */
+.processing-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.processing-indicator.hidden {
+  display: none;
+}
+
+.progress-circle {
+  width: 18px;
+  height: 18px;
+}
+
+.progress-circle-bg {
+  opacity: 0.4;
+  stroke: #666; /* Darker gray for better contrast on dark background */
+}
+
+.progress-circle-progress {
+  transition: stroke-dashoffset 0.3s ease;
+  stroke: #00d4aa; /* Brighter cyan-green for better visibility */
+}
+
+/* Legacy spinner support (if needed) */
+.processing-spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e0e0e0;
+  border-top: 2px solid #007acc;
+  border-radius: 50%;
+  animation: async-spin 1s linear infinite;
+}
+
+/* Async content placeholder */
 .async-placeholder {
   display: flex;
   align-items: center;
