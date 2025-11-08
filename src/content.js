@@ -703,8 +703,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Since this script is only injected when content-detector.js confirms this is a markdown file,
 // we can directly proceed with processing
-const isRemote = document.location.protocol !== 'file:';
-
 // Get scroll position from background script (avoids sandbox restrictions)
 async function getSavedScrollPosition() {
   let currentScrollPosition = 0;
@@ -1003,6 +1001,60 @@ function setupKeyboardShortcuts() {
   });
 }
 
+const PRINT_CHUNK_SIZE = 256 * 1024; // 256 KB per message to stay under messaging limits
+
+async function dispatchPrintJob(html, metadata = {}) {
+  const htmlString = typeof html === 'string' ? html : '';
+  const totalLength = htmlString.length;
+
+  if (document.location.protocol === 'file:') {
+    window.print();
+    return 'local-print';
+  }
+
+  const initResponse = await chrome.runtime.sendMessage({
+    type: 'PRINT_JOB_INIT',
+    payload: {
+      title: metadata.title,
+      filename: metadata.filename,
+      htmlLength: totalLength
+    }
+  });
+
+  if (!initResponse || !initResponse.success || !initResponse.token) {
+    const errorDetail = initResponse?.error ? `: ${initResponse.error}` : '';
+    throw new Error(`Failed to initiate print job${errorDetail}`);
+  }
+
+  const token = initResponse.token;
+
+  for (let offset = 0; offset < totalLength; offset += PRINT_CHUNK_SIZE) {
+    const chunk = htmlString.slice(offset, offset + PRINT_CHUNK_SIZE);
+    const chunkResponse = await chrome.runtime.sendMessage({
+      type: 'PRINT_JOB_CHUNK',
+      token,
+      chunk
+    });
+
+    if (!chunkResponse || !chunkResponse.success) {
+      const errorDetail = chunkResponse?.error ? `: ${chunkResponse.error}` : '';
+      throw new Error(`Failed to send print data${errorDetail}`);
+    }
+  }
+
+  const finalizeResponse = await chrome.runtime.sendMessage({
+    type: 'PRINT_JOB_FINALIZE',
+    token
+  });
+
+  if (!finalizeResponse || !finalizeResponse.success) {
+    const errorDetail = finalizeResponse?.error ? `: ${finalizeResponse.error}` : '';
+    throw new Error(`Failed to finalize print job${errorDetail}`);
+  }
+
+  return token;
+}
+
 function initializeToolbar() {
   // Set file name from URL
   const fileNameSpan = document.getElementById('file-name');
@@ -1192,8 +1244,33 @@ function setupToolbarButtons() {
   // Print button
   const printBtn = document.getElementById('print-btn');
   if (printBtn) {
-    printBtn.addEventListener('click', () => {
-      window.print();
+    printBtn.addEventListener('click', async () => {
+      const contentDiv = document.getElementById('markdown-content');
+      if (!contentDiv) {
+        console.warn('Print content not found');
+        return;
+      }
+
+      const htmlContent = contentDiv.innerHTML;
+      const printTitle = document.title || getDocumentFilename();
+      const fileName = getDocumentFilename();
+
+      try {
+        if (printBtn.disabled) {
+          return;
+        }
+        printBtn.disabled = true;
+
+        await dispatchPrintJob(htmlContent, {
+          title: printTitle,
+          filename: fileName
+        });
+      } catch (error) {
+        console.error('Print request failed:', error);
+        alert(`Failed to open print preview: ${error.message}`);
+      } finally {
+        printBtn.disabled = false;
+      }
     });
   }
 }

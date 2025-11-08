@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.print-root {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.print-root #markdown-content {
+  background: white;
+  box-shadow: none;
+}
+
+.print-error {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fee;
+  border-left: 4px solid #f00;
+  color: #b10000;
+  font-family: sans-serif;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .print-root {
+    margin: 0;
+    padding: 20px;
+  }
+}

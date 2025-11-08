@@ -33,7 +33,9 @@ export const createBuildConfig = () => {
       'background': 'src/background.js',
       'popup': 'src/popup.js',
       'offscreen': 'src/offscreen.js',
-      'styles': 'src/styles.css'
+      'styles': 'src/styles.css',
+      'print': 'src/print.js',
+      'print-page': 'src/print-page.css'
     },
     bundle: true,
     outdir: 'dist',
@@ -92,8 +94,13 @@ export const createBuildConfig = () => {
               if (fs.existsSync('src/offscreen.html')) {
                 fs.copyFileSync('src/offscreen.html', 'dist/offscreen.html');
               }
+
+              // 5. Copy print HTML files to dist/
+              if (fs.existsSync('src/print.html')) {
+                fs.copyFileSync('src/print.html', 'dist/print.html');
+              }
               
-              // 5. Copy JavaScript libraries for offscreen document
+              // 6. Copy JavaScript libraries for offscreen document
               const libFiles = [
                 { src: 'node_modules/html2canvas/dist/html2canvas.min.js', dest: 'dist/html2canvas.min.js' }
               ];

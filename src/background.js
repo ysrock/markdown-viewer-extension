@@ -6,6 +6,8 @@ let globalCacheManager = null;
 
 // Store scroll positions in memory (per session)
 const scrollPositions = new Map();
+const printJobs = new Map();
+const PRINT_CHUNK_SIZE = 256 * 1024;
 
 // Initialize the global cache manager
 async function initGlobalCacheManager() {
@@ -100,7 +102,66 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     handleFileDownload(message, sendResponse);
     return true; // Keep message channel open for async response
   }
+
+  if (message.type === 'PRINT_DOCUMENT') {
+    handlePrintDocument(message, sender, sendResponse);
+    return true;
+  }
+
+  if (message.type === 'PRINT_JOB_INIT') {
+    handlePrintJobInit(message, sender, sendResponse);
+    return true;
+  }
+
+  if (message.type === 'PRINT_JOB_CHUNK') {
+    handlePrintJobChunk(message, sendResponse);
+    return true;
+  }
+
+  if (message.type === 'PRINT_JOB_FINALIZE') {
+    handlePrintJobFinalize(message, sendResponse);
+    return true;
+  }
+
+  if (message.type === 'PRINT_JOB_REQUEST') {
+    handlePrintJobRequest(message, sender, sendResponse);
+    return true;
+  }
+
+  if (message.type === 'PRINT_JOB_FETCH_CHUNK') {
+    handlePrintJobFetchChunk(message, sendResponse);
+    return true;
+  }
+
+  if (message.type === 'PRINT_JOB_COMPLETE') {
+    handlePrintJobComplete(message, sender, sendResponse);
+    return true;
+  }
 });
+
+chrome.tabs.onRemoved.addListener((tabId) => {
+  for (const [token, job] of printJobs.entries()) {
+    if (job.tabId === tabId) {
+      printJobs.delete(token);
+      break;
+    }
+  }
+});
+
+function createPrintToken() {
+  if (globalThis.crypto && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  const buffer = new Uint32Array(4);
+  if (globalThis.crypto && typeof crypto.getRandomValues === 'function') {
+    crypto.getRandomValues(buffer);
+  } else {
+    for (let i = 0; i < buffer.length; i++) {
+      buffer[i] = Math.floor(Math.random() * 0xffffffff);
+    }
+  }
+  return Array.from(buffer, (value) => value.toString(16).padStart(8, '0')).join('-');
+}
 
 async function handleContentCacheOperation(message, sendResponse) {
   try {
@@ -322,4 +383,221 @@ async function handleContentScriptInjection(tabId, sendResponse) {
   } catch (error) {
     sendResponse({ error: error.message });
   }
+}
+
+async function handlePrintDocument(message, sender, sendResponse) {
+  const payload = message?.payload || {};
+  const html = typeof payload.html === 'string' ? payload.html : '';
+  const title = typeof payload.title === 'string' && payload.title.trim() ? payload.title.trim() : 'Document';
+  const filename = typeof payload.filename === 'string' ? payload.filename : '';
+
+  const token = createPrintToken();
+  const job = {
+    html,
+    title,
+    filename,
+    createdAt: Date.now(),
+    sourceTabId: sender?.tab?.id ?? null,
+    tabId: null,
+    chunkSize: PRINT_CHUNK_SIZE
+  };
+
+  printJobs.set(token, job);
+
+  launchPrintTab(token, job, sendResponse);
+}
+
+function handlePrintJobInit(message, sender, sendResponse) {
+  const payload = message?.payload || {};
+  const title = typeof payload.title === 'string' && payload.title.trim() ? payload.title.trim() : 'Document';
+  const filename = typeof payload.filename === 'string' ? payload.filename : '';
+
+  const token = createPrintToken();
+  const job = {
+    html: '',
+    chunks: [],
+    title,
+    filename,
+    expectedSize: typeof payload.htmlLength === 'number' ? payload.htmlLength : null,
+    createdAt: Date.now(),
+    sourceTabId: sender?.tab?.id ?? null,
+    tabId: null
+  };
+
+  printJobs.set(token, job);
+  sendResponse({ success: true, token });
+}
+
+function handlePrintJobChunk(message, sendResponse) {
+  const token = message?.token;
+  const chunk = typeof message?.chunk === 'string' ? message.chunk : null;
+
+  if (!token || chunk === null) {
+    sendResponse({ error: 'Invalid print chunk payload' });
+    return;
+  }
+
+  const job = printJobs.get(token);
+  if (!job) {
+    sendResponse({ error: 'Print job not found' });
+    return;
+  }
+
+  if (!Array.isArray(job.chunks)) {
+    job.chunks = [];
+  }
+
+  job.chunks.push(chunk);
+  job.chunkBytes = (job.chunkBytes || 0) + chunk.length;
+  job.lastChunkTime = Date.now();
+
+  sendResponse({ success: true });
+}
+
+function handlePrintJobFinalize(message, sendResponse) {
+  const token = message?.token;
+  if (!token) {
+    sendResponse({ error: 'Missing print job token' });
+    return;
+  }
+
+  const job = printJobs.get(token);
+  if (!job) {
+    sendResponse({ error: 'Print job not found' });
+    return;
+  }
+
+  if (typeof job.html === 'string' && job.html.length > 0 && !Array.isArray(job.chunks)) {
+    launchPrintTab(token, job, sendResponse);
+    return;
+  }
+
+  const chunks = Array.isArray(job.chunks) ? job.chunks : [];
+  job.html = chunks.join('');
+  delete job.chunks;
+  job.chunkSize = PRINT_CHUNK_SIZE;
+
+  launchPrintTab(token, job, sendResponse);
+}
+
+async function launchPrintTab(token, job, sendResponse) {
+  try {
+    const url = chrome.runtime.getURL(`print.html?token=${encodeURIComponent(token)}`);
+    const tab = await new Promise((resolve, reject) => {
+      chrome.tabs.create({ url, active: true }, (createdTab) => {
+        if (chrome.runtime.lastError) {
+          reject(new Error(chrome.runtime.lastError.message));
+          return;
+        }
+        resolve(createdTab);
+      });
+    });
+
+    if (tab && typeof tab.id === 'number') {
+      job.tabId = tab.id;
+    }
+
+    sendResponse({ success: true, token });
+  } catch (error) {
+    printJobs.delete(token);
+    sendResponse({ error: error?.message || 'Failed to create print tab' });
+  }
+}
+
+function handlePrintJobRequest(message, sender, sendResponse) {
+  const token = message?.token;
+  if (!token || !printJobs.has(token)) {
+    sendResponse({ error: 'Print job not found' });
+    return;
+  }
+
+  const job = printJobs.get(token);
+  if (!job.tabId && sender?.tab?.id) {
+    job.tabId = sender.tab.id;
+  }
+
+  if (typeof job.html !== 'string') {
+    sendResponse({ error: 'Print job is not ready' });
+    return;
+  }
+
+  const chunkSize = typeof job.chunkSize === 'number' ? job.chunkSize : PRINT_CHUNK_SIZE;
+
+  sendResponse({
+    success: true,
+    payload: {
+      title: job.title,
+      filename: job.filename,
+      length: job.html.length,
+      chunkSize
+    }
+  });
+}
+
+async function handlePrintJobComplete(message, sender, sendResponse) {
+  const token = message?.token;
+  if (!token) {
+    sendResponse({ error: 'Missing print job token' });
+    return;
+  }
+
+  const job = cleanupPrintJob(token);
+  if (!job) {
+    sendResponse({ success: true });
+    return;
+  }
+
+  if (message?.closeTab !== false && typeof job.tabId === 'number') {
+    try {
+        await new Promise((resolve, reject) => {
+          chrome.tabs.remove(job.tabId, () => {
+            if (chrome.runtime.lastError) {
+              reject(new Error(chrome.runtime.lastError.message));
+              return;
+            }
+            resolve();
+          });
+        });
+    } catch (error) {
+      // Ignore removal errors
+    }
+  }
+
+  sendResponse({ success: true });
+}
+
+function cleanupPrintJob(token) {
+  if (!printJobs.has(token)) {
+    return null;
+  }
+  const job = printJobs.get(token);
+  printJobs.delete(token);
+  return job;
+}
+
+function handlePrintJobFetchChunk(message, sendResponse) {
+  const token = message?.token;
+  const offset = typeof message?.offset === 'number' && message.offset >= 0 ? message.offset : 0;
+  const length = typeof message?.length === 'number' && message.length > 0 ? message.length : PRINT_CHUNK_SIZE;
+
+  if (!token || !printJobs.has(token)) {
+    sendResponse({ error: 'Print job not found' });
+    return;
+  }
+
+  const job = printJobs.get(token);
+  if (typeof job.html !== 'string') {
+    sendResponse({ error: 'Print data unavailable' });
+    return;
+  }
+
+  if (offset >= job.html.length) {
+    sendResponse({ success: true, chunk: '', nextOffset: job.html.length });
+    return;
+  }
+
+  const chunk = job.html.slice(offset, Math.min(offset + length, job.html.length));
+  const nextOffset = offset + chunk.length;
+
+  sendResponse({ success: true, chunk, nextOffset });
 }
