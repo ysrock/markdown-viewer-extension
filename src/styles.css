@@ -20,6 +20,114 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Toolbar Styles */
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1001;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-left,
+.toolbar-center,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar-left {
+  justify-content: flex-start;
+}
+
+.toolbar-center {
+  justify-content: center;
+}
+
+.toolbar-right {
+  justify-content: flex-end;
+}
+
+.toolbar-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.toolbar-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.toolbar-btn:active {
+  background: #e0e0e0;
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.toolbar-btn.downloading {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.toolbar-btn svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.zoom-level {
+  min-width: 50px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.zoom-level:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.layout-text {
+  font-size: 13px;
+  padding: 0 4px;
+}
+
 /* When TOC is hidden, adjust the content margin */
 body.toc-hidden #markdown-wrapper {
   margin-left: 0;
@@ -30,28 +138,13 @@ body.toc-hidden #markdown-wrapper {
   background: #f8f9fa;
   border-right: 1px solid #e0e0e0;
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
-  height: 100vh;
+  height: calc(100vh - 50px);
   overflow-y: auto;
   transition: transform 0.3s ease;
   z-index: 1000;
   user-select: none;
-}
-
-.toc-header {
-  background: #2c3e50;
-  color: white;
-  padding: 15px 20px;
-  font-size: 16px;
-  font-weight: 600;
-  border-bottom: 1px solid #34495e;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.toc-list {
   padding: 20px 0;
 }
 
@@ -102,14 +195,24 @@ body.toc-hidden #markdown-wrapper {
 
 #markdown-wrapper {
   margin-left: 280px;
+  margin-top: 50px;
   transition: margin-left 0.3s ease;
+}
+
+#markdown-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  transition: max-width 0.3s ease;
+  display: none; /* Hidden until content is loaded */
+}
+
+#markdown-page.loaded {
+  display: block;
 }
 
 #markdown-content {
   background: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 1000px;
   margin: 0 auto;
   padding: 40px;
   box-sizing: border-box;
@@ -125,6 +228,7 @@ body.toc-hidden #markdown-wrapper {
 #markdown-content h5,
 #markdown-content h6 {
   font-weight: 800;
+  scroll-margin-top: 60px; /* Offset for fixed toolbar (50px) + 10px padding */
 }
 
 #markdown-content h1 {
@@ -302,6 +406,14 @@ body.toc-hidden #markdown-wrapper {
   #table-of-contents:not(.hidden) {
     transform: translateX(0);
   }
+  
+  .file-name {
+    max-width: 150px;
+  }
+  
+  .toolbar-center {
+    gap: 8px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -312,6 +424,24 @@ body.toc-hidden #markdown-wrapper {
   
   #markdown-content {
     padding: 20px;
+  }
+  
+  #toolbar {
+    padding: 0 10px;
+  }
+  
+  .file-name {
+    display: none;
+  }
+  
+  .toolbar-left,
+  .toolbar-right {
+    gap: 6px;
+  }
+  
+  .zoom-level {
+    min-width: 45px;
+    font-size: 13px;
   }
 }
 
@@ -338,6 +468,11 @@ body.toc-hidden #markdown-wrapper {
 .progress-circle-progress {
   transition: stroke-dashoffset 0.3s ease;
   stroke: #00d4aa; /* Brighter cyan-green for better visibility */
+}
+
+.download-progress-circle {
+  stroke: #007acc; /* Blue color for download progress */
+  transition: stroke-dashoffset 0.3s ease;
 }
 
 /* Legacy spinner support (if needed) */
@@ -419,73 +554,10 @@ body.toc-hidden #markdown-wrapper {
   border-top-color: #ffc107;
 }
 
-/* Export Button Styles */
-.export-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-  transition: all 0.3s ease;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  user-select: none;
-}
-
-.export-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-}
-
-.export-button:active {
-  transform: translateY(0);
-}
-
-.export-button .icon {
-  font-size: 18px;
-}
-
-.export-button.exporting {
-  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
-  cursor: wait;
-  pointer-events: none;
-}
-
-.export-button.exporting::after {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
-  border: 2px solid white;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Hide export button when printing */
-@media print {
-  .export-button {
-    display: none !important;
-  }
-}
-
 /* Print Styles - Only show content area */
 @media print {
-  /* Hide TOC and overlay completely when printing */
+  /* Hide toolbar, TOC and overlay completely when printing */
+  #toolbar,
   #table-of-contents,
   #toc-overlay {
     display: none !important;
@@ -494,6 +566,7 @@ body.toc-hidden #markdown-wrapper {
   /* Reset wrapper margin for printing */
   #markdown-wrapper {
     margin-left: 0 !important;
+    margin-top: 0 !important;
   }
   
   /* Optimize content area for printing */

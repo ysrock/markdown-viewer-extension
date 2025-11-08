@@ -84,16 +84,29 @@ class DocxExporter {
    * @param {string} markdown - Raw markdown content
    * @param {string} filename - Output filename (default: 'document.docx')
    */
-  async exportToDocx(markdown, filename = 'document.docx') {
+  async exportToDocx(markdown, filename = 'document.docx', onProgress = null) {
     try {
       // Set base URL for resolving relative image paths
       this.setBaseUrl(window.location.href);
+      
+      // Initialize progress tracking
+      this.progressCallback = onProgress;
+      this.totalResources = 0;
+      this.processedResources = 0;
       
       // Initialize MathJax first
       await this.initializeMathJax();
       
       // Parse markdown to AST
       const ast = this.parseMarkdown(markdown);
+      
+      // Count resources that need processing (images, mermaid, html, svg)
+      this.totalResources = this.countResources(ast);
+      
+      // Report initial progress
+      if (onProgress && this.totalResources > 0) {
+        onProgress(0, this.totalResources);
+      }
       
       // Convert AST to docx elements
       const sections = await this.convertAstToDocx(ast);
@@ -308,10 +321,55 @@ class DocxExporter {
       // Download file
       this.downloadBlob(blob, filename);
       
+      // Clean up progress tracking
+      this.progressCallback = null;
+      this.totalResources = 0;
+      this.processedResources = 0;
+      
       return { success: true };
     } catch (error) {
       console.error('DOCX export error:', error);
       return { success: false, error: error.message };
+    }
+  }
+
+  /**
+   * Count resources that need processing (images and mermaid diagrams)
+   */
+  countResources(ast) {
+    let count = 0;
+    
+    const countNode = (node) => {
+      // Count images (including SVG images)
+      if (node.type === 'image') {
+        count++;
+      }
+      
+      // Count mermaid code blocks
+      if (node.type === 'code' && node.lang === 'mermaid') {
+        count++;
+      }
+      
+      // Recursively count in children
+      if (node.children) {
+        node.children.forEach(countNode);
+      }
+    };
+    
+    if (ast.children) {
+      ast.children.forEach(countNode);
+    }
+    
+    return count;
+  }
+
+  /**
+   * Report progress for a processed resource
+   */
+  reportResourceProgress() {
+    this.processedResources++;
+    if (this.progressCallback && this.totalResources > 0) {
+      this.progressCallback(this.processedResources, this.totalResources);
     }
   }
 
@@ -755,7 +813,9 @@ class DocxExporter {
       
       if (isSvg) {
         // Handle SVG images by converting to PNG
-        return await this.convertSvgImageFromUrl(node.url);
+        const result = await this.convertSvgImageFromUrl(node.url);
+        this.reportResourceProgress();
+        return result;
       }
       
       // Fetch image as buffer (returns Uint8Array)
@@ -765,7 +825,9 @@ class DocxExporter {
       if (contentType && contentType.includes('svg')) {
         // Get SVG content and convert to PNG
         const svgContent = new TextDecoder().decode(buffer);
-        return await this.convertSvgImage(svgContent);
+        const result = await this.convertSvgImage(svgContent);
+        this.reportResourceProgress();
+        return result;
       }
       
       // Get image dimensions
@@ -795,6 +857,9 @@ class DocxExporter {
         }
       }
       
+      // Report progress after processing image
+      this.reportResourceProgress();
+      
       // Create ImageRun with complete parameters
       return new ImageRun({
         data: buffer,
@@ -811,6 +876,8 @@ class DocxExporter {
       });
     } catch (error) {
       console.warn('Failed to load image:', node.url, error);
+      // Report progress even on error
+      this.reportResourceProgress();
       // Fallback to text placeholder
       return new TextRun({
         text: `[Image: ${node.alt || node.url}]`,
@@ -1265,6 +1332,7 @@ class DocxExporter {
   async convertMermaidDiagram(mermaidCode) {
     if (!this.renderer) {
       // No renderer available, return placeholder
+      this.reportResourceProgress();
       return new Paragraph({
         children: [
           new TextRun({
@@ -1302,6 +1370,9 @@ class DocxExporter {
         displayHeight = Math.round(displayHeight * ratio);
       }
       
+      // Report progress after processing mermaid
+      this.reportResourceProgress();
+      
       // Create ImageRun
       return new Paragraph({
         children: [
@@ -1327,6 +1398,8 @@ class DocxExporter {
       });
     } catch (error) {
       console.warn('Failed to render Mermaid diagram:', error);
+      // Report progress even on error
+      this.reportResourceProgress();
       return new Paragraph({
         children: [
           new TextRun({

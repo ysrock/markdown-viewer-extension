@@ -734,9 +734,14 @@ const rawMarkdown = document.body.textContent;
 
 // Create a new container for the rendered content
 document.body.innerHTML = `
-  <div id="table-of-contents">
-    <div class="toc-header">
-      <span class="toc-title">目录</span>
+  <div id="toolbar">
+    <div class="toolbar-left">
+      <button id="toggle-toc-btn" class="toolbar-btn" title="显示/隐藏目录">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span id="file-name" class="file-name"></span>
       <div id="processing-indicator" class="processing-indicator hidden">
         <svg class="progress-circle" width="18" height="18" viewBox="0 0 18 18">
           <circle class="progress-circle-bg" cx="9" cy="9" r="7" stroke="#666" stroke-width="2" fill="none"/>
@@ -745,21 +750,51 @@ document.body.innerHTML = `
         </svg>
       </div>
     </div>
+    <div class="toolbar-center">
+      <button id="zoom-out-btn" class="toolbar-btn" title="缩小">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span id="zoom-level" class="zoom-level">100%</span>
+      <button id="zoom-in-btn" class="toolbar-btn" title="放大">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button id="layout-toggle-btn" class="toolbar-btn" title="切换布局">
+        <span class="layout-text">正常</span>
+      </button>
+    </div>
+    <div class="toolbar-right">
+      <button id="download-btn" class="toolbar-btn" title="下载">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 3v10m0 0l-3-3m3 3l3-3M3 16h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button id="print-btn" class="toolbar-btn" title="打印">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M5 7V3h10v4M5 14H3V9h14v5h-2M5 14v3h10v-3M5 14h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
   </div>
+  <div id="table-of-contents"></div>
   <div id="toc-overlay" class="hidden"></div>
   <div id="markdown-wrapper">
-    <div id="markdown-content"></div>
+    <div id="markdown-page">
+      <div id="markdown-content"></div>
+    </div>
   </div>
-  <button id="export-docx-btn" class="export-button" title="Export to DOCX">
-    <span class="icon">📄</span>
-    <span class="text">Export to DOCX</span>
-  </button>
 `;
 
 // Wait a bit for DOM to be ready, then start processing
 setTimeout(async () => {
   // Get saved scroll position
   const savedScrollPosition = await getSavedScrollPosition();
+
+  // Initialize toolbar
+  initializeToolbar();
 
   // Parse and render markdown
   await renderMarkdown(rawMarkdown, savedScrollPosition);
@@ -769,9 +804,6 @@ setTimeout(async () => {
 
   // Setup responsive behavior
   setupResponsiveToc();
-  
-  // Setup export button
-  setupExportButton();
   
   // Now that all DOM is ready, process async tasks
   // Add a small delay to ensure DOM is fully rendered and visible
@@ -842,6 +874,12 @@ async function renderMarkdown(markdown, savedScrollPosition = 0) {
 
     contentDiv.innerHTML = htmlContent;
     
+    // Show the content container
+    const pageDiv = document.getElementById('markdown-page');
+    if (pageDiv) {
+      pageDiv.classList.add('loaded');
+    }
+    
     // Generate table of contents after rendering
     generateTOC();
 
@@ -870,19 +908,8 @@ function generateTOC() {
     return;
   }
 
-  // Preserve the existing header structure with processing indicator
-  let tocHTML = `
-    <div class="toc-header">
-      <span class="toc-title">目录</span>
-      <div id="processing-indicator" class="processing-indicator hidden">
-        <svg class="progress-circle" width="18" height="18" viewBox="0 0 18 18">
-          <circle class="progress-circle-bg" cx="9" cy="9" r="7" stroke="#666" stroke-width="2" fill="none"/>
-          <circle class="progress-circle-progress" cx="9" cy="9" r="7" stroke="#00d4aa" stroke-width="2" fill="none"
-                  stroke-dasharray="43.98" stroke-dashoffset="43.98" transform="rotate(-90 9 9)"/>
-        </svg>
-      </div>
-    </div>
-    <ul class="toc-list">`;
+  // Generate TOC list only
+  let tocHTML = '<ul class="toc-list">';
 
   headings.forEach((heading, index) => {
     const level = parseInt(heading.tagName[1]);
@@ -923,74 +950,212 @@ function setupTocToggle() {
 
   // Close TOC when clicking overlay (for mobile)
   overlayDiv.addEventListener('click', toggleToc);
+  
+  // Return toggleToc function for use by toolbar button
+  return toggleToc;
 }
 
-function setupExportButton() {
-  const exportBtn = document.getElementById('export-docx-btn');
+function initializeToolbar() {
+  // Set file name from URL
+  const fileNameSpan = document.getElementById('file-name');
+  if (fileNameSpan) {
+    const fileName = getFilenameFromURL();
+    fileNameSpan.textContent = fileName;
+  }
   
-  if (!exportBtn) return;
+  // Setup toolbar button handlers
+  setupToolbarButtons();
+}
+
+function setupToolbarButtons() {
+  // Toggle TOC button
+  const toggleTocBtn = document.getElementById('toggle-toc-btn');
+  const tocDiv = document.getElementById('table-of-contents');
+  const overlayDiv = document.getElementById('toc-overlay');
   
-  exportBtn.addEventListener('click', async () => {
-    // Prevent multiple clicks
-    if (exportBtn.classList.contains('exporting')) {
-      return;
+  if (toggleTocBtn && tocDiv && overlayDiv) {
+    toggleTocBtn.addEventListener('click', () => {
+      tocDiv.classList.toggle('hidden');
+      document.body.classList.toggle('toc-hidden');
+      overlayDiv.classList.toggle('hidden');
+    });
+  }
+  
+  // Zoom controls
+  let zoomLevel = 100;
+  const zoomLevelSpan = document.getElementById('zoom-level');
+  const contentDiv = document.getElementById('markdown-content');
+  
+  const updateZoom = (newLevel) => {
+    zoomLevel = Math.max(50, Math.min(400, newLevel));
+    if (zoomLevelSpan) {
+      zoomLevelSpan.textContent = zoomLevel + '%';
     }
-    
-    try {
-      // Update button state
-      exportBtn.classList.add('exporting');
-      const originalText = exportBtn.querySelector('.text').textContent;
-      exportBtn.querySelector('.text').textContent = 'Exporting...';
-      
-      // Get the original markdown content
-      const markdown = rawMarkdown;
-      
-      // Generate filename from document title or URL
-      const filename = getDocumentFilename();
-      
-      // Export to DOCX
-      const result = await docxExporter.exportToDocx(markdown, filename);
-      
-      if (result.success) {
-        // Show success feedback
-        exportBtn.querySelector('.text').textContent = 'Exported!';
-        setTimeout(() => {
-          exportBtn.querySelector('.text').textContent = originalText;
-          exportBtn.classList.remove('exporting');
-        }, 2000);
+    if (contentDiv) {
+      // Apply zoom using CSS zoom property (like browser zoom)
+      contentDiv.style.zoom = (zoomLevel / 100);
+    }
+  };
+  
+  // Click zoom level to reset to 100%
+  if (zoomLevelSpan) {
+    zoomLevelSpan.style.cursor = 'pointer';
+    zoomLevelSpan.addEventListener('click', () => {
+      updateZoom(100);
+    });
+  }
+  
+  const zoomInBtn = document.getElementById('zoom-in-btn');
+  if (zoomInBtn) {
+    zoomInBtn.addEventListener('click', () => {
+      updateZoom(zoomLevel + 10);
+    });
+  }
+  
+  const zoomOutBtn = document.getElementById('zoom-out-btn');
+  if (zoomOutBtn) {
+    zoomOutBtn.addEventListener('click', () => {
+      updateZoom(zoomLevel - 10);
+    });
+  }
+  
+  // Layout toggle button
+  const layoutBtn = document.getElementById('layout-toggle-btn');
+  const layoutText = layoutBtn?.querySelector('.layout-text');
+  const pageDiv = document.getElementById('markdown-page');
+  let currentLayout = 'normal'; // normal, fullscreen, narrow
+  
+  if (layoutBtn && pageDiv) {
+    layoutBtn.addEventListener('click', () => {
+      // Cycle through layouts: normal -> fullscreen -> narrow -> normal
+      if (currentLayout === 'normal') {
+        currentLayout = 'fullscreen';
+        pageDiv.style.maxWidth = '100%';
+        if (layoutText) layoutText.textContent = '满屏';
+      } else if (currentLayout === 'fullscreen') {
+        currentLayout = 'narrow';
+        pageDiv.style.maxWidth = '530px';
+        if (layoutText) layoutText.textContent = '窄屏';
       } else {
-        throw new Error(result.error || 'Export failed');
+        currentLayout = 'normal';
+        pageDiv.style.maxWidth = '1000px';
+        if (layoutText) layoutText.textContent = '正常';
       }
-    } catch (error) {
-      console.error('Export error:', error);
-      alert('导出失败: ' + error.message);
+    });
+  }
+  
+  // Download button (DOCX export)
+  // Download button
+  const downloadBtn = document.getElementById('download-btn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', async () => {
+      // Prevent multiple clicks
+      if (downloadBtn.disabled) {
+        return;
+      }
       
-      // Reset button
-      exportBtn.querySelector('.text').textContent = 'Export to DOCX';
-      exportBtn.classList.remove('exporting');
-    }
-  });
+      try {
+        // Disable button and show progress indicator
+        downloadBtn.disabled = true;
+        downloadBtn.classList.add('downloading');
+        
+        // Add progress indicator to button
+        const originalContent = downloadBtn.innerHTML;
+        const progressHTML = `
+          <svg class="progress-circle" width="18" height="18" viewBox="0 0 18 18">
+            <circle class="progress-circle-bg" cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" fill="none" opacity="0.3"/>
+            <circle class="download-progress-circle" cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-dasharray="43.98" stroke-dashoffset="43.98" transform="rotate(-90 9 9)"/>
+          </svg>
+        `;
+        downloadBtn.innerHTML = progressHTML;
+        
+        // Get the original markdown content
+        const markdown = rawMarkdown;
+        
+        // Generate filename from document title or URL
+        const filename = getDocumentFilename();
+        
+        // Export to DOCX with progress callback
+        const result = await docxExporter.exportToDocx(markdown, filename, (completed, total) => {
+          // Update progress circle
+          const progressCircle = downloadBtn.querySelector('.download-progress-circle');
+          if (progressCircle && total > 0) {
+            const progress = completed / total;
+            const circumference = 43.98; // 2 * PI * 7
+            const offset = circumference * (1 - progress);
+            progressCircle.style.strokeDashoffset = offset;
+          }
+        });
+        
+        if (!result.success) {
+          throw new Error(result.error || 'Export failed');
+        }
+        
+        // Restore button after successful download
+        downloadBtn.innerHTML = originalContent;
+        downloadBtn.disabled = false;
+        downloadBtn.classList.remove('downloading');
+      } catch (error) {
+        console.error('Export error:', error);
+        alert('导出失败: ' + error.message);
+        
+        // Restore button on error
+        const originalContent = `
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 3v10m0 0l-3-3m3 3l3-3M3 16h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
+        downloadBtn.innerHTML = originalContent;
+        downloadBtn.disabled = false;
+        downloadBtn.classList.remove('downloading');
+      }
+    });
+  }
+  
+  // Print button
+  const printBtn = document.getElementById('print-btn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+}
+
+// Get filename from URL with proper decoding and hash removal
+function getFilenameFromURL() {
+  const url = window.location.href;
+  const urlParts = url.split('/');
+  let fileName = urlParts[urlParts.length - 1] || 'document.md';
+  
+  // Remove hash part (# and everything after)
+  fileName = fileName.split('#')[0];
+  
+  // Decode URL encoding
+  try {
+    fileName = decodeURIComponent(fileName);
+  } catch (e) {
+    console.warn('Failed to decode filename:', e);
+  }
+  
+  return fileName;
 }
 
 function getDocumentFilename() {
-  // Try to get filename from URL
-  const url = window.location.href;
-  const urlParts = url.split('/');
-  const lastPart = urlParts[urlParts.length - 1];
+  // Get base filename
+  const fileName = getFilenameFromURL();
   
   // Remove .md or .markdown extension and add .docx
-  if (lastPart) {
-    const nameWithoutExt = lastPart.replace(/\.(md|markdown)$/i, '');
-    if (nameWithoutExt) {
-      return nameWithoutExt + '.docx';
-    }
+  const nameWithoutExt = fileName.replace(/\.(md|markdown)$/i, '');
+  if (nameWithoutExt) {
+    return nameWithoutExt + '.docx';
   }
   
   // Try to get from first h1 heading
   const firstH1 = document.querySelector('#markdown-content h1');
   if (firstH1) {
     const title = firstH1.textContent.trim()
-      .replace(/[^\w\s-]/g, '') // Remove special chars
+      .replace(/[^\w\s\u4e00-\u9fa5-]/g, '') // Keep alphanumeric, spaces, Chinese chars, and dashes
       .replace(/\s+/g, '-') // Replace spaces with dashes
       .substring(0, 50); // Limit length
     
