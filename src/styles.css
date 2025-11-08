@@ -123,11 +123,6 @@ body {
   color: #333;
 }
 
-.layout-text {
-  font-size: 13px;
-  padding: 0 4px;
-}
-
 /* When TOC is hidden, adjust the content margin */
 body.toc-hidden #markdown-wrapper {
   margin-left: 0;

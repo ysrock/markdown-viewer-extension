@@ -285,12 +285,10 @@ function createAsyncPlaceholder(id, type, description = '') {
  */
 async function processAsyncTasks() {
   if (asyncTaskQueue.length === 0) {
-    console.log('No async tasks to process');
     return;
   }
   
   const totalTasks = asyncTaskQueue.length;
-  console.log(`Processing ${totalTasks} async tasks`);
   
   // Show processing indicator and set initial progress
   showProcessingIndicator();
@@ -346,7 +344,6 @@ async function processAsyncTasks() {
         break;
       }
       
-      console.log(`Waiting for ${fetchingTasks.length} fetching tasks...`);
       // Wait 100ms before checking again
       await new Promise(resolve => setTimeout(resolve, 100));
     }
@@ -354,7 +351,6 @@ async function processAsyncTasks() {
   
   // Hide processing indicator when all tasks are done
   hideProcessingIndicator();
-  console.log('All async tasks completed');
 }
 
 /**
@@ -372,37 +368,16 @@ function updateProgress(completed, total) {
   const offset = circumference * (1 - progress);
   
   progressCircle.style.strokeDashoffset = offset;
-  
-  console.log(`Progress: ${completed}/${total} (${Math.round(progress * 100)}%)`);
 }
 
 /**
  * Show processing indicator in TOC header
  */
 function showProcessingIndicator() {
-  console.log('Attempting to show processing indicator...');
-  
-  // Debug: check if the elements exist
-  const tocDiv = document.getElementById('table-of-contents');
-  const tocHeader = document.querySelector('.toc-header');
   const indicator = document.getElementById('processing-indicator');
   
-  console.log('TOC div exists:', !!tocDiv);
-  console.log('TOC header exists:', !!tocHeader);
-  console.log('Processing indicator exists:', !!indicator);
-  
-  if (tocHeader) {
-    console.log('TOC header HTML:', tocHeader.innerHTML);
-  }
-  
   if (indicator) {
-    console.log('Showing processing indicator');
     indicator.classList.remove('hidden');
-  } else {
-    console.log('Processing indicator element not found');
-    // Try to find it by class
-    const indicatorByClass = document.querySelector('.processing-indicator');
-    console.log('Indicator by class exists:', !!indicatorByClass);
   }
 }
 
@@ -412,10 +387,7 @@ function showProcessingIndicator() {
 function hideProcessingIndicator() {
   const indicator = document.getElementById('processing-indicator');
   if (indicator) {
-    console.log('Hiding processing indicator');
     indicator.classList.add('hidden');
-  } else {
-    console.log('Processing indicator element not found');
   }
 }/**
  * Remark plugin to convert Mermaid code blocks to PNG (async callback version)
@@ -708,7 +680,7 @@ async function getSavedScrollPosition() {
   try {
     currentScrollPosition = window.scrollY || window.pageYOffset || 0;
   } catch (e) {
-    console.log('[Markdown Viewer] Window access blocked, using fallback');
+    // Window access blocked, use default position
   }
 
   // Get saved scroll position from background script
@@ -723,7 +695,7 @@ async function getSavedScrollPosition() {
       return response.position;
     }
   } catch (e) {
-    console.log('[Markdown Viewer] Failed to get saved scroll position');
+    // Failed to get saved position, use default
   }
 
   return currentScrollPosition;
@@ -762,8 +734,11 @@ document.body.innerHTML = `
           <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
-      <button id="layout-toggle-btn" class="toolbar-btn" title="切换布局">
-        <span class="layout-text">正常</span>
+      <button id="layout-toggle-btn" class="toolbar-btn" title="正常布局">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+          <rect x="3" y="4" width="14" height="12" stroke-width="2" rx="1"/>
+          <line x1="3" y1="7" x2="17" y2="7" stroke-width="2"/>
+        </svg>
       </button>
     </div>
     <div class="toolbar-right">
@@ -811,7 +786,6 @@ setTimeout(async () => {
   // Now that all DOM is ready, process async tasks
   // Add a small delay to ensure DOM is fully rendered and visible
   setTimeout(() => {
-    console.log('Starting async task processing...');
     processAsyncTasks();
   }, 200);
 }, 100);
@@ -837,7 +811,7 @@ try {
     }, 300); // Save position 300ms after user stops scrolling
   });
 } catch (e) {
-  console.log('[Markdown Viewer] Scroll event listener setup failed, continuing without scroll persistence');
+  // Scroll event listener setup failed, continuing without scroll persistence
 }
 
 async function renderMarkdown(markdown, savedScrollPosition = 0) {
@@ -1047,9 +1021,30 @@ function setupToolbarButtons() {
   
   // Layout toggle button
   const layoutBtn = document.getElementById('layout-toggle-btn');
-  const layoutText = layoutBtn?.querySelector('.layout-text');
   const pageDiv = document.getElementById('markdown-page');
   let currentLayout = 'normal'; // normal, fullscreen, narrow
+  
+  // SVG icons for different layouts
+  const layoutIcons = {
+    normal: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="3" y="4" width="14" height="12" stroke-width="2" rx="1"/>
+      <line x1="3" y1="7" x2="17" y2="7" stroke-width="2"/>
+    </svg>`,
+    fullscreen: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="2" y="2" width="16" height="16" stroke-width="2" rx="1"/>
+      <line x1="2" y1="6" x2="18" y2="6" stroke-width="2"/>
+    </svg>`,
+    narrow: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="6" y="3" width="8" height="14" stroke-width="2" rx="1"/>
+      <line x1="6" y1="6" x2="14" y2="6" stroke-width="2"/>
+    </svg>`
+  };
+  
+  const layoutTitles = {
+    normal: '正常布局',
+    fullscreen: '满屏布局',
+    narrow: '窄屏布局'
+  };
   
   if (layoutBtn && pageDiv) {
     layoutBtn.addEventListener('click', () => {
@@ -1057,15 +1052,18 @@ function setupToolbarButtons() {
       if (currentLayout === 'normal') {
         currentLayout = 'fullscreen';
         pageDiv.style.maxWidth = '100%';
-        if (layoutText) layoutText.textContent = '满屏';
+        layoutBtn.innerHTML = layoutIcons.fullscreen;
+        layoutBtn.title = layoutTitles.fullscreen;
       } else if (currentLayout === 'fullscreen') {
         currentLayout = 'narrow';
         pageDiv.style.maxWidth = '530px';
-        if (layoutText) layoutText.textContent = '窄屏';
+        layoutBtn.innerHTML = layoutIcons.narrow;
+        layoutBtn.title = layoutTitles.narrow;
       } else {
         currentLayout = 'normal';
         pageDiv.style.maxWidth = '1000px';
-        if (layoutText) layoutText.textContent = '正常';
+        layoutBtn.innerHTML = layoutIcons.normal;
+        layoutBtn.title = layoutTitles.normal;
       }
     });
   }
