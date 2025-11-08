@@ -1,0 +1,418 @@
+{
+  "extensionName": {
+    "message": "Visionneuse Markdown",
+    "description": "Nom de l'extension"
+  },
+  "extensionDescription": {
+    "message": "Affichez les fichiers Markdown avec surlignage syntaxique et outils d'export avancés",
+    "description": "Description de l'extension affichée dans le Chrome Web Store"
+  },
+  "tab_overview": {
+    "message": "Aperçu",
+    "description": "Libellé pour l'onglet aperçu"
+  },
+  "tab_cache": {
+    "message": "Cache",
+    "description": "Libellé pour l'onglet cache"
+  },
+  "tab_settings": {
+    "message": "Paramètres",
+    "description": "Libellé pour l'onglet paramètres"
+  },
+  "popup_title": {
+    "message": "Visionneuse Markdown",
+    "description": "Titre de la fenêtre contextuelle"
+  },
+  "popup_version_label": {
+    "message": "Version {0}",
+    "description": "Affiche la version de l'extension dans l'en-tête"
+  },
+  "overview_features_title": {
+    "message": "Fonctionnalités",
+    "description": "Titre de la liste des fonctionnalités"
+  },
+  "overview_feature_live_render": {
+    "message": "Rendu Markdown instantané",
+    "description": "Élément de la liste des fonctionnalités"
+  },
+  "overview_feature_code_highlight": {
+    "message": "Surlignage syntaxique des blocs de code",
+    "description": "Élément de la liste des fonctionnalités"
+  },
+  "overview_feature_math_support": {
+    "message": "Formules mathématiques via KaTeX",
+    "description": "Élément de la liste des fonctionnalités"
+  },
+  "overview_feature_theme": {
+    "message": "Bascule thème clair/sombre",
+    "description": "Élément de la liste des fonctionnalités"
+  },
+  "overview_feature_toc": {
+    "message": "Table des matières automatique",
+    "description": "Élément de la liste des fonctionnalités"
+  },
+  "overview_feature_cache": {
+    "message": "Cache intelligent pour les visites répétées",
+    "description": "Élément de la liste des fonctionnalités"
+  },
+  "overview_usage_title": {
+    "message": "Mode d'emploi",
+    "description": "Titre de la section d'utilisation"
+  },
+  "overview_usage_step1": {
+    "message": "1. Ouvrez un fichier .md ou .markdown dans Chrome",
+    "description": "Étape d'utilisation"
+  },
+  "overview_usage_step2": {
+    "message": "2. L'extension rend le document automatiquement",
+    "description": "Étape d'utilisation"
+  },
+  "overview_demo_title": {
+    "message": "📝 Démonstration",
+    "description": "Titre de la section démo"
+  },
+  "overview_demo_button": {
+    "message": "Ouvrir le document de démonstration",
+    "description": "Bouton pour ouvrir la démo"
+  },
+  "overview_demo_helper": {
+    "message": "Explorez toutes les fonctionnalités avec un exemple de fichier Markdown",
+    "description": "Texte d'aide sous le bouton de démo"
+  },
+  "overview_tip_title": {
+    "message": "⚠️ Important",
+    "description": "Titre pour l'avis important"
+  },
+  "overview_tip_content": {
+    "message": "Activez \"Autoriser l'accès aux URL de fichiers\" sur la page des extensions Chrome pour lire les fichiers Markdown locaux.",
+    "description": "Conseil d'utilisation essentiel"
+  },
+  "toolbar_toggle_toc_title": {
+    "message": "Afficher ou masquer la table des matières",
+    "description": "Infobulle du bouton TOC"
+  },
+  "toolbar_zoom_out_title": {
+    "message": "Dézoomer",
+    "description": "Infobulle du bouton dézoomer"
+  },
+  "toolbar_zoom_in_title": {
+    "message": "Zoomer",
+    "description": "Infobulle du bouton zoomer"
+  },
+  "toolbar_layout_title_normal": {
+    "message": "Disposition normale",
+    "description": "Infobulle pour la disposition normale"
+  },
+  "toolbar_layout_title_fullscreen": {
+    "message": "Disposition plein écran",
+    "description": "Infobulle pour la disposition plein écran"
+  },
+  "toolbar_layout_title_narrow": {
+    "message": "Disposition étroite",
+    "description": "Infobulle pour la disposition étroite"
+  },
+  "toolbar_download_title": {
+    "message": "Télécharger",
+    "description": "Infobulle du bouton de téléchargement"
+  },
+  "toolbar_print_title": {
+    "message": "Imprimer",
+    "description": "Infobulle du bouton d'impression"
+  },
+  "async_placeholder_type_mermaid": {
+    "message": "Diagramme Mermaid",
+    "description": "Libellé pour le placeholder Mermaid"
+  },
+  "async_placeholder_type_html": {
+    "message": "Graphique HTML",
+    "description": "Libellé pour le placeholder HTML"
+  },
+  "async_placeholder_type_svg": {
+    "message": "Image SVG",
+    "description": "Libellé pour le placeholder SVG"
+  },
+  "async_processing_message": {
+    "message": "Traitement de {0}{1}...",
+    "description": "Texte affiché pendant le traitement asynchrone"
+  },
+  "async_unknown_error": {
+    "message": "Erreur inconnue",
+    "description": "Texte de secours quand aucun détail n'est disponible"
+  },
+  "async_processing_error": {
+    "message": "Erreur de traitement : {0}",
+    "description": "Erreur affichée dans le placeholder asynchrone"
+  },
+  "async_task_processing_error": {
+    "message": "Erreur de tâche : {0}",
+    "description": "Erreur lorsqu'une tâche asynchrone échoue"
+  },
+  "async_mermaid_error": {
+    "message": "Erreur Mermaid : {0}",
+    "description": "Erreur pour le rendu Mermaid"
+  },
+  "async_html_convert_error": {
+    "message": "Erreur de conversion HTML : {0}",
+    "description": "Erreur pour le rendu HTML"
+  },
+  "docx_export_failed_default": {
+    "message": "Exportation échouée",
+    "description": "Message par défaut quand l'export échoue"
+  },
+  "docx_export_failed_alert": {
+    "message": "Exportation échouée{0}",
+    "description": "Alerte affichée quand l'export échoue"
+  },
+  "cache_loading": {
+    "message": "Chargement des détails du cache...",
+    "description": "Affiché pendant le chargement du cache"
+  },
+  "cache_default_message": {
+    "message": "Aucune donnée en cache pour le moment — ouvrez d'abord un fichier Markdown",
+    "description": "Message quand le cache est vide"
+  },
+  "cache_error_message": {
+    "message": "Échec de communication avec le cache — ouvrez d'abord un fichier Markdown",
+    "description": "Affiché quand le cache est inaccessible"
+  },
+  "cache_loading_failed": {
+    "message": "Impossible de charger le cache : {0}",
+    "description": "Message lorsqu'une erreur se produit"
+  },
+  "cache_hint_details": {
+    "message": "Le cache fonctionne automatiquement pendant l'affichage des pages Markdown",
+    "description": "Indice supplémentaire quand le cache est vide"
+  },
+  "cache_system_unavailable": {
+    "message": "Système de cache indisponible — ouvrez d'abord un fichier Markdown",
+    "description": "Affiché quand le cache est inaccessible"
+  },
+  "cache_manager_init_failed": {
+    "message": "Échec de l'initialisation du gestionnaire de cache",
+    "description": "Erreur quand le cache ne peut pas s'initialiser"
+  },
+  "cache_stat_item_label": {
+    "message": "Éléments en cache",
+    "description": "Libellé pour le nombre d'éléments"
+  },
+  "cache_stat_size_label": {
+    "message": "Espace utilisé",
+    "description": "Libellé pour la taille du cache"
+  },
+  "cache_stat_usage_label": {
+    "message": "Pourcentage utilisé",
+    "description": "Libellé pour le pourcentage"
+  },
+  "cache_stat_capacity_label": {
+    "message": "Capacité maximale",
+    "description": "Libellé pour la capacité"
+  },
+  "cache_refresh": {
+    "message": "Actualiser",
+    "description": "Bouton pour actualiser le cache"
+  },
+  "cache_clear": {
+    "message": "Vider le cache",
+    "description": "Bouton pour vider le cache"
+  },
+  "cache_items_title": {
+    "message": "Éléments en cache (20 derniers)",
+    "description": "En-tête de la liste des éléments"
+  },
+  "cache_items_empty": {
+    "message": "Aucun élément en cache pour l'instant",
+    "description": "Message quand la liste est vide"
+  },
+  "cache_item_type_label": {
+    "message": "Type",
+    "description": "Libellé pour le type"
+  },
+  "cache_item_size_label": {
+    "message": "Taille",
+    "description": "Libellé pour la taille"
+  },
+  "cache_item_created_label": {
+    "message": "Création",
+    "description": "Libellé pour la date de création"
+  },
+  "cache_item_accessed_label": {
+    "message": "Dernier accès",
+    "description": "Libellé pour la date du dernier accès"
+  },
+  "cache_item_type_unknown": {
+    "message": "inconnu",
+    "description": "Libellé quand le type est absent"
+  },
+  "cache_clear_confirm": {
+    "message": "Vider toutes les données en cache ? Cette action est irréversible.",
+    "description": "Confirmation pour vider le cache"
+  },
+  "cache_clear_success": {
+    "message": "Cache vidé",
+    "description": "Toast quand le cache est vidé"
+  },
+  "cache_clear_failed": {
+    "message": "Impossible de vider le cache",
+    "description": "Toast quand la suppression échoue"
+  },
+  "settings_invalid_max_cache": {
+    "message": "Entrez une valeur comprise entre {0} et {1}",
+    "description": "Message quand la taille n'est pas valide"
+  },
+  "settings_save_success": {
+    "message": "Paramètres enregistrés",
+    "description": "Toast quand l'enregistrement réussit"
+  },
+  "settings_save_failed": {
+    "message": "Impossible d'enregistrer les paramètres",
+    "description": "Toast quand l'enregistrement échoue"
+  },
+  "settings_reset_confirm": {
+    "message": "Réinitialiser tous les paramètres par défaut ?",
+    "description": "Confirmation pour la réinitialisation"
+  },
+  "settings_reset_success": {
+    "message": "Paramètres réinitialisés",
+    "description": "Toast quand la réinitialisation réussit"
+  },
+  "settings_reset_failed": {
+    "message": "Impossible de réinitialiser les paramètres",
+    "description": "Toast quand la réinitialisation échoue"
+  },
+  "demo_open_failed": {
+    "message": "Impossible d'ouvrir le document de démonstration",
+    "description": "Toast quand l'ouverture échoue"
+  },
+  "cache_manual_limit_title": {
+    "message": "⚠️ Limites d'accès au cache",
+    "description": "Titre de la section informative"
+  },
+  "cache_manual_limit_desc_1": {
+    "message": "Pour des raisons de sécurité, la fenêtre contextuelle ne peut pas accéder directement à IndexedDB.",
+    "description": "Description informative"
+  },
+  "cache_manual_limit_desc_2": {
+    "message": "Le cache fonctionne pendant le rendu des pages Markdown, mais la fenêtre contextuelle ne peut pas afficher les détails.",
+    "description": "Description informative"
+  },
+  "cache_manual_status_title": {
+    "message": "📊 Vérifier l'état du cache",
+    "description": "Titre de la section d'état"
+  },
+  "cache_manual_status_intro": {
+    "message": "Pour vérifier que le cache fonctionne :",
+    "description": "Introduction de la section d'état"
+  },
+  "cache_manual_status_step_open": {
+    "message": "Ouvrez un fichier Markdown",
+    "description": "Étape de vérification"
+  },
+  "cache_manual_status_step_speed": {
+    "message": "Notez un rendu plus rapide lorsque le cache est chaud",
+    "description": "Étape de vérification"
+  },
+  "cache_manual_status_step_console": {
+    "message": "Cherchez les journaux \"⚡ Using cached\" dans DevTools",
+    "description": "Étape de vérification"
+  },
+  "cache_manual_clear_title": {
+    "message": "🧹 Vider le cache manuellement",
+    "description": "Titre de la section de nettoyage"
+  },
+  "cache_manual_clear_intro": {
+    "message": "Pour vider le cache manuellement :",
+    "description": "Introduction de la section de nettoyage"
+  },
+  "cache_manual_clear_step_1": {
+    "message": "Ouvrez un fichier Markdown",
+    "description": "Étape de nettoyage"
+  },
+  "cache_manual_clear_step_2": {
+    "message": "Appuyez sur F12 pour ouvrir DevTools",
+    "description": "Étape de nettoyage"
+  },
+  "cache_manual_clear_step_3": {
+    "message": "Exécutez \"{0}\" dans la console",
+    "description": "Étape de nettoyage"
+  },
+  "settings_general_title": {
+    "message": "Paramètres de l'extension",
+    "description": "En-tête de la section paramètres"
+  },
+  "settings_max_cache_label": {
+    "message": "Nombre maximal d'éléments en cache :",
+    "description": "Libellé pour le champ cache"
+  },
+  "settings_language_label": {
+    "message": "Langue de l'interface :",
+    "description": "Libellé pour le sélecteur de langue"
+  },
+  "settings_language_auto": {
+    "message": "Suivre la langue de Chrome",
+    "description": "Option de langue automatique"
+  },
+  "settings_language_en": {
+    "message": "English",
+    "description": "Option pour l'anglais"
+  },
+  "settings_language_zh_cn": {
+    "message": "简体中文",
+    "description": "Option pour le chinois simplifié"
+  },
+  "settings_language_es": {
+    "message": "Español",
+    "description": "Option pour l'espagnol"
+  },
+  "settings_language_fr": {
+    "message": "Français",
+    "description": "Option pour le français"
+  },
+  "settings_language_de": {
+    "message": "Deutsch",
+    "description": "Option pour l'allemand"
+  },
+  "settings_language_ru": {
+    "message": "Русский",
+    "description": "Option pour le russe"
+  },
+  "settings_language_ja": {
+    "message": "日本語",
+    "description": "Option pour le japonais"
+  },
+  "settings_language_ko": {
+    "message": "한국어",
+    "description": "Option pour le coréen"
+  },
+  "settings_language_note": {
+    "message": "Ce réglage remplace la langue de Chrome uniquement pour l'interface de l'extension.",
+    "description": "Note d'aide pour le sélecteur"
+  },
+  "settings_save_btn": {
+    "message": "Enregistrer les paramètres",
+    "description": "Bouton enregistrer"
+  },
+  "settings_reset_btn": {
+    "message": "Réinitialiser",
+    "description": "Bouton réinitialiser"
+  },
+  "settings_about_title": {
+    "message": "À propos",
+    "description": "En-tête de la section À propos"
+  },
+  "settings_about_author_label": {
+    "message": "Auteur :",
+    "description": "Libellé auteur"
+  },
+  "settings_about_version_label": {
+    "message": "Version :",
+    "description": "Libellé version"
+  },
+  "settings_about_updated_label": {
+    "message": "Mis à jour :",
+    "description": "Libellé date de mise à jour"
+  },
+  "settings_about_storage_label": {
+    "message": "Moteur de stockage :",
+    "description": "Libellé moteur de stockage"
+  }
+}

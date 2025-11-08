@@ -2,6 +2,29 @@
 import fs from 'fs';
 import path from 'path';
 
+const copyDirectory = (sourceDir, targetDir) => {
+  if (!fs.existsSync(sourceDir)) {
+    return;
+  }
+
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true });
+  }
+
+  const entries = fs.readdirSync(sourceDir);
+  for (const entryName of entries) {
+    const sourcePath = path.join(sourceDir, entryName);
+    const targetPath = path.join(targetDir, entryName);
+
+    const stats = fs.statSync(sourcePath);
+    if (stats.isDirectory()) {
+      copyDirectory(sourcePath, targetPath);
+    } else {
+      fs.copyFileSync(sourcePath, targetPath);
+    }
+  }
+};
+
 export const createBuildConfig = () => {
   const config = {
     entryPoints: {
@@ -85,6 +108,12 @@ export const createBuildConfig = () => {
                 }
               }
               console.log('📄 Copied JavaScript libraries');
+
+              // 7. Copy locale files for i18n support
+              if (fs.existsSync('src/_locales')) {
+                copyDirectory('src/_locales', 'dist/_locales');
+                console.log('📄 Copied _locales/ directory');
+              }
               
               // 6. Fix KaTeX font paths in styles.css
               // esbuild bundles fonts to dist/ root with relative paths like ./KaTeX_*.woff2

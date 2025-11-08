@@ -13,6 +13,11 @@ import { visit } from 'unist-util-visit';
 import ExtensionRenderer from './renderer.js';
 import ExtensionCacheManager from './cache-manager.js';
 import DocxExporter from './docx-exporter.js';
+import Localization, { DEFAULT_SETTING_LOCALE } from './localization.js';
+
+function initializeContentScript() {
+
+const translate = (key, substitutions) => Localization.translate(key, substitutions);
 
 // Background Cache Proxy for Content Scripts
 class BackgroundCacheManagerProxy {
@@ -254,18 +259,31 @@ function asyncTask(callback, data = {}, type = 'unknown', description = '', init
  * Create placeholder HTML for async content
  */
 function createAsyncPlaceholder(id, type, description = '') {
-  const typeLabels = {
-    'mermaid': 'Mermaid 图表',
-    'html': 'HTML 图表', 
-    'svg': 'SVG 图像'
+  const typeLabelKeys = {
+    mermaid: 'async_placeholder_type_mermaid',
+    html: 'async_placeholder_type_html',
+    svg: 'async_placeholder_type_svg'
   };
-  
+
+  const typeLabelFallbacks = {
+    mermaid: 'Mermaid diagram',
+    html: 'HTML chart',
+    svg: 'SVG image'
+  };
+
+  const typeLabelKey = typeLabelKeys[type];
+  const typeLabel = typeLabelKey ? translate(typeLabelKey) : '';
+  const resolvedTypeLabel = typeLabel || typeLabelFallbacks[type] || type;
+  const descriptionSuffix = description ? `: ${description}` : '';
+  const processingText = translate('async_processing_message', [resolvedTypeLabel, descriptionSuffix])
+    || `Processing ${resolvedTypeLabel}${descriptionSuffix}...`;
+
   // SVG images should use inline placeholders to preserve text flow
   if (type === 'svg') {
     return `<span id="${id}" class="async-placeholder ${type}-placeholder inline-placeholder">
       <span class="async-loading">
         <span class="async-spinner"></span>
-        <span class="async-text">${typeLabels[type] || type}${description ? ': ' + description : ''}</span>
+        <span class="async-text">${processingText}</span>
       </span>
     </span>`;
   }
@@ -274,7 +292,7 @@ function createAsyncPlaceholder(id, type, description = '') {
   return `<div id="${id}" class="async-placeholder ${type}-placeholder">
     <div class="async-loading">
       <div class="async-spinner"></div>
-      <div class="async-text">正在处理 ${typeLabels[type] || type}${description ? ': ' + description : ''}...</div>
+      <div class="async-text">${processingText}</div>
     </div>
   </div>`;
 }
@@ -312,8 +330,11 @@ async function processAsyncTasks() {
           // Handle error case - update placeholder with error message
           const placeholder = document.getElementById(task.id);
           if (placeholder) {
-            const errorMessage = task.error ? task.error.message : 'Unknown error';
-            placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">处理错误: ${escapeHtml(errorMessage)}</pre>`;
+            const unknownError = translate('async_unknown_error') || 'Unknown error';
+            const errorDetail = escapeHtml((task.error ? task.error.message : '') || unknownError);
+            const localizedError = translate('async_processing_error', [errorDetail])
+              || `Processing error: ${errorDetail}`;
+            placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">${localizedError}</pre>`;
           }
         } else {
           // Process ready task normally
@@ -328,7 +349,10 @@ async function processAsyncTasks() {
         // Update placeholder with error message
         const placeholder = document.getElementById(task.id);
         if (placeholder) {
-          placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">任务处理错误: ${escapeHtml(error.message)}</pre>`;
+          const errorDetail = escapeHtml(error.message || '');
+          const localizedError = translate('async_task_processing_error', [errorDetail])
+            || `Task processing error: ${errorDetail}`;
+          placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">${localizedError}</pre>`;
         }
         
         completedTasks++;
@@ -415,7 +439,10 @@ function remarkMermaidToPng(renderer) {
             } catch (error) {
               const placeholder = document.getElementById(id);
               if (placeholder) {
-                placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">Mermaid Error: ${escapeHtml(error.message)}</pre>`;
+                const errorDetail = escapeHtml(error.message || '');
+                const localizedError = translate('async_mermaid_error', [errorDetail])
+                  || `Mermaid error: ${errorDetail}`;
+                placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">${localizedError}</pre>`;
               }
             }
           }, { code: node.value }, 'mermaid', '', 'ready'); // Embedded code is ready immediately
@@ -459,7 +486,10 @@ function remarkHtmlToPng(renderer) {
             } catch (error) {
               const placeholder = document.getElementById(id);
               if (placeholder) {
-                placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">HTML转换错误: ${escapeHtml(error.message)}</pre>`;
+                const errorDetail = escapeHtml(error.message || '');
+                const localizedError = translate('async_html_convert_error', [errorDetail])
+                  || `HTML conversion error: ${errorDetail}`;
+                placeholder.outerHTML = `<pre style="background: #fee; border-left: 4px solid #f00; padding: 10px; font-size: 12px;">${localizedError}</pre>`;
               }
             }
           }, { code: node.value }, 'html', '', 'ready'); // Embedded code is ready immediately
@@ -706,11 +736,27 @@ async function getSavedScrollPosition() {
 // Get the raw markdown content
 const rawMarkdown = document.body.textContent;
 
+const toolbarToggleTocTitle = translate('toolbar_toggle_toc_title') || 'Show or hide table of contents';
+const toolbarZoomOutTitle = translate('toolbar_zoom_out_title') || 'Zoom out';
+const toolbarZoomInTitle = translate('toolbar_zoom_in_title') || 'Zoom in';
+const toolbarLayoutTitleNormal = translate('toolbar_layout_title_normal') || 'Normal layout';
+const toolbarLayoutTitleFullscreen = translate('toolbar_layout_title_fullscreen') || 'Fullscreen layout';
+const toolbarLayoutTitleNarrow = translate('toolbar_layout_title_narrow') || 'Narrow layout';
+const toolbarDownloadTitle = translate('toolbar_download_title') || 'Download';
+const toolbarPrintTitle = translate('toolbar_print_title') || 'Print';
+
+const toggleTocTitleAttr = escapeHtml(toolbarToggleTocTitle);
+const zoomOutTitleAttr = escapeHtml(toolbarZoomOutTitle);
+const zoomInTitleAttr = escapeHtml(toolbarZoomInTitle);
+const layoutTitleAttr = escapeHtml(toolbarLayoutTitleNormal);
+const downloadTitleAttr = escapeHtml(toolbarDownloadTitle);
+const printTitleAttr = escapeHtml(toolbarPrintTitle);
+
 // Create a new container for the rendered content
 document.body.innerHTML = `
   <div id="toolbar">
     <div class="toolbar-left">
-      <button id="toggle-toc-btn" class="toolbar-btn" title="显示/隐藏目录">
+      <button id="toggle-toc-btn" class="toolbar-btn" title="${toggleTocTitleAttr}">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
           <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -725,18 +771,18 @@ document.body.innerHTML = `
       </div>
     </div>
     <div class="toolbar-center">
-      <button id="zoom-out-btn" class="toolbar-btn" title="缩小">
+      <button id="zoom-out-btn" class="toolbar-btn" title="${zoomOutTitleAttr}">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
           <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
       <span id="zoom-level" class="zoom-level">100%</span>
-      <button id="zoom-in-btn" class="toolbar-btn" title="放大">
+      <button id="zoom-in-btn" class="toolbar-btn" title="${zoomInTitleAttr}">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
           <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
-      <button id="layout-toggle-btn" class="toolbar-btn" title="正常布局">
+      <button id="layout-toggle-btn" class="toolbar-btn" title="${layoutTitleAttr}">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
           <rect x="3" y="4" width="14" height="12" stroke-width="2" rx="1"/>
           <line x1="3" y1="7" x2="17" y2="7" stroke-width="2"/>
@@ -744,12 +790,12 @@ document.body.innerHTML = `
       </button>
     </div>
     <div class="toolbar-right">
-      <button id="download-btn" class="toolbar-btn" title="下载">
+      <button id="download-btn" class="toolbar-btn" title="${downloadTitleAttr}">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
           <path d="M10 3v10m0 0l-3-3m3 3l3-3M3 16h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button id="print-btn" class="toolbar-btn" title="打印">
+      <button id="print-btn" class="toolbar-btn" title="${printTitleAttr}">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
           <path d="M5 7V3h10v4M5 14H3V9h14v5h-2M5 14v3h10v-3M5 14h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -1043,9 +1089,9 @@ function setupToolbarButtons() {
   };
   
   const layoutTitles = {
-    normal: '正常布局',
-    fullscreen: '满屏布局',
-    narrow: '窄屏布局'
+    normal: toolbarLayoutTitleNormal,
+    fullscreen: toolbarLayoutTitleFullscreen,
+    narrow: toolbarLayoutTitleNarrow
   };
   
   if (layoutBtn && pageDiv) {
@@ -1103,6 +1149,7 @@ function setupToolbarButtons() {
         const filename = getDocumentFilename();
         
         // Export to DOCX with progress callback
+        const exportErrorFallback = translate('docx_export_failed_default') || 'Export failed';
         const result = await docxExporter.exportToDocx(markdown, filename, (completed, total) => {
           // Update progress circle
           const progressCircle = downloadBtn.querySelector('.download-progress-circle');
@@ -1115,7 +1162,7 @@ function setupToolbarButtons() {
         });
         
         if (!result.success) {
-          throw new Error(result.error || 'Export failed');
+          throw new Error(result.error || exportErrorFallback);
         }
         
         // Restore button after successful download
@@ -1124,7 +1171,10 @@ function setupToolbarButtons() {
         downloadBtn.classList.remove('downloading');
       } catch (error) {
         console.error('Export error:', error);
-        alert('导出失败: ' + error.message);
+        const alertDetail = error?.message ? `: ${error.message}` : '';
+        const alertMessage = translate('docx_export_failed_alert', [alertDetail])
+          || `Export failed${alertDetail}`;
+        alert(alertMessage);
         
         // Restore button on error
         const originalContent = `
@@ -1217,3 +1267,28 @@ function setupResponsiveToc() {
   // Listen for window resize
   window.addEventListener('resize', handleResize);
 }
+
+}
+
+chrome.runtime.onMessage.addListener((message) => {
+  if (!message || message.type !== 'localeChanged') {
+    return;
+  }
+
+  const locale = message.locale || DEFAULT_SETTING_LOCALE;
+
+  Localization.setPreferredLocale(locale)
+    .catch((error) => {
+      console.error('Failed to update locale in content script:', error);
+    })
+    .finally(() => {
+      // Reload to re-render UI with new locale
+      window.location.reload();
+    });
+});
+
+Localization.init().catch((error) => {
+  console.error('Localization init failed in content script:', error);
+}).finally(() => {
+  initializeContentScript();
+});

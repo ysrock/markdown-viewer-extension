@@ -1,0 +1,418 @@
+{
+  "extensionName": {
+    "message": "Markdown Viewer",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "View Markdown files with syntax highlighting and smart export tools",
+    "description": "Extension description shown in Chrome Web Store"
+  },
+  "tab_overview": {
+    "message": "Overview",
+    "description": "Label for overview tab"
+  },
+  "tab_cache": {
+    "message": "Cache",
+    "description": "Label for cache tab"
+  },
+  "tab_settings": {
+    "message": "Settings",
+    "description": "Label for settings tab"
+  },
+  "popup_title": {
+    "message": "Markdown Viewer",
+    "description": "Popup title"
+  },
+  "popup_version_label": {
+    "message": "Version {0}",
+    "description": "Shows the extension version in the header"
+  },
+  "overview_features_title": {
+    "message": "Features",
+    "description": "Title for feature list"
+  },
+  "overview_feature_live_render": {
+    "message": "Render Markdown instantly",
+    "description": "Feature bullet"
+  },
+  "overview_feature_code_highlight": {
+    "message": "Syntax highlighting for code blocks",
+    "description": "Feature bullet"
+  },
+  "overview_feature_math_support": {
+    "message": "Math formulas powered by KaTeX",
+    "description": "Feature bullet"
+  },
+  "overview_feature_theme": {
+    "message": "Light and dark theme toggle",
+    "description": "Feature bullet"
+  },
+  "overview_feature_toc": {
+    "message": "Automatic table of contents",
+    "description": "Feature bullet"
+  },
+  "overview_feature_cache": {
+    "message": "Smart caching for repeat visits",
+    "description": "Feature bullet"
+  },
+  "overview_usage_title": {
+    "message": "How to use",
+    "description": "Usage title"
+  },
+  "overview_usage_step1": {
+    "message": "1. Open any .md or .markdown file in Chrome",
+    "description": "Usage step"
+  },
+  "overview_usage_step2": {
+    "message": "2. The extension renders the document automatically",
+    "description": "Usage step"
+  },
+  "overview_demo_title": {
+    "message": "📝 Live demo",
+    "description": "Title for the demo section"
+  },
+  "overview_demo_button": {
+    "message": "Open demo document",
+    "description": "Button to open demo"
+  },
+  "overview_demo_helper": {
+    "message": "Open a sample Markdown file to explore every feature",
+    "description": "Helper text under demo button"
+  },
+  "overview_tip_title": {
+    "message": "⚠️ Important",
+    "description": "Title for important notice"
+  },
+  "overview_tip_content": {
+    "message": "Enable \"Allow access to file URLs\" on the Chrome extensions page to read local Markdown files.",
+    "description": "Important usage tip"
+  },
+  "toolbar_toggle_toc_title": {
+    "message": "Show or hide table of contents",
+    "description": "Toolbar button title for toggling TOC"
+  },
+  "toolbar_zoom_out_title": {
+    "message": "Zoom out",
+    "description": "Toolbar zoom out tooltip"
+  },
+  "toolbar_zoom_in_title": {
+    "message": "Zoom in",
+    "description": "Toolbar zoom in tooltip"
+  },
+  "toolbar_layout_title_normal": {
+    "message": "Normal layout",
+    "description": "Toolbar layout toggle tooltip for normal mode"
+  },
+  "toolbar_layout_title_fullscreen": {
+    "message": "Fullscreen layout",
+    "description": "Toolbar layout toggle tooltip for fullscreen mode"
+  },
+  "toolbar_layout_title_narrow": {
+    "message": "Narrow layout",
+    "description": "Toolbar layout toggle tooltip for narrow mode"
+  },
+  "toolbar_download_title": {
+    "message": "Download",
+    "description": "Toolbar download tooltip"
+  },
+  "toolbar_print_title": {
+    "message": "Print",
+    "description": "Toolbar print tooltip"
+  },
+  "async_placeholder_type_mermaid": {
+    "message": "Mermaid diagram",
+    "description": "Label for mermaid async placeholder"
+  },
+  "async_placeholder_type_html": {
+    "message": "HTML chart",
+    "description": "Label for html async placeholder"
+  },
+  "async_placeholder_type_svg": {
+    "message": "SVG image",
+    "description": "Label for svg async placeholder"
+  },
+  "async_processing_message": {
+    "message": "Processing {0}{1}...",
+    "description": "Async placeholder processing text"
+  },
+  "async_unknown_error": {
+    "message": "Unknown error",
+    "description": "Fallback when error message missing"
+  },
+  "async_processing_error": {
+    "message": "Processing error: {0}",
+    "description": "Error shown on async placeholder"
+  },
+  "async_task_processing_error": {
+    "message": "Task processing error: {0}",
+    "description": "Error when async task fails"
+  },
+  "async_mermaid_error": {
+    "message": "Mermaid error: {0}",
+    "description": "Error for mermaid rendering"
+  },
+  "async_html_convert_error": {
+    "message": "HTML conversion error: {0}",
+    "description": "Error for html rendering"
+  },
+  "docx_export_failed_default": {
+    "message": "Export failed",
+    "description": "Fallback message when DOCX export fails"
+  },
+  "docx_export_failed_alert": {
+    "message": "Export failed{0}",
+    "description": "Alert shown when DOCX export fails"
+  },
+  "cache_loading": {
+    "message": "Loading cache details...",
+    "description": "Shown while cache data loads"
+  },
+  "cache_default_message": {
+    "message": "No cache data yet — open a Markdown file first",
+    "description": "Fallback message when cache is empty"
+  },
+  "cache_error_message": {
+    "message": "Cache communication failed — open a Markdown file first",
+    "description": "Shown when cache cannot be reached"
+  },
+  "cache_loading_failed": {
+    "message": "Failed to load cache: {0}",
+    "description": "Displayed when cache loading throws an error"
+  },
+  "cache_hint_details": {
+    "message": "Caching runs automatically while Markdown pages are open",
+    "description": "Additional hint when cache is empty"
+  },
+  "cache_system_unavailable": {
+    "message": "Cache system unavailable — open a Markdown file first",
+    "description": "Shown when cache manager cannot be reached"
+  },
+  "cache_manager_init_failed": {
+    "message": "Cache manager initialization failed",
+    "description": "Error string used when cache manager cannot initialize"
+  },
+  "cache_stat_item_label": {
+    "message": "Cached items",
+    "description": "Label for number of cached items"
+  },
+  "cache_stat_size_label": {
+    "message": "Space used",
+    "description": "Label for cache size"
+  },
+  "cache_stat_usage_label": {
+    "message": "Capacity used",
+    "description": "Label for usage percentage"
+  },
+  "cache_stat_capacity_label": {
+    "message": "Max capacity",
+    "description": "Label for max cache entries"
+  },
+  "cache_refresh": {
+    "message": "Refresh",
+    "description": "Refresh cache button"
+  },
+  "cache_clear": {
+    "message": "Clear cache",
+    "description": "Clear cache button"
+  },
+  "cache_items_title": {
+    "message": "Cached items (latest 20)",
+    "description": "Heading for cache items list"
+  },
+  "cache_items_empty": {
+    "message": "No cached items yet",
+    "description": "Shown when the cache list is empty"
+  },
+  "cache_item_type_label": {
+    "message": "Type",
+    "description": "Label for cache item type"
+  },
+  "cache_item_size_label": {
+    "message": "Size",
+    "description": "Label for cache item size"
+  },
+  "cache_item_created_label": {
+    "message": "Created",
+    "description": "Label for cache item created time"
+  },
+  "cache_item_accessed_label": {
+    "message": "Last accessed",
+    "description": "Label for cache item last access time"
+  },
+  "cache_item_type_unknown": {
+    "message": "unknown",
+    "description": "Fallback label when cache type is missing"
+  },
+  "cache_clear_confirm": {
+    "message": "Clear all cached data? This action cannot be undone.",
+    "description": "Confirmation text for clearing cache"
+  },
+  "cache_clear_success": {
+    "message": "Cache cleared",
+    "description": "Toast when cache clear succeeds"
+  },
+  "cache_clear_failed": {
+    "message": "Failed to clear cache",
+    "description": "Toast when cache clear fails"
+  },
+  "settings_invalid_max_cache": {
+    "message": "Enter a valid cache size between {0} and {1}",
+    "description": "Shown when max cache input is invalid"
+  },
+  "settings_save_success": {
+    "message": "Settings saved",
+    "description": "Toast when settings saved"
+  },
+  "settings_save_failed": {
+    "message": "Failed to save settings",
+    "description": "Toast when saving settings fails"
+  },
+  "settings_reset_confirm": {
+    "message": "Reset all settings to default values?",
+    "description": "Confirmation text for resetting settings"
+  },
+  "settings_reset_success": {
+    "message": "Settings reset",
+    "description": "Toast when settings reset succeeds"
+  },
+  "settings_reset_failed": {
+    "message": "Failed to reset settings",
+    "description": "Toast when resetting settings fails"
+  },
+  "demo_open_failed": {
+    "message": "Failed to open demo document",
+    "description": "Toast when demo link open fails"
+  },
+  "cache_manual_limit_title": {
+    "message": "⚠️ Cache access limits",
+    "description": "Manual cache info section title"
+  },
+  "cache_manual_limit_desc_1": {
+    "message": "For security reasons the popup cannot access IndexedDB directly.",
+    "description": "Manual cache info description"
+  },
+  "cache_manual_limit_desc_2": {
+    "message": "Caching still works while rendering Markdown pages, but the popup cannot display the details.",
+    "description": "Manual cache info description"
+  },
+  "cache_manual_status_title": {
+    "message": "📊 Check cache status",
+    "description": "Manual cache status section title"
+  },
+  "cache_manual_status_intro": {
+    "message": "To make sure caching works:",
+    "description": "Manual cache status intro"
+  },
+  "cache_manual_status_step_open": {
+    "message": "Open a Markdown file",
+    "description": "Manual cache status checklist"
+  },
+  "cache_manual_status_step_speed": {
+    "message": "Notice faster renders when cache is warm",
+    "description": "Manual cache status checklist"
+  },
+  "cache_manual_status_step_console": {
+    "message": "Check for \"⚡ Using cached\" logs in DevTools",
+    "description": "Manual cache status checklist"
+  },
+  "cache_manual_clear_title": {
+    "message": "🧹 Clear cache manually",
+    "description": "Manual cache clear title"
+  },
+  "cache_manual_clear_intro": {
+    "message": "To clear cache manually:",
+    "description": "Manual cache clear intro"
+  },
+  "cache_manual_clear_step_1": {
+    "message": "Open any Markdown file",
+    "description": "Manual cache clear step"
+  },
+  "cache_manual_clear_step_2": {
+    "message": "Press F12 to open DevTools",
+    "description": "Manual cache clear step"
+  },
+  "cache_manual_clear_step_3": {
+    "message": "Run \"{0}\" in the console",
+    "description": "Manual cache clear step with code placeholder"
+  },
+  "settings_general_title": {
+    "message": "Extension settings",
+    "description": "Heading for settings section"
+  },
+  "settings_max_cache_label": {
+    "message": "Maximum cached items:",
+    "description": "Label for max cache input"
+  },
+  "settings_language_label": {
+    "message": "Interface language:",
+    "description": "Label for language selector"
+  },
+  "settings_language_auto": {
+    "message": "Match Chrome language",
+    "description": "Option for automatic locale"
+  },
+  "settings_language_en": {
+    "message": "English",
+    "description": "Option for English locale"
+  },
+  "settings_language_zh_cn": {
+    "message": "简体中文",
+    "description": "Option for Chinese locale"
+  },
+  "settings_language_es": {
+    "message": "Español",
+    "description": "Option for Spanish locale"
+  },
+  "settings_language_fr": {
+    "message": "Français",
+    "description": "Option for French locale"
+  },
+  "settings_language_de": {
+    "message": "Deutsch",
+    "description": "Option for German locale"
+  },
+  "settings_language_ru": {
+    "message": "Русский",
+    "description": "Option for Russian locale"
+  },
+  "settings_language_ja": {
+    "message": "日本語",
+    "description": "Option for Japanese locale"
+  },
+  "settings_language_ko": {
+    "message": "한국어",
+    "description": "Option for Korean locale"
+  },
+  "settings_language_note": {
+    "message": "Changing this overrides Chrome's UI language for the extension.",
+    "description": "Helper note for language selector"
+  },
+  "settings_save_btn": {
+    "message": "Save settings",
+    "description": "Save button"
+  },
+  "settings_reset_btn": {
+    "message": "Reset to default",
+    "description": "Reset button"
+  },
+  "settings_about_title": {
+    "message": "About",
+    "description": "Heading for about section"
+  },
+  "settings_about_author_label": {
+    "message": "Author:",
+    "description": "Label for author"
+  },
+  "settings_about_version_label": {
+    "message": "Version:",
+    "description": "Label for version"
+  },
+  "settings_about_updated_label": {
+    "message": "Updated:",
+    "description": "Label for update date"
+  },
+  "settings_about_storage_label": {
+    "message": "Storage engine:",
+    "description": "Label for storage engine"
+  }
+}

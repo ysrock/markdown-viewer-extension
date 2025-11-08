@@ -1,0 +1,418 @@
+{
+  "extensionName": {
+    "message": "Markdown 뷰어",
+    "description": "확장 프로그램 이름"
+  },
+  "extensionDescription": {
+    "message": "Markdown 파일을 구문 강조와 스마트 내보내기 도구와 함께 보여 줍니다",
+    "description": "Chrome 웹 스토어에 표시되는 설명"
+  },
+  "tab_overview": {
+    "message": "개요",
+    "description": "개요 탭 라벨"
+  },
+  "tab_cache": {
+    "message": "캐시",
+    "description": "캐시 탭 라벨"
+  },
+  "tab_settings": {
+    "message": "설정",
+    "description": "설정 탭 라벨"
+  },
+  "popup_title": {
+    "message": "Markdown 뷰어",
+    "description": "팝업 제목"
+  },
+  "popup_version_label": {
+    "message": "버전 {0}",
+    "description": "헤더에 확장 버전을 표시"
+  },
+  "overview_features_title": {
+    "message": "기능",
+    "description": "기능 목록 제목"
+  },
+  "overview_feature_live_render": {
+    "message": "Markdown 즉시 렌더링",
+    "description": "기능 목록 항목"
+  },
+  "overview_feature_code_highlight": {
+    "message": "코드 블록 구문 강조",
+    "description": "기능 목록 항목"
+  },
+  "overview_feature_math_support": {
+    "message": "KaTeX 기반 수식 지원",
+    "description": "기능 목록 항목"
+  },
+  "overview_feature_theme": {
+    "message": "라이트/다크 테마 전환",
+    "description": "기능 목록 항목"
+  },
+  "overview_feature_toc": {
+    "message": "자동 목차",
+    "description": "기능 목록 항목"
+  },
+  "overview_feature_cache": {
+    "message": "재방문을 위한 스마트 캐시",
+    "description": "기능 목록 항목"
+  },
+  "overview_usage_title": {
+    "message": "사용 방법",
+    "description": "사용 섹션 제목"
+  },
+  "overview_usage_step1": {
+    "message": "1. Chrome에서 .md 또는 .markdown 파일을 엽니다",
+    "description": "사용 단계"
+  },
+  "overview_usage_step2": {
+    "message": "2. 확장이 문서를 자동으로 렌더링합니다",
+    "description": "사용 단계"
+  },
+  "overview_demo_title": {
+    "message": "📝 데모",
+    "description": "데모 섹션 제목"
+  },
+  "overview_demo_button": {
+    "message": "데모 문서 열기",
+    "description": "데모 버튼"
+  },
+  "overview_demo_helper": {
+    "message": "샘플 Markdown 파일을 열어 모든 기능을 살펴보세요",
+    "description": "데모 버튼 하단 안내"
+  },
+  "overview_tip_title": {
+    "message": "⚠️ 중요",
+    "description": "중요 안내 제목"
+  },
+  "overview_tip_content": {
+    "message": "로컬 Markdown 파일을 읽으려면 Chrome 확장 프로그램 페이지에서 \"파일 URL에 대한 액세스 허용\"을 활성화하세요.",
+    "description": "중요 사용 팁"
+  },
+  "toolbar_toggle_toc_title": {
+    "message": "목차 표시/숨기기",
+    "description": "TOC 버튼 툴팁"
+  },
+  "toolbar_zoom_out_title": {
+    "message": "축소",
+    "description": "축소 버튼 툴팁"
+  },
+  "toolbar_zoom_in_title": {
+    "message": "확대",
+    "description": "확대 버튼 툴팁"
+  },
+  "toolbar_layout_title_normal": {
+    "message": "기본 레이아웃",
+    "description": "기본 레이아웃 툴팁"
+  },
+  "toolbar_layout_title_fullscreen": {
+    "message": "전체 화면 레이아웃",
+    "description": "전체 화면 레이아웃 툴팁"
+  },
+  "toolbar_layout_title_narrow": {
+    "message": "좁은 레이아웃",
+    "description": "좁은 레이아웃 툴팁"
+  },
+  "toolbar_download_title": {
+    "message": "다운로드",
+    "description": "다운로드 버튼 툴팁"
+  },
+  "toolbar_print_title": {
+    "message": "인쇄",
+    "description": "인쇄 버튼 툴팁"
+  },
+  "async_placeholder_type_mermaid": {
+    "message": "Mermaid 다이어그램",
+    "description": "Mermaid 플레이스홀더 라벨"
+  },
+  "async_placeholder_type_html": {
+    "message": "HTML 차트",
+    "description": "HTML 플레이스홀더 라벨"
+  },
+  "async_placeholder_type_svg": {
+    "message": "SVG 이미지",
+    "description": "SVG 플레이스홀더 라벨"
+  },
+  "async_processing_message": {
+    "message": "{0}{1} 처리 중...",
+    "description": "비동기 처리 중 표시되는 텍스트"
+  },
+  "async_unknown_error": {
+    "message": "알 수 없는 오류",
+    "description": "세부 정보가 없을 때 문구"
+  },
+  "async_processing_error": {
+    "message": "처리 오류: {0}",
+    "description": "플레이스홀더 오류 메시지"
+  },
+  "async_task_processing_error": {
+    "message": "작업 오류: {0}",
+    "description": "작업 실패 시 메시지"
+  },
+  "async_mermaid_error": {
+    "message": "Mermaid 오류: {0}",
+    "description": "Mermaid 렌더링 오류"
+  },
+  "async_html_convert_error": {
+    "message": "HTML 변환 오류: {0}",
+    "description": "HTML 렌더링 오류"
+  },
+  "docx_export_failed_default": {
+    "message": "내보내기에 실패했습니다",
+    "description": "내보내기 실패 기본 메시지"
+  },
+  "docx_export_failed_alert": {
+    "message": "내보내기에 실패했습니다{0}",
+    "description": "내보내기 실패 경고"
+  },
+  "cache_loading": {
+    "message": "캐시 정보를 불러오는 중...",
+    "description": "캐시 로딩 중 표시"
+  },
+  "cache_default_message": {
+    "message": "캐시 데이터가 아직 없습니다. 먼저 Markdown 파일을 여세요",
+    "description": "캐시가 비어 있을 때 메시지"
+  },
+  "cache_error_message": {
+    "message": "캐시와 통신하지 못했습니다. 먼저 Markdown 파일을 여세요",
+    "description": "캐시 접근 실패 메시지"
+  },
+  "cache_loading_failed": {
+    "message": "캐시를 불러올 수 없습니다: {0}",
+    "description": "캐시 로딩 오류"
+  },
+  "cache_hint_details": {
+    "message": "Markdown 페이지가 열려 있는 동안 캐시는 자동으로 동작합니다",
+    "description": "추가 안내"
+  },
+  "cache_system_unavailable": {
+    "message": "캐시 시스템을 사용할 수 없습니다. 먼저 Markdown 파일을 여세요",
+    "description": "캐시 사용 불가 메시지"
+  },
+  "cache_manager_init_failed": {
+    "message": "캐시 관리자 초기화 실패",
+    "description": "초기화 오류"
+  },
+  "cache_stat_item_label": {
+    "message": "캐시 항목 수",
+    "description": "항목 수 라벨"
+  },
+  "cache_stat_size_label": {
+    "message": "사용 공간",
+    "description": "공간 라벨"
+  },
+  "cache_stat_usage_label": {
+    "message": "사용률",
+    "description": "사용률 라벨"
+  },
+  "cache_stat_capacity_label": {
+    "message": "최대 용량",
+    "description": "용량 라벨"
+  },
+  "cache_refresh": {
+    "message": "새로고침",
+    "description": "캐시 새로 고침 버튼"
+  },
+  "cache_clear": {
+    "message": "캐시 비우기",
+    "description": "캐시 비우기 버튼"
+  },
+  "cache_items_title": {
+    "message": "캐시 항목 (최근 20개)",
+    "description": "리스트 제목"
+  },
+  "cache_items_empty": {
+    "message": "캐시 항목이 없습니다",
+    "description": "리스트가 비어 있을 때"
+  },
+  "cache_item_type_label": {
+    "message": "유형",
+    "description": "유형 라벨"
+  },
+  "cache_item_size_label": {
+    "message": "크기",
+    "description": "크기 라벨"
+  },
+  "cache_item_created_label": {
+    "message": "생성",
+    "description": "생성 날짜 라벨"
+  },
+  "cache_item_accessed_label": {
+    "message": "마지막 액세스",
+    "description": "마지막 액세스 라벨"
+  },
+  "cache_item_type_unknown": {
+    "message": "알 수 없음",
+    "description": "유형이 없을 때 라벨"
+  },
+  "cache_clear_confirm": {
+    "message": "모든 캐시 데이터를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+    "description": "캐시 삭제 확인"
+  },
+  "cache_clear_success": {
+    "message": "캐시를 비웠습니다",
+    "description": "성공 알림"
+  },
+  "cache_clear_failed": {
+    "message": "캐시를 비울 수 없습니다",
+    "description": "실패 알림"
+  },
+  "settings_invalid_max_cache": {
+    "message": "{0} 이상 {1} 이하의 값을 입력하세요",
+    "description": "잘못된 값 메시지"
+  },
+  "settings_save_success": {
+    "message": "설정을 저장했습니다",
+    "description": "저장 성공 알림"
+  },
+  "settings_save_failed": {
+    "message": "설정을 저장하지 못했습니다",
+    "description": "저장 실패 알림"
+  },
+  "settings_reset_confirm": {
+    "message": "모든 설정을 기본값으로 재설정할까요?",
+    "description": "재설정 확인"
+  },
+  "settings_reset_success": {
+    "message": "설정을 재설정했습니다",
+    "description": "재설정 성공 알림"
+  },
+  "settings_reset_failed": {
+    "message": "설정을 재설정할 수 없습니다",
+    "description": "재설정 실패 알림"
+  },
+  "demo_open_failed": {
+    "message": "데모 문서를 열 수 없습니다",
+    "description": "데모 실패 알림"
+  },
+  "cache_manual_limit_title": {
+    "message": "⚠️ 캐시 접근 제한",
+    "description": "안내 섹션 제목"
+  },
+  "cache_manual_limit_desc_1": {
+    "message": "보안상의 이유로 팝업은 IndexedDB에 직접 접근할 수 없습니다.",
+    "description": "안내 텍스트"
+  },
+  "cache_manual_limit_desc_2": {
+    "message": "Markdown 페이지를 렌더링할 때 캐시는 계속 동작하지만 팝업에서는 세부 정보를 표시할 수 없습니다.",
+    "description": "안내 텍스트"
+  },
+  "cache_manual_status_title": {
+    "message": "📊 캐시 상태 확인",
+    "description": "상태 섹션 제목"
+  },
+  "cache_manual_status_intro": {
+    "message": "캐시가 정상 동작하는지 확인하려면:",
+    "description": "상태 섹션 도입"
+  },
+  "cache_manual_status_step_open": {
+    "message": "Markdown 파일 열기",
+    "description": "확인 단계"
+  },
+  "cache_manual_status_step_speed": {
+    "message": "캐시가 워밍업되면 렌더링이 빨라지는지 확인",
+    "description": "확인 단계"
+  },
+  "cache_manual_status_step_console": {
+    "message": "DevTools에서 \"⚡ Using cached\" 로그 찾기",
+    "description": "확인 단계"
+  },
+  "cache_manual_clear_title": {
+    "message": "🧹 캐시 수동 삭제",
+    "description": "청소 섹션 제목"
+  },
+  "cache_manual_clear_intro": {
+    "message": "수동으로 캐시를 비우는 방법:",
+    "description": "청소 섹션 도입"
+  },
+  "cache_manual_clear_step_1": {
+    "message": "임의의 Markdown 파일 열기",
+    "description": "청소 단계"
+  },
+  "cache_manual_clear_step_2": {
+    "message": "F12를 눌러 DevTools 열기",
+    "description": "청소 단계"
+  },
+  "cache_manual_clear_step_3": {
+    "message": "콘솔에서 \"{0}\" 실행",
+    "description": "청소 단계"
+  },
+  "settings_general_title": {
+    "message": "확장 프로그램 설정",
+    "description": "설정 섹션 제목"
+  },
+  "settings_max_cache_label": {
+    "message": "최대 캐시 항목 수:",
+    "description": "캐시 필드 라벨"
+  },
+  "settings_language_label": {
+    "message": "인터페이스 언어:",
+    "description": "언어 선택 라벨"
+  },
+  "settings_language_auto": {
+    "message": "Chrome 언어와 동일",
+    "description": "자동 언어 옵션"
+  },
+  "settings_language_en": {
+    "message": "English",
+    "description": "영어 옵션"
+  },
+  "settings_language_zh_cn": {
+    "message": "简体中文",
+    "description": "중국어(간체) 옵션"
+  },
+  "settings_language_es": {
+    "message": "Español",
+    "description": "스페인어 옵션"
+  },
+  "settings_language_fr": {
+    "message": "Français",
+    "description": "프랑스어 옵션"
+  },
+  "settings_language_de": {
+    "message": "Deutsch",
+    "description": "독일어 옵션"
+  },
+  "settings_language_ru": {
+    "message": "Русский",
+    "description": "러시아어 옵션"
+  },
+  "settings_language_ja": {
+    "message": "日本語",
+    "description": "일본어 옵션"
+  },
+  "settings_language_ko": {
+    "message": "한국어",
+    "description": "한국어 옵션"
+  },
+  "settings_language_note": {
+    "message": "이 설정은 확장 프로그램 UI에만 적용되며 Chrome 전체 언어는 변경되지 않습니다.",
+    "description": "언어 선택 안내"
+  },
+  "settings_save_btn": {
+    "message": "설정 저장",
+    "description": "저장 버튼"
+  },
+  "settings_reset_btn": {
+    "message": "재설정",
+    "description": "재설정 버튼"
+  },
+  "settings_about_title": {
+    "message": "정보",
+    "description": "정보 섹션 제목"
+  },
+  "settings_about_author_label": {
+    "message": "작성자:",
+    "description": "작성자 라벨"
+  },
+  "settings_about_version_label": {
+    "message": "버전:",
+    "description": "버전 라벨"
+  },
+  "settings_about_updated_label": {
+    "message": "업데이트:",
+    "description": "업데이트 날짜 라벨"
+  },
+  "settings_about_storage_label": {
+    "message": "스토리지 엔진:",
+    "description": "스토리지 라벨"
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "extensionName": {
+    "message": "Visor de Markdown",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Visualiza archivos Markdown con resaltado de sintaxis y herramientas de exportación inteligentes",
+    "description": "Descripción de la extensión mostrada en la Chrome Web Store"
+  },
+  "tab_overview": {
+    "message": "Resumen",
+    "description": "Etiqueta para la pestaña de resumen"
+  },
+  "tab_cache": {
+    "message": "Caché",
+    "description": "Etiqueta para la pestaña de caché"
+  },
+  "tab_settings": {
+    "message": "Ajustes",
+    "description": "Etiqueta para la pestaña de ajustes"
+  },
+  "popup_title": {
+    "message": "Visor de Markdown",
+    "description": "Título del popup"
+  },
+  "popup_version_label": {
+    "message": "Versión {0}",
+    "description": "Muestra la versión de la extensión en el encabezado"
+  },
+  "overview_features_title": {
+    "message": "Funciones",
+    "description": "Título para la lista de funciones"
+  },
+  "overview_feature_live_render": {
+    "message": "Renderiza Markdown al instante",
+    "description": "Elemento de la lista de funciones"
+  },
+  "overview_feature_code_highlight": {
+    "message": "Resaltado de sintaxis para bloques de código",
+    "description": "Elemento de la lista de funciones"
+  },
+  "overview_feature_math_support": {
+    "message": "Fórmulas matemáticas con tecnología KaTeX",
+    "description": "Elemento de la lista de funciones"
+  },
+  "overview_feature_theme": {
+    "message": "Alterna entre tema claro y oscuro",
+    "description": "Elemento de la lista de funciones"
+  },
+  "overview_feature_toc": {
+    "message": "Tabla de contenidos automática",
+    "description": "Elemento de la lista de funciones"
+  },
+  "overview_feature_cache": {
+    "message": "Caché inteligente para visitas repetidas",
+    "description": "Elemento de la lista de funciones"
+  },
+  "overview_usage_title": {
+    "message": "Cómo usarlo",
+    "description": "Título de uso"
+  },
+  "overview_usage_step1": {
+    "message": "1. Abre cualquier archivo .md o .markdown en Chrome",
+    "description": "Paso de uso"
+  },
+  "overview_usage_step2": {
+    "message": "2. La extensión renderiza el documento automáticamente",
+    "description": "Paso de uso"
+  },
+  "overview_demo_title": {
+    "message": "📝 Demostración",
+    "description": "Título de la sección demo"
+  },
+  "overview_demo_button": {
+    "message": "Abrir documento de demostración",
+    "description": "Botón para abrir la demo"
+  },
+  "overview_demo_helper": {
+    "message": "Abre un archivo Markdown de ejemplo para explorar todas las funciones",
+    "description": "Texto de ayuda bajo el botón demo"
+  },
+  "overview_tip_title": {
+    "message": "⚠️ Importante",
+    "description": "Título para aviso importante"
+  },
+  "overview_tip_content": {
+    "message": "Activa \"Permitir acceso a URLs de archivos\" en la página de extensiones de Chrome para leer archivos Markdown locales.",
+    "description": "Consejo de uso importante"
+  },
+  "toolbar_toggle_toc_title": {
+    "message": "Mostrar u ocultar la tabla de contenidos",
+    "description": "Tooltip del botón de TOC"
+  },
+  "toolbar_zoom_out_title": {
+    "message": "Alejar",
+    "description": "Tooltip del botón de alejar"
+  },
+  "toolbar_zoom_in_title": {
+    "message": "Acercar",
+    "description": "Tooltip del botón de acercar"
+  },
+  "toolbar_layout_title_normal": {
+    "message": "Diseño normal",
+    "description": "Tooltip del botón de diseño normal"
+  },
+  "toolbar_layout_title_fullscreen": {
+    "message": "Diseño pantalla completa",
+    "description": "Tooltip del botón de diseño a pantalla completa"
+  },
+  "toolbar_layout_title_narrow": {
+    "message": "Diseño estrecho",
+    "description": "Tooltip del botón de diseño estrecho"
+  },
+  "toolbar_download_title": {
+    "message": "Descargar",
+    "description": "Tooltip del botón de descarga"
+  },
+  "toolbar_print_title": {
+    "message": "Imprimir",
+    "description": "Tooltip del botón de impresión"
+  },
+  "async_placeholder_type_mermaid": {
+    "message": "Diagrama Mermaid",
+    "description": "Etiqueta para el marcador Mermaid"
+  },
+  "async_placeholder_type_html": {
+    "message": "Gráfico HTML",
+    "description": "Etiqueta para el marcador HTML"
+  },
+  "async_placeholder_type_svg": {
+    "message": "Imagen SVG",
+    "description": "Etiqueta para el marcador SVG"
+  },
+  "async_processing_message": {
+    "message": "Procesando {0}{1}...",
+    "description": "Texto durante el procesamiento asíncrono"
+  },
+  "async_unknown_error": {
+    "message": "Error desconocido",
+    "description": "Texto de error sin detalles"
+  },
+  "async_processing_error": {
+    "message": "Error de procesamiento: {0}",
+    "description": "Error mostrado en el marcador asíncrono"
+  },
+  "async_task_processing_error": {
+    "message": "Error en la tarea: {0}",
+    "description": "Error cuando falla una tarea asíncrona"
+  },
+  "async_mermaid_error": {
+    "message": "Error de Mermaid: {0}",
+    "description": "Error para el renderizado Mermaid"
+  },
+  "async_html_convert_error": {
+    "message": "Error de conversión HTML: {0}",
+    "description": "Error para el renderizado HTML"
+  },
+  "docx_export_failed_default": {
+    "message": "Error al exportar",
+    "description": "Mensaje de respaldo cuando falla la exportación"
+  },
+  "docx_export_failed_alert": {
+    "message": "Error al exportar{0}",
+    "description": "Alerta al fallar la exportación"
+  },
+  "cache_loading": {
+    "message": "Cargando detalles de la caché...",
+    "description": "Se muestra mientras se carga la caché"
+  },
+  "cache_default_message": {
+    "message": "Aún no hay datos en caché — abre primero un archivo Markdown",
+    "description": "Mensaje cuando la caché está vacía"
+  },
+  "cache_error_message": {
+    "message": "Fallo en la comunicación con la caché — abre primero un archivo Markdown",
+    "description": "Mensaje cuando no se puede acceder a la caché"
+  },
+  "cache_loading_failed": {
+    "message": "No se pudo cargar la caché: {0}",
+    "description": "Mensaje cuando ocurre un error al cargar la caché"
+  },
+  "cache_hint_details": {
+    "message": "La caché se ejecuta automáticamente mientras las páginas Markdown están abiertas",
+    "description": "Pista adicional cuando la caché está vacía"
+  },
+  "cache_system_unavailable": {
+    "message": "Sistema de caché no disponible — abre primero un archivo Markdown",
+    "description": "Mensaje cuando no se puede acceder a la caché"
+  },
+  "cache_manager_init_failed": {
+    "message": "Error al iniciar el gestor de caché",
+    "description": "Error cuando la caché no puede inicializarse"
+  },
+  "cache_stat_item_label": {
+    "message": "Elementos en caché",
+    "description": "Etiqueta para número de elementos"
+  },
+  "cache_stat_size_label": {
+    "message": "Espacio usado",
+    "description": "Etiqueta para tamaño de la caché"
+  },
+  "cache_stat_usage_label": {
+    "message": "Porcentaje usado",
+    "description": "Etiqueta para porcentaje de uso"
+  },
+  "cache_stat_capacity_label": {
+    "message": "Capacidad máxima",
+    "description": "Etiqueta para capacidad"
+  },
+  "cache_refresh": {
+    "message": "Actualizar",
+    "description": "Botón para actualizar la caché"
+  },
+  "cache_clear": {
+    "message": "Vaciar caché",
+    "description": "Botón para limpiar la caché"
+  },
+  "cache_items_title": {
+    "message": "Elementos en caché (últimos 20)",
+    "description": "Encabezado de la lista de elementos"
+  },
+  "cache_items_empty": {
+    "message": "Todavía no hay elementos en caché",
+    "description": "Mensaje cuando no hay elementos"
+  },
+  "cache_item_type_label": {
+    "message": "Tipo",
+    "description": "Etiqueta para el tipo del elemento"
+  },
+  "cache_item_size_label": {
+    "message": "Tamaño",
+    "description": "Etiqueta para el tamaño del elemento"
+  },
+  "cache_item_created_label": {
+    "message": "Creado",
+    "description": "Etiqueta para la fecha de creación"
+  },
+  "cache_item_accessed_label": {
+    "message": "Último acceso",
+    "description": "Etiqueta para la fecha de último acceso"
+  },
+  "cache_item_type_unknown": {
+    "message": "desconocido",
+    "description": "Etiqueta cuando falta el tipo"
+  },
+  "cache_clear_confirm": {
+    "message": "¿Vaciar todos los datos en caché? Esta acción no se puede deshacer.",
+    "description": "Confirmación para vaciar la caché"
+  },
+  "cache_clear_success": {
+    "message": "Caché vaciada",
+    "description": "Toast cuando se limpia la caché"
+  },
+  "cache_clear_failed": {
+    "message": "No se pudo vaciar la caché",
+    "description": "Toast cuando falla la limpieza"
+  },
+  "settings_invalid_max_cache": {
+    "message": "Introduce un tamaño válido entre {0} y {1}",
+    "description": "Mensaje cuando el tamaño no es válido"
+  },
+  "settings_save_success": {
+    "message": "Ajustes guardados",
+    "description": "Toast cuando se guardan los ajustes"
+  },
+  "settings_save_failed": {
+    "message": "No se pudieron guardar los ajustes",
+    "description": "Toast cuando falla el guardado"
+  },
+  "settings_reset_confirm": {
+    "message": "¿Restablecer todos los ajustes a sus valores predeterminados?",
+    "description": "Confirmación para restablecer"
+  },
+  "settings_reset_success": {
+    "message": "Ajustes restablecidos",
+    "description": "Toast cuando se restablece"
+  },
+  "settings_reset_failed": {
+    "message": "No se pudieron restablecer los ajustes",
+    "description": "Toast cuando falla el restablecimiento"
+  },
+  "demo_open_failed": {
+    "message": "No se pudo abrir el documento de demostración",
+    "description": "Toast cuando falla la demo"
+  },
+  "cache_manual_limit_title": {
+    "message": "⚠️ Límites de acceso a la caché",
+    "description": "Título de la sección informativa"
+  },
+  "cache_manual_limit_desc_1": {
+    "message": "Por motivos de seguridad, el popup no puede acceder directamente a IndexedDB.",
+    "description": "Descripción informativa"
+  },
+  "cache_manual_limit_desc_2": {
+    "message": "La caché sigue funcionando al renderizar páginas Markdown, pero el popup no puede mostrar los detalles.",
+    "description": "Descripción informativa"
+  },
+  "cache_manual_status_title": {
+    "message": "📊 Verificar estado de la caché",
+    "description": "Título de la sección de estado"
+  },
+  "cache_manual_status_intro": {
+    "message": "Para asegurarte de que la caché funciona:",
+    "description": "Introducción de la sección de estado"
+  },
+  "cache_manual_status_step_open": {
+    "message": "Abre un archivo Markdown",
+    "description": "Paso de verificación"
+  },
+  "cache_manual_status_step_speed": {
+    "message": "Observa un renderizado más rápido cuando la caché está caliente",
+    "description": "Paso de verificación"
+  },
+  "cache_manual_status_step_console": {
+    "message": "Busca registros \"⚡ Using cached\" en DevTools",
+    "description": "Paso de verificación"
+  },
+  "cache_manual_clear_title": {
+    "message": "🧹 Vaciar caché manualmente",
+    "description": "Título de la sección para limpiar"
+  },
+  "cache_manual_clear_intro": {
+    "message": "Para vaciar la caché manualmente:",
+    "description": "Introducción de la sección de limpieza"
+  },
+  "cache_manual_clear_step_1": {
+    "message": "Abre cualquier archivo Markdown",
+    "description": "Paso de limpieza"
+  },
+  "cache_manual_clear_step_2": {
+    "message": "Presiona F12 para abrir DevTools",
+    "description": "Paso de limpieza"
+  },
+  "cache_manual_clear_step_3": {
+    "message": "Ejecuta \"{0}\" en la consola",
+    "description": "Paso de limpieza"
+  },
+  "settings_general_title": {
+    "message": "Ajustes de la extensión",
+    "description": "Encabezado de la sección de ajustes"
+  },
+  "settings_max_cache_label": {
+    "message": "Máximo de elementos en caché:",
+    "description": "Etiqueta para el campo de caché"
+  },
+  "settings_language_label": {
+    "message": "Idioma de la interfaz:",
+    "description": "Etiqueta para el selector de idioma"
+  },
+  "settings_language_auto": {
+    "message": "Coincidir con el idioma de Chrome",
+    "description": "Opción de idioma automático"
+  },
+  "settings_language_en": {
+    "message": "English",
+    "description": "Opción para inglés"
+  },
+  "settings_language_zh_cn": {
+    "message": "简体中文",
+    "description": "Opción para chino simplificado"
+  },
+  "settings_language_es": {
+    "message": "Español",
+    "description": "Opción para español"
+  },
+  "settings_language_fr": {
+    "message": "Français",
+    "description": "Opción para francés"
+  },
+  "settings_language_de": {
+    "message": "Deutsch",
+    "description": "Opción para alemán"
+  },
+  "settings_language_ru": {
+    "message": "Русский",
+    "description": "Opción para ruso"
+  },
+  "settings_language_ja": {
+    "message": "日本語",
+    "description": "Opción para japonés"
+  },
+  "settings_language_ko": {
+    "message": "한국어",
+    "description": "Opción para coreano"
+  },
+  "settings_language_note": {
+    "message": "Al cambiarlo se anula el idioma de Chrome solo para la interfaz de la extensión.",
+    "description": "Nota de ayuda para el selector"
+  },
+  "settings_save_btn": {
+    "message": "Guardar ajustes",
+    "description": "Botón guardar"
+  },
+  "settings_reset_btn": {
+    "message": "Restablecer",
+    "description": "Botón restablecer"
+  },
+  "settings_about_title": {
+    "message": "Acerca de",
+    "description": "Encabezado de la sección Acerca de"
+  },
+  "settings_about_author_label": {
+    "message": "Autor:",
+    "description": "Etiqueta de autor"
+  },
+  "settings_about_version_label": {
+    "message": "Versión:",
+    "description": "Etiqueta de versión"
+  },
+  "settings_about_updated_label": {
+    "message": "Actualizado:",
+    "description": "Etiqueta de fecha de actualización"
+  },
+  "settings_about_storage_label": {
+    "message": "Motor de almacenamiento:",
+    "description": "Etiqueta para información de almacenamiento"
+  }
+}

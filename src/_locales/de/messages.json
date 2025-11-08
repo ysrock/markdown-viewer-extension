@@ -1,0 +1,418 @@
+{
+  "extensionName": {
+    "message": "Markdown-Viewer",
+    "description": "Name der Erweiterung"
+  },
+  "extensionDescription": {
+    "message": "Markdown-Dateien mit Syntaxhervorhebung und smarten Exportwerkzeugen anzeigen",
+    "description": "Beschreibung der Erweiterung im Chrome Web Store"
+  },
+  "tab_overview": {
+    "message": "Übersicht",
+    "description": "Beschriftung für den Übersichtstab"
+  },
+  "tab_cache": {
+    "message": "Cache",
+    "description": "Beschriftung für den Cache-Tab"
+  },
+  "tab_settings": {
+    "message": "Einstellungen",
+    "description": "Beschriftung für den Einstellungs-Tab"
+  },
+  "popup_title": {
+    "message": "Markdown-Viewer",
+    "description": "Titel des Popups"
+  },
+  "popup_version_label": {
+    "message": "Version {0}",
+    "description": "Zeigt die Erweiterungsversion im Header"
+  },
+  "overview_features_title": {
+    "message": "Funktionen",
+    "description": "Titel der Funktionsliste"
+  },
+  "overview_feature_live_render": {
+    "message": "Markdown sofort rendern",
+    "description": "Funktionsliste"
+  },
+  "overview_feature_code_highlight": {
+    "message": "Syntaxhervorhebung für Codeblöcke",
+    "description": "Funktionsliste"
+  },
+  "overview_feature_math_support": {
+    "message": "Mathematische Formeln mit KaTeX",
+    "description": "Funktionsliste"
+  },
+  "overview_feature_theme": {
+    "message": "Hell-/Dunkelmodus umschalten",
+    "description": "Funktionsliste"
+  },
+  "overview_feature_toc": {
+    "message": "Automatisches Inhaltsverzeichnis",
+    "description": "Funktionsliste"
+  },
+  "overview_feature_cache": {
+    "message": "Intelligenter Cache für wiederkehrende Besuche",
+    "description": "Funktionsliste"
+  },
+  "overview_usage_title": {
+    "message": "So geht's",
+    "description": "Titel der Nutzungshinweise"
+  },
+  "overview_usage_step1": {
+    "message": "1. Öffnen Sie eine .md- oder .markdown-Datei in Chrome",
+    "description": "Nutzungsschritt"
+  },
+  "overview_usage_step2": {
+    "message": "2. Die Erweiterung rendert das Dokument automatisch",
+    "description": "Nutzungsschritt"
+  },
+  "overview_demo_title": {
+    "message": "📝 Demo",
+    "description": "Titel des Demoabschnitts"
+  },
+  "overview_demo_button": {
+    "message": "Demo-Dokument öffnen",
+    "description": "Schaltfläche zum Öffnen der Demo"
+  },
+  "overview_demo_helper": {
+    "message": "Öffnen Sie eine Beispieldatei, um alle Funktionen zu entdecken",
+    "description": "Hilfetext unter der Demoschaltfläche"
+  },
+  "overview_tip_title": {
+    "message": "⚠️ Wichtig",
+    "description": "Titel für den wichtigen Hinweis"
+  },
+  "overview_tip_content": {
+    "message": "Aktivieren Sie \"Zugriff auf Datei-URLs zulassen\" auf der Chrome-Erweiterungsseite, um lokale Markdown-Dateien zu lesen.",
+    "description": "Wichtiger Nutzungshinweis"
+  },
+  "toolbar_toggle_toc_title": {
+    "message": "Inhaltsverzeichnis ein- oder ausblenden",
+    "description": "Tooltip für den TOC-Schalter"
+  },
+  "toolbar_zoom_out_title": {
+    "message": "Verkleinern",
+    "description": "Tooltip für Verkleinern"
+  },
+  "toolbar_zoom_in_title": {
+    "message": "Vergrößern",
+    "description": "Tooltip für Vergrößern"
+  },
+  "toolbar_layout_title_normal": {
+    "message": "Normales Layout",
+    "description": "Tooltip für normales Layout"
+  },
+  "toolbar_layout_title_fullscreen": {
+    "message": "Vollbildlayout",
+    "description": "Tooltip für Vollbildlayout"
+  },
+  "toolbar_layout_title_narrow": {
+    "message": "Schmales Layout",
+    "description": "Tooltip für schmales Layout"
+  },
+  "toolbar_download_title": {
+    "message": "Herunterladen",
+    "description": "Tooltip für Herunterladen"
+  },
+  "toolbar_print_title": {
+    "message": "Drucken",
+    "description": "Tooltip für Drucken"
+  },
+  "async_placeholder_type_mermaid": {
+    "message": "Mermaid-Diagramm",
+    "description": "Beschriftung für Mermaid-Platzhalter"
+  },
+  "async_placeholder_type_html": {
+    "message": "HTML-Grafik",
+    "description": "Beschriftung für HTML-Platzhalter"
+  },
+  "async_placeholder_type_svg": {
+    "message": "SVG-Bild",
+    "description": "Beschriftung für SVG-Platzhalter"
+  },
+  "async_processing_message": {
+    "message": "Verarbeite {0}{1}...",
+    "description": "Text während der asynchronen Verarbeitung"
+  },
+  "async_unknown_error": {
+    "message": "Unbekannter Fehler",
+    "description": "Fallback-Text bei fehlenden Details"
+  },
+  "async_processing_error": {
+    "message": "Verarbeitungsfehler: {0}",
+    "description": "Fehlertext im Platzhalter"
+  },
+  "async_task_processing_error": {
+    "message": "Task-Fehler: {0}",
+    "description": "Fehler, wenn eine Aufgabe fehlschlägt"
+  },
+  "async_mermaid_error": {
+    "message": "Mermaid-Fehler: {0}",
+    "description": "Fehler für Mermaid-Rendering"
+  },
+  "async_html_convert_error": {
+    "message": "HTML-Konvertierungsfehler: {0}",
+    "description": "Fehler für HTML-Rendering"
+  },
+  "docx_export_failed_default": {
+    "message": "Export fehlgeschlagen",
+    "description": "Standardmeldung bei Exportfehler"
+  },
+  "docx_export_failed_alert": {
+    "message": "Export fehlgeschlagen{0}",
+    "description": "Warnung bei Exportfehler"
+  },
+  "cache_loading": {
+    "message": "Cache-Details werden geladen...",
+    "description": "Angezeigt während Cache lädt"
+  },
+  "cache_default_message": {
+    "message": "Noch keine Cache-Daten — öffnen Sie zuerst eine Markdown-Datei",
+    "description": "Angezeigt, wenn der Cache leer ist"
+  },
+  "cache_error_message": {
+    "message": "Cache-Kommunikation fehlgeschlagen — öffnen Sie zuerst eine Markdown-Datei",
+    "description": "Angezeigt bei Cachezugriffsfehler"
+  },
+  "cache_loading_failed": {
+    "message": "Cache konnte nicht geladen werden: {0}",
+    "description": "Fehlermeldung beim Laden"
+  },
+  "cache_hint_details": {
+    "message": "Der Cache läuft automatisch, während Markdown-Seiten geöffnet sind",
+    "description": "Zusätzlicher Hinweis bei leerem Cache"
+  },
+  "cache_system_unavailable": {
+    "message": "Cachesystem nicht verfügbar — öffnen Sie zuerst eine Markdown-Datei",
+    "description": "Angezeigt bei nicht verfügbarem Cache"
+  },
+  "cache_manager_init_failed": {
+    "message": "Cache-Manager konnte nicht initialisiert werden",
+    "description": "Fehler bei der Initialisierung"
+  },
+  "cache_stat_item_label": {
+    "message": "Zwischengespeicherte Elemente",
+    "description": "Beschriftung für Anzahl"
+  },
+  "cache_stat_size_label": {
+    "message": "Genutzter Speicher",
+    "description": "Beschriftung für Größe"
+  },
+  "cache_stat_usage_label": {
+    "message": "Auslastung",
+    "description": "Beschriftung für Prozent"
+  },
+  "cache_stat_capacity_label": {
+    "message": "Maximale Kapazität",
+    "description": "Beschriftung für Kapazität"
+  },
+  "cache_refresh": {
+    "message": "Aktualisieren",
+    "description": "Knopf zum Aktualisieren"
+  },
+  "cache_clear": {
+    "message": "Cache leeren",
+    "description": "Knopf zum Leeren"
+  },
+  "cache_items_title": {
+    "message": "Cache-Einträge (letzte 20)",
+    "description": "Überschrift der Liste"
+  },
+  "cache_items_empty": {
+    "message": "Noch keine Cache-Einträge",
+    "description": "Angezeigt bei leerer Liste"
+  },
+  "cache_item_type_label": {
+    "message": "Typ",
+    "description": "Beschriftung für Typ"
+  },
+  "cache_item_size_label": {
+    "message": "Größe",
+    "description": "Beschriftung für Größe"
+  },
+  "cache_item_created_label": {
+    "message": "Erstellt",
+    "description": "Beschriftung für Erstellungsdatum"
+  },
+  "cache_item_accessed_label": {
+    "message": "Zuletzt zugegriffen",
+    "description": "Beschriftung für letzter Zugriff"
+  },
+  "cache_item_type_unknown": {
+    "message": "unbekannt",
+    "description": "Beschriftung bei fehlendem Typ"
+  },
+  "cache_clear_confirm": {
+    "message": "Alle zwischengespeicherten Daten löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "description": "Bestätigungstext"
+  },
+  "cache_clear_success": {
+    "message": "Cache geleert",
+    "description": "Toast bei Erfolg"
+  },
+  "cache_clear_failed": {
+    "message": "Cache konnte nicht geleert werden",
+    "description": "Toast bei Fehler"
+  },
+  "settings_invalid_max_cache": {
+    "message": "Geben Sie einen Wert zwischen {0} und {1} ein",
+    "description": "Meldung bei ungültigem Wert"
+  },
+  "settings_save_success": {
+    "message": "Einstellungen gespeichert",
+    "description": "Toast bei Erfolg"
+  },
+  "settings_save_failed": {
+    "message": "Einstellungen konnten nicht gespeichert werden",
+    "description": "Toast bei Fehler"
+  },
+  "settings_reset_confirm": {
+    "message": "Alle Einstellungen auf Standard zurücksetzen?",
+    "description": "Bestätigung für Zurücksetzen"
+  },
+  "settings_reset_success": {
+    "message": "Einstellungen zurückgesetzt",
+    "description": "Toast bei Erfolg"
+  },
+  "settings_reset_failed": {
+    "message": "Einstellungen konnten nicht zurückgesetzt werden",
+    "description": "Toast bei Fehler"
+  },
+  "demo_open_failed": {
+    "message": "Demo-Dokument konnte nicht geöffnet werden",
+    "description": "Toast bei Fehler"
+  },
+  "cache_manual_limit_title": {
+    "message": "⚠️ Cache-Zugriffsbeschränkungen",
+    "description": "Titel des Infobereichs"
+  },
+  "cache_manual_limit_desc_1": {
+    "message": "Aus Sicherheitsgründen kann das Popup nicht direkt auf IndexedDB zugreifen.",
+    "description": "Infotext"
+  },
+  "cache_manual_limit_desc_2": {
+    "message": "Der Cache funktioniert weiterhin während des Renderns, aber das Popup zeigt keine Details an.",
+    "description": "Infotext"
+  },
+  "cache_manual_status_title": {
+    "message": "📊 Cache-Status prüfen",
+    "description": "Titel des Statusbereichs"
+  },
+  "cache_manual_status_intro": {
+    "message": "So stellen Sie sicher, dass der Cache funktioniert:",
+    "description": "Einleitung"
+  },
+  "cache_manual_status_step_open": {
+    "message": "Öffnen Sie eine Markdown-Datei",
+    "description": "Prüfschritt"
+  },
+  "cache_manual_status_step_speed": {
+    "message": "Achten Sie auf schnellere Renderzeiten bei warmem Cache",
+    "description": "Prüfschritt"
+  },
+  "cache_manual_status_step_console": {
+    "message": "Suchen Sie in DevTools nach \"⚡ Using cached\"-Logs",
+    "description": "Prüfschritt"
+  },
+  "cache_manual_clear_title": {
+    "message": "🧹 Cache manuell leeren",
+    "description": "Titel des Reinigungsbereichs"
+  },
+  "cache_manual_clear_intro": {
+    "message": "So leeren Sie den Cache manuell:",
+    "description": "Einleitung"
+  },
+  "cache_manual_clear_step_1": {
+    "message": "Öffnen Sie eine Markdown-Datei",
+    "description": "Reinigungsschritt"
+  },
+  "cache_manual_clear_step_2": {
+    "message": "Drücken Sie F12, um DevTools zu öffnen",
+    "description": "Reinigungsschritt"
+  },
+  "cache_manual_clear_step_3": {
+    "message": "Führen Sie \"{0}\" in der Konsole aus",
+    "description": "Reinigungsschritt"
+  },
+  "settings_general_title": {
+    "message": "Erweiterungseinstellungen",
+    "description": "Überschrift der Einstellungen"
+  },
+  "settings_max_cache_label": {
+    "message": "Maximale Cache-Einträge:",
+    "description": "Beschriftung für Cache-Feld"
+  },
+  "settings_language_label": {
+    "message": "Oberflächensprache:",
+    "description": "Beschriftung für Sprachauswahl"
+  },
+  "settings_language_auto": {
+    "message": "Chrome-Sprache verwenden",
+    "description": "Option für automatische Sprache"
+  },
+  "settings_language_en": {
+    "message": "English",
+    "description": "Option für Englisch"
+  },
+  "settings_language_zh_cn": {
+    "message": "简体中文",
+    "description": "Option für vereinfachtes Chinesisch"
+  },
+  "settings_language_es": {
+    "message": "Español",
+    "description": "Option für Spanisch"
+  },
+  "settings_language_fr": {
+    "message": "Français",
+    "description": "Option für Französisch"
+  },
+  "settings_language_de": {
+    "message": "Deutsch",
+    "description": "Option für Deutsch"
+  },
+  "settings_language_ru": {
+    "message": "Русский",
+    "description": "Option für Russisch"
+  },
+  "settings_language_ja": {
+    "message": "日本語",
+    "description": "Option für Japanisch"
+  },
+  "settings_language_ko": {
+    "message": "한국어",
+    "description": "Option für Koreanisch"
+  },
+  "settings_language_note": {
+    "message": "Diese Einstellung überschreibt die Chrome-Sprache nur für die Erweiterungsoberfläche.",
+    "description": "Hinweis zur Sprachauswahl"
+  },
+  "settings_save_btn": {
+    "message": "Einstellungen speichern",
+    "description": "Speichern-Schaltfläche"
+  },
+  "settings_reset_btn": {
+    "message": "Zurücksetzen",
+    "description": "Zurücksetzen-Schaltfläche"
+  },
+  "settings_about_title": {
+    "message": "Über",
+    "description": "Überschrift für Über-Bereich"
+  },
+  "settings_about_author_label": {
+    "message": "Autor:",
+    "description": "Beschriftung Autor"
+  },
+  "settings_about_version_label": {
+    "message": "Version:",
+    "description": "Beschriftung Version"
+  },
+  "settings_about_updated_label": {
+    "message": "Aktualisiert:",
+    "description": "Beschriftung Aktualisiert"
+  },
+  "settings_about_storage_label": {
+    "message": "Speicher-Engine:",
+    "description": "Beschriftung Speicher"
+  }
+}

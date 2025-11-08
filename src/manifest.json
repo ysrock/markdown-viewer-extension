@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Markdown Viewer",
+  "name": "__MSG_extensionName__",
   "version": "1.0.0",
-  "description": "A Chrome extension to view Markdown files with syntax highlighting",
+  "default_locale": "en",
+  "description": "__MSG_extensionDescription__",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -38,7 +39,8 @@
         "offscreen.html",
         "*.woff2",
         "*.woff",
-        "*.ttf"
+        "*.ttf",
+        "_locales/*/messages.json"
       ],
       "matches": ["file://*", "https://*/*", "http://*/*"]
     }

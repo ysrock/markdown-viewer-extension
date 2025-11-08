@@ -1,0 +1,418 @@
+{
+  "extensionName": {
+    "message": "Markdown Viewer",
+    "description": "扩展名称"
+  },
+  "extensionDescription": {
+    "message": "查看 Markdown 文件并支持智能导出",
+    "description": "扩展简介"
+  },
+  "tab_overview": {
+    "message": "概览",
+    "description": "概览标签"
+  },
+  "tab_cache": {
+    "message": "缓存管理",
+    "description": "缓存标签"
+  },
+  "tab_settings": {
+    "message": "设置",
+    "description": "设置标签"
+  },
+  "popup_title": {
+    "message": "Markdown Viewer",
+    "description": "弹窗标题"
+  },
+  "popup_version_label": {
+    "message": "版本 {0}",
+    "description": "弹窗中的版本文字"
+  },
+  "overview_features_title": {
+    "message": "功能特性",
+    "description": "功能列表标题"
+  },
+  "overview_feature_live_render": {
+    "message": "实时渲染 Markdown",
+    "description": "功能列表项"
+  },
+  "overview_feature_code_highlight": {
+    "message": "代码语法高亮",
+    "description": "功能列表项"
+  },
+  "overview_feature_math_support": {
+    "message": "数学公式支持 (KaTeX)",
+    "description": "功能列表项"
+  },
+  "overview_feature_theme": {
+    "message": "亮色/暗色主题切换",
+    "description": "功能列表项"
+  },
+  "overview_feature_toc": {
+    "message": "自动生成目录",
+    "description": "功能列表项"
+  },
+  "overview_feature_cache": {
+    "message": "智能缓存系统",
+    "description": "功能列表项"
+  },
+  "overview_usage_title": {
+    "message": "使用方法：",
+    "description": "使用说明标题"
+  },
+  "overview_usage_step1": {
+    "message": "1. 在 Chrome 中打开 .md 或 .markdown 文件",
+    "description": "使用说明步骤"
+  },
+  "overview_usage_step2": {
+    "message": "2. 插件会自动渲染文件内容",
+    "description": "使用说明步骤"
+  },
+  "overview_demo_title": {
+    "message": "📝 在线演示",
+    "description": "演示区标题"
+  },
+  "overview_demo_button": {
+    "message": "打开演示文档",
+    "description": "演示按钮"
+  },
+  "overview_demo_helper": {
+    "message": "点击打开示例 Markdown 文档，体验扩展功能",
+    "description": "演示提示"
+  },
+  "overview_tip_title": {
+    "message": "⚠️ 重要提示：",
+    "description": "重要提示标题"
+  },
+  "overview_tip_content": {
+    "message": "请确保在 Chrome 扩展管理页面中，为此扩展启用\"允许访问文件网址\"选项。",
+    "description": "重要提示内容"
+  },
+  "toolbar_toggle_toc_title": {
+    "message": "显示/隐藏目录",
+    "description": "目录按钮提示"
+  },
+  "toolbar_zoom_out_title": {
+    "message": "缩小",
+    "description": "缩小按钮提示"
+  },
+  "toolbar_zoom_in_title": {
+    "message": "放大",
+    "description": "放大按钮提示"
+  },
+  "toolbar_layout_title_normal": {
+    "message": "正常布局",
+    "description": "布局按钮正常模式提示"
+  },
+  "toolbar_layout_title_fullscreen": {
+    "message": "满屏布局",
+    "description": "布局按钮满屏模式提示"
+  },
+  "toolbar_layout_title_narrow": {
+    "message": "窄屏布局",
+    "description": "布局按钮窄屏模式提示"
+  },
+  "toolbar_download_title": {
+    "message": "下载",
+    "description": "下载按钮提示"
+  },
+  "toolbar_print_title": {
+    "message": "打印",
+    "description": "打印按钮提示"
+  },
+  "async_placeholder_type_mermaid": {
+    "message": "Mermaid 图表",
+    "description": "Mermaid 异步占位标签"
+  },
+  "async_placeholder_type_html": {
+    "message": "HTML 图表",
+    "description": "HTML 异步占位标签"
+  },
+  "async_placeholder_type_svg": {
+    "message": "SVG 图像",
+    "description": "SVG 异步占位标签"
+  },
+  "async_processing_message": {
+    "message": "正在处理 {0}{1}...",
+    "description": "异步占位加载提示"
+  },
+  "async_unknown_error": {
+    "message": "未知错误",
+    "description": "错误信息缺失时的提示"
+  },
+  "async_processing_error": {
+    "message": "处理错误: {0}",
+    "description": "异步占位错误提示"
+  },
+  "async_task_processing_error": {
+    "message": "任务处理错误: {0}",
+    "description": "异步任务失败提示"
+  },
+  "async_mermaid_error": {
+    "message": "Mermaid 错误: {0}",
+    "description": "Mermaid 渲染错误"
+  },
+  "async_html_convert_error": {
+    "message": "HTML 转换错误: {0}",
+    "description": "HTML 渲染错误"
+  },
+  "docx_export_failed_default": {
+    "message": "导出失败",
+    "description": "DOCX 导出失败的默认提示"
+  },
+  "docx_export_failed_alert": {
+    "message": "导出失败{0}",
+    "description": "DOCX 导出失败警告"
+  },
+  "cache_loading": {
+    "message": "正在加载缓存信息...",
+    "description": "缓存加载提示"
+  },
+  "cache_default_message": {
+    "message": "暂无缓存数据，请先打开 Markdown 文件",
+    "description": "缓存默认提示"
+  },
+  "cache_error_message": {
+    "message": "缓存通信失败，请先打开 Markdown 文件",
+    "description": "缓存错误提示"
+  },
+  "cache_loading_failed": {
+    "message": "加载缓存信息失败: {0}",
+    "description": "缓存加载异常提示"
+  },
+  "cache_hint_details": {
+    "message": "缓存功能会在打开 Markdown 页面时自动运行",
+    "description": "缓存提示补充"
+  },
+  "cache_system_unavailable": {
+    "message": "缓存系统不可用，请先打开 Markdown 文件",
+    "description": "缓存系统不可用提示"
+  },
+  "cache_manager_init_failed": {
+    "message": "缓存初始化失败",
+    "description": "缓存初始化错误信息"
+  },
+  "cache_stat_item_label": {
+    "message": "缓存项目",
+    "description": "缓存统计标签"
+  },
+  "cache_stat_size_label": {
+    "message": "占用空间",
+    "description": "缓存统计标签"
+  },
+  "cache_stat_usage_label": {
+    "message": "容量使用",
+    "description": "缓存统计标签"
+  },
+  "cache_stat_capacity_label": {
+    "message": "最大容量",
+    "description": "缓存统计标签"
+  },
+  "cache_items_empty": {
+    "message": "暂无缓存项目",
+    "description": "缓存列表为空提示"
+  },
+  "cache_item_type_label": {
+    "message": "类型",
+    "description": "缓存条目类型标签"
+  },
+  "cache_item_size_label": {
+    "message": "大小",
+    "description": "缓存条目大小标签"
+  },
+  "cache_item_created_label": {
+    "message": "创建",
+    "description": "缓存条目创建时间标签"
+  },
+  "cache_item_accessed_label": {
+    "message": "访问",
+    "description": "缓存条目访问时间标签"
+  },
+  "cache_item_type_unknown": {
+    "message": "未知",
+    "description": "缓存条目类型未知时的提示"
+  },
+  "cache_clear_confirm": {
+    "message": "确定要清空所有缓存吗？该操作不可撤销。",
+    "description": "清空缓存确认提示"
+  },
+  "cache_clear_success": {
+    "message": "缓存已清空",
+    "description": "清空缓存成功提示"
+  },
+  "cache_clear_failed": {
+    "message": "清空缓存失败",
+    "description": "清空缓存失败提示"
+  },
+  "settings_invalid_max_cache": {
+    "message": "请输入 {0}-{1} 之间的有效缓存数量",
+    "description": "最大缓存输入无效提示"
+  },
+  "settings_save_success": {
+    "message": "设置已保存",
+    "description": "保存设置成功提示"
+  },
+  "settings_save_failed": {
+    "message": "保存设置失败",
+    "description": "保存设置失败提示"
+  },
+  "settings_reset_confirm": {
+    "message": "确定要重置所有设置为默认值吗？",
+    "description": "重置设置确认提示"
+  },
+  "settings_reset_success": {
+    "message": "设置已重置",
+    "description": "设置重置成功提示"
+  },
+  "settings_reset_failed": {
+    "message": "重置设置失败",
+    "description": "设置重置失败提示"
+  },
+  "demo_open_failed": {
+    "message": "打开演示文档失败",
+    "description": "打开演示失败提示"
+  },
+  "cache_manual_limit_title": {
+    "message": "⚠️ 缓存访问限制",
+    "description": "缓存手动说明标题"
+  },
+  "cache_manual_limit_desc_1": {
+    "message": "出于安全限制，popup 无法直接访问 IndexedDB。",
+    "description": "缓存手动说明内容"
+  },
+  "cache_manual_limit_desc_2": {
+    "message": "缓存功能在 Markdown 页面中正常运行，但在此无法显示详情。",
+    "description": "缓存手动说明内容"
+  },
+  "cache_manual_status_title": {
+    "message": "📊 缓存状态检查",
+    "description": "缓存状态章节标题"
+  },
+  "cache_manual_status_intro": {
+    "message": "确认缓存工作情况：",
+    "description": "缓存状态章节引导"
+  },
+  "cache_manual_status_step_open": {
+    "message": "打开一个 Markdown 文件",
+    "description": "缓存状态检查步骤"
+  },
+  "cache_manual_status_step_speed": {
+    "message": "观察渲染速度（有缓存时更快）",
+    "description": "缓存状态检查步骤"
+  },
+  "cache_manual_status_step_console": {
+    "message": "在开发者工具中查看 \"⚡ Using cached\" 日志",
+    "description": "缓存状态检查步骤"
+  },
+  "cache_manual_clear_title": {
+    "message": "🧹 手动清空缓存",
+    "description": "手动清空缓存标题"
+  },
+  "cache_manual_clear_intro": {
+    "message": "如需手动清空：",
+    "description": "手动清空缓存引导"
+  },
+  "cache_manual_clear_step_1": {
+    "message": "打开任意 Markdown 文件",
+    "description": "手动清空缓存步骤"
+  },
+  "cache_manual_clear_step_2": {
+    "message": "按 F12 打开开发者工具",
+    "description": "手动清空缓存步骤"
+  },
+  "cache_manual_clear_step_3": {
+    "message": "在控制台执行 \"{0}\"",
+    "description": "手动清空缓存步骤"
+  },
+  "cache_refresh": {
+    "message": "刷新",
+    "description": "刷新按钮"
+  },
+  "cache_clear": {
+    "message": "清空缓存",
+    "description": "清空按钮"
+  },
+  "cache_items_title": {
+    "message": "缓存项目（最近访问的 20 项）",
+    "description": "缓存列表标题"
+  },
+  "settings_general_title": {
+    "message": "扩展设置",
+    "description": "设置区标题"
+  },
+  "settings_max_cache_label": {
+    "message": "最大缓存项目数:",
+    "description": "最大缓存标签"
+  },
+  "settings_language_label": {
+    "message": "界面语言:",
+    "description": "语言选择标签"
+  },
+  "settings_language_auto": {
+    "message": "跟随 Chrome 语言",
+    "description": "自动语言选项"
+  },
+  "settings_language_en": {
+    "message": "English",
+    "description": "英文选项"
+  },
+  "settings_language_zh_cn": {
+    "message": "简体中文",
+    "description": "中文选项"
+  },
+  "settings_language_es": {
+    "message": "西班牙语",
+    "description": "西班牙语选项"
+  },
+  "settings_language_fr": {
+    "message": "法语",
+    "description": "法语选项"
+  },
+  "settings_language_de": {
+    "message": "德语",
+    "description": "德语选项"
+  },
+  "settings_language_ru": {
+    "message": "俄语",
+    "description": "俄语选项"
+  },
+  "settings_language_ja": {
+    "message": "日语",
+    "description": "日语选项"
+  },
+  "settings_language_ko": {
+    "message": "韩语",
+    "description": "韩语选项"
+  },
+  "settings_language_note": {
+    "message": "设置后将覆盖浏览器界面语言，仅影响扩展界面。",
+    "description": "语言选择说明"
+  },
+  "settings_save_btn": {
+    "message": "保存设置",
+    "description": "保存按钮"
+  },
+  "settings_reset_btn": {
+    "message": "重置为默认",
+    "description": "重置按钮"
+  },
+  "settings_about_title": {
+    "message": "关于扩展",
+    "description": "关于区标题"
+  },
+  "settings_about_author_label": {
+    "message": "开发者:",
+    "description": "关于区标签"
+  },
+  "settings_about_version_label": {
+    "message": "版本:",
+    "description": "关于区标签"
+  },
+  "settings_about_updated_label": {
+    "message": "更新时间:",
+    "description": "关于区标签"
+  },
+  "settings_about_storage_label": {
+    "message": "存储引擎:",
+    "description": "关于区标签"
+  }
+}
