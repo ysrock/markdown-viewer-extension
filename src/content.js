@@ -438,8 +438,10 @@ function remarkHtmlToPng(renderer) {
       visit(tree, 'html', (node, index, parent) => {
         const htmlContent = node.value.trim();
         
-        // Check if it's a significant HTML block
-        if ((htmlContent.startsWith('<div') || htmlContent.startsWith('<table') || htmlContent.startsWith('<svg')) && htmlContent.length > 100) {
+        // Check if it's a significant HTML block (any HTML tag with sufficient content)
+        // Allow common block elements: div, table, svg, dl, ul, ol, form, fieldset, etc.
+        const isBlockElement = /^<(div|table|svg|dl|ul|ol|form|fieldset|section|article|aside|header|footer|nav|main|figure)/i.test(htmlContent);
+        if (isBlockElement && htmlContent.length > 100) {
           // Create async task for HTML processing
           // HTML code is embedded data, so it's ready immediately
           const result = asyncTask(async (data) => {

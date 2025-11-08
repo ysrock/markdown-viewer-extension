@@ -1445,7 +1445,9 @@ class DocxExporter {
     const htmlContent = node.value.trim();
     
     // Check if it's a significant HTML block that should be converted to image
-    if ((htmlContent.startsWith('<div') || htmlContent.startsWith('<table') || htmlContent.startsWith('<svg')) && htmlContent.length > 100) {
+    // Allow common block elements: div, table, svg, dl, ul, ol, form, fieldset, etc.
+    const isBlockElement = /^<(div|table|svg|dl|ul|ol|form|fieldset|section|article|aside|header|footer|nav|main|figure)/i.test(htmlContent);
+    if (isBlockElement && htmlContent.length > 100) {
       return await this.convertHtmlDiagram(htmlContent);
     }
     
