@@ -70,6 +70,21 @@ class DocxExporter {
     this.pendingBlockSpacing = 0; // Spacing to apply before the next block-level element
   }
 
+  /**
+   * Create font configuration
+   * @param {string} mainFont - Main font name (e.g., 'Times New Roman')
+   * @param {string} eastAsiaFont - East Asian font name (e.g., 'SimSun')
+   * @returns {Object} Font configuration object
+   */
+  createFontConfig(mainFont = 'Times New Roman', eastAsiaFont = 'SimSun') {
+    return {
+      ascii: mainFont,
+      eastAsia: eastAsiaFont,
+      hAnsi: mainFont,
+      cs: mainFont
+    };
+  }
+
   getHighlightColor(classList) {
     if (!classList) {
       return null;
@@ -382,12 +397,7 @@ class DocxExporter {
           default: {
             document: {
               run: {
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun', // Chinese characters
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
                 size: 24, // 12pt in half-points
               },
               paragraph: {
@@ -401,12 +411,7 @@ class DocxExporter {
               run: {
                 size: 52, // 26pt in half-points
                 bold: true,
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun',
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
               },
               paragraph: {
                 spacing: {
@@ -421,12 +426,7 @@ class DocxExporter {
               run: {
                 size: 44, // 22pt
                 bold: true,
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun',
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
               },
               paragraph: {
                 spacing: {
@@ -440,12 +440,7 @@ class DocxExporter {
               run: {
                 size: 40, // 20pt
                 bold: true,
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun',
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
               },
               paragraph: {
                 spacing: {
@@ -459,12 +454,7 @@ class DocxExporter {
               run: {
                 size: 36, // 18pt
                 bold: true,
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun',
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
               },
               paragraph: {
                 spacing: {
@@ -478,12 +468,7 @@ class DocxExporter {
               run: {
                 size: 28, // 14pt
                 bold: true,
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun',
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
               },
               paragraph: {
                 spacing: {
@@ -497,12 +482,7 @@ class DocxExporter {
               run: {
                 size: 24, // 12pt
                 bold: true,
-                font: {
-                  ascii: 'Times New Roman',
-                  eastAsia: 'SimSun',
-                  hAnsi: 'Times New Roman',
-                  cs: 'Times New Roman',
-                },
+                font: this.createFontConfig('Times New Roman', 'SimSun'),
               },
               paragraph: {
                 spacing: {
@@ -634,6 +614,7 @@ class DocxExporter {
       if (node.type === 'thematicBreak' && lastNodeType === 'thematicBreak') {
         elements.push(new Paragraph({
           text: '',
+          alignment: AlignmentType.LEFT, // Explicitly set left alignment
           spacing: {
             before: 0,
             after: 0,
@@ -647,6 +628,7 @@ class DocxExporter {
       if (node.type === 'table' && lastNodeType === 'table') {
         elements.push(new Paragraph({
           text: '',
+          alignment: AlignmentType.LEFT, // Explicitly set left alignment
           spacing: {
             before: 120,  // 6pt spacing before
             after: 120,   // 6pt spacing after
@@ -787,6 +769,7 @@ class DocxExporter {
       return new Paragraph({
         text: '',
         spacing: spacing,
+        alignment: AlignmentType.LEFT, // Explicitly set left alignment
       });
     }
 
@@ -798,6 +781,7 @@ class DocxExporter {
     return new Paragraph({
       children: children,
       spacing: spacing,
+      alignment: AlignmentType.LEFT, // Explicitly set left alignment
     });
   }
 
@@ -808,14 +792,9 @@ class DocxExporter {
     const runs = [];
 
     // Default font settings matching CSS: 12px = 24 half-points
-    // Use SimSun for better Chinese character support
+    // Use SimSun for better Chinese character support and emoji
     const defaultStyle = {
-      font: {
-        ascii: 'Times New Roman',
-        eastAsia: 'SimSun', // Chinese font
-        hAnsi: 'Times New Roman',
-        cs: 'Times New Roman',
-      },
+      font: this.createFontConfig('Times New Roman', 'SimSun'),
       size: 24, // 12pt (half-points)
       ...parentStyle,
     };
@@ -1302,12 +1281,7 @@ class DocxExporter {
           const checkboxSymbol = node.checked ? '▣' : '☐';  // ▣ for checked, ☐ for unchecked
           children.unshift(new TextRun({
             text: checkboxSymbol + ' ',
-            font: {
-              ascii: 'Times New Roman',
-              eastAsia: 'SimSun',
-              hAnsi: 'Times New Roman',
-              cs: 'Times New Roman',
-            },
+            font: this.createFontConfig('Times New Roman', 'SimSun'),
             size: 24,
           }));
         }
@@ -1318,6 +1292,7 @@ class DocxExporter {
             after: 45,  // 3px spacing between items
             line: 360,  // 1.5 line spacing
           }),
+          alignment: AlignmentType.LEFT, // Explicitly set left alignment for list items
         };
 
         // Use numbering for ordered lists, bullet for unordered lists
@@ -1360,6 +1335,7 @@ class DocxExporter {
     return new Paragraph({
       children: runs,
       wordWrap: true, // 启用自动换行，支持长行代码在 DOCX 中换行
+      alignment: AlignmentType.LEFT, // Explicitly set left alignment for code blocks
       spacing: this.applyPendingSpacing({
         before: 200, // 13px
         after: 200,  // 13px
@@ -1411,6 +1387,7 @@ class DocxExporter {
             after: 0,
             line: 360,
           }),
+          alignment: AlignmentType.LEFT, // Explicitly set left alignment for blockquote
           indent: {
             left: convertInchesToTwip(outerIndent - leftBorderAndPadding),     // Compensate for left border and padding
             right: convertInchesToTwip(rightBorderAndPadding),                 // Compensate for right padding
@@ -1562,6 +1539,7 @@ class DocxExporter {
     // Double the thickness and use lighter color
     return new Paragraph({
       text: '',
+      alignment: AlignmentType.LEFT, // Explicitly set left alignment
       spacing: {
         before: 300,  // 20px spacing before
         after: 300,   // 20px spacing after
@@ -1601,6 +1579,7 @@ class DocxExporter {
           color: '666666',
         }),
       ],
+      alignment: AlignmentType.LEFT, // Explicitly set left alignment
       spacing: this.applyPendingSpacing({ before: 120, after: 120 }),
     });
   }
@@ -1632,6 +1611,7 @@ class DocxExporter {
             size: 24, // 12pt
           }),
         ],
+        alignment: AlignmentType.LEFT, // Explicitly set left alignment for error fallback
         spacing: this.applyPendingSpacing({ before: 120, after: 120 }),
       });
     }
@@ -1692,6 +1672,7 @@ class DocxExporter {
             color: '666666',
           }),
         ],
+        alignment: AlignmentType.LEFT, // Explicitly set left alignment for placeholder
         spacing: this.applyPendingSpacing({ before: 240, after: 240 }),
       });
     }
@@ -1760,6 +1741,7 @@ class DocxExporter {
             color: 'FF0000',
           }),
         ],
+        alignment: AlignmentType.LEFT, // Explicitly set left alignment for error message
         spacing: this.applyPendingSpacing({ before: 240, after: 240 }),
       });
     }
@@ -1779,6 +1761,7 @@ class DocxExporter {
             color: '666666',
           }),
         ],
+        alignment: AlignmentType.LEFT, // Explicitly set left alignment for placeholder
         spacing: this.applyPendingSpacing({ before: 240, after: 240 }),
       });
     }
@@ -1842,6 +1825,7 @@ class DocxExporter {
             color: 'FF0000',
           }),
         ],
+        alignment: AlignmentType.LEFT, // Explicitly set left alignment for error message
         spacing: this.applyPendingSpacing({ before: 240, after: 240 }),
       });
     }
