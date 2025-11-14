@@ -128,7 +128,7 @@ async function initializeContentScript() {
       window.scrollTo(0, 0);
       chrome.runtime.sendMessage({
         type: 'clearScrollPosition',
-        url: document.location.href
+        url: getCurrentDocumentUrl()
       });
       return;
     }
@@ -136,7 +136,7 @@ async function initializeContentScript() {
     // Clear saved position
     chrome.runtime.sendMessage({
       type: 'clearScrollPosition',
-      url: document.location.href
+      url: getCurrentDocumentUrl()
     });
 
     // Debounced scroll adjustment
@@ -192,6 +192,24 @@ async function initializeContentScript() {
   }
 
   /**
+   * Get current document URL without hash/anchor
+   * @returns {string} Current document URL without hash
+   */
+  function getCurrentDocumentUrl() {
+    const url = document.location.href;
+    try {
+      const urlObj = new URL(url);
+      // Remove hash/anchor
+      urlObj.hash = '';
+      return urlObj.href;
+    } catch (e) {
+      // Fallback: simple string removal
+      const hashIndex = url.indexOf('#');
+      return hashIndex >= 0 ? url.substring(0, hashIndex) : url;
+    }
+  }
+
+  /**
    * Save file state to background script
    * @param {Object} state - State object containing scrollPosition, tocVisible, zoom, layoutMode
    */
@@ -199,7 +217,7 @@ async function initializeContentScript() {
     try {
       chrome.runtime.sendMessage({
         type: 'saveFileState',
-        url: document.location.href,
+        url: getCurrentDocumentUrl(),
         state: state
       });
     } catch (e) {
@@ -215,7 +233,7 @@ async function initializeContentScript() {
     try {
       const response = await chrome.runtime.sendMessage({
         type: 'getFileState',
-        url: document.location.href
+        url: getCurrentDocumentUrl()
       });
       return response?.state || {};
     } catch (e) {
@@ -897,7 +915,7 @@ ${truncatedMarkup}`;
     try {
       const response = await chrome.runtime.sendMessage({
         type: 'getScrollPosition',
-        url: document.location.href
+        url: getCurrentDocumentUrl()
       });
 
       // Return saved position if available and current position is at top (page just loaded)
@@ -1592,12 +1610,9 @@ ${truncatedMarkup}`;
 
   // Get filename from URL with proper decoding and hash removal
   function getFilenameFromURL() {
-    const url = window.location.href;
+    const url = getCurrentDocumentUrl();
     const urlParts = url.split('/');
     let fileName = urlParts[urlParts.length - 1] || 'document.md';
-
-    // Remove hash part (# and everything after)
-    fileName = fileName.split('#')[0];
 
     // Decode URL encoding
     try {
@@ -1638,7 +1653,7 @@ ${truncatedMarkup}`;
   // Save current document to history
   async function saveToHistory() {
     try {
-      const url = window.location.href;
+      const url = getCurrentDocumentUrl();
       const title = document.title || extractFileName(url);
       
       const result = await chrome.storage.local.get(['markdownHistory']);
