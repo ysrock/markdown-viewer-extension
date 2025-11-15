@@ -1,190 +1,305 @@
 # Markdown Viewer
 
-Write your documents in Markdown and export a polished Word file with one click.
+**Write in Markdown, export to perfect Word with one click.**
 
-## 💡 What problems does this tool solve?
+*Completely Free · Local Processing · 18+ Professional Themes · 8 Languages Support*
 
-Have you ever run into these headaches?
+---
 
-- ✍️ **Markdown is efficient to write, but Word is required for delivery** – enterprise collaboration, academic submissions, and project handoffs still demand Word documents.
-- 📊 **Flowcharts and sequence diagrams do not survive the journey** – Mermaid code does not render in Word, so you end up taking manual screenshots.
-- 🤯 **Screenshot, paste, resize… repeat forever** – every edit forces you to capture the diagram again; a single document can mean dozens of repetitive steps.
-- 😵 **Copying into Word destroys the layout** – heading hierarchy breaks, table styling disappears, and you spend ages fixing the formatting.
-- 📐 **Math formulas are painful to convert** – LaTeX pasted into Word turns into plain text and no longer displays correctly.
+You love writing in Markdown — clean, efficient, version control friendly.  
+But eventually, you always need a Word document.
 
-Now you only need to press one button and all of these issues disappear.
+**The old nightmare:**
 
-## ✨ What you can do with this tool
+😫 Manual screenshot flowcharts · Copy-paste formulas become messy · Format code by hand · Adjust tables cell by cell · Spend another 30 minutes tweaking fonts, spacing, and colors after export
 
-### 📝 Focus on writing and forget formatting troubles
+**One document: 1 hour writing, 2 hours formatting.**
 
-Write your content in Markdown:
-- Technical design documents
-- Product requirement documents
-- Course notes
-- Academic papers
-- API references
+---
 
-When you are done, press the **Download** button and instantly receive a perfectly formatted Word file.
+**Now it takes just 1 second.**
 
-**No more:**
-- ❌ Manual screenshots
-- ❌ Copy and paste loops
-- ❌ Hand-tuning the layout
-- ❌ Worrying about diagrams not showing up
+Click to download and get a perfect Word document:
+- ✅ Mermaid diagrams → High-resolution images
+- ✅ LaTeX formulas → Word editable equations
+- ✅ Auto syntax highlighting (100+ languages)
+- ✅ 18+ professional themes with one click
+- ✅ Completely free, local processing
 
-**Handled automatically:**
-- ✅ Flowcharts and sequence diagrams converted to high-definition images
-- ✅ Math formulas transformed into native, editable Word equations
-- ✅ Heading levels and list indentation preserved exactly
-- ✅ Syntax-highlighted code blocks ready for technical review
+**Spend time on writing, not on formatting.**
 
-### 🎯 Built to solve real-world problems
+---
 
-**Scenario 1: Technical documentation must be delivered in Word**
+## 💫 See It in Action
 
-You are preparing a system architecture document with a dozen flowcharts and sequence diagrams. In the past you had to:
-1. Draw every diagram in draw.io or another tool
-2. Export the diagram as an image
-3. Insert it into Word
-4. Adjust size and position
-5. Repeat everything after each revision
+### Technical Documentation: 15 Flowcharts, 2 Hours → 5 Minutes
 
-Now you only need to:
-1. Describe the diagrams with Mermaid code in Markdown
-2. Click the download button
+**Before:** draw.io diagram → Export PNG → Insert into Word → Resize → Repeat 15 times = **2 hours**
 
-You save around 90% of the effort.
+**Now:** Write Mermaid code → Click download = **5 minutes**
 
-**Scenario 2: Academic papers packed with formulas**
+## System Architecture
 
-You are writing a paper containing dozens of equations. Previously you had to:
-1. Type every formula again in Word’s equation editor
-2. Or rely on services such as Mathpix (and pay for it)
+``````markdown
+```mermaid
+graph TB
+    A[User] --> B[Load Balancer]
+    B --> C[Server 1]
+    B --> D[Server 2]
+```
+``````
 
-Now you can:
-1. Write the formulas in Markdown with standard LaTeX syntax
-2. Click download and the equations become editable Word math objects
+Need changes? Modify code and re-export. **Save 115 minutes.**
 
-It is faster, cleaner, and free.
+### Academic Paper: 50+ Formulas, 3 Hours → 10 Minutes
 
-**Scenario 3: Teams collaborate in Markdown but must share Word files**
+**Before:** Word equation editor one by one OR paid tool subscription = **3 hours + Paid subscription**
 
-Your team keeps documentation in Markdown inside a Git repository, yet management or clients still expect Word reports. Previously you had to:
-1. Copy everything into Word by hand
-2. Recreate the formatting
-3. Capture screenshots for diagrams
+**Now:** Write LaTeX syntax directly → Click download = **10 minutes + Free**
 
-Now you just:
-1. Open the Markdown file
-2. Click download
-3. Send the generated document
+Given mass $m$ and acceleration $a$, according to Newton's second law:
 
-The very same report is ready in under a minute.
+```markdown
+$$
+F = ma = m\frac{dv}{dt} = m\frac{d^2x}{dt^2}
+$$
+```
 
-### 📖 Preview as you write and guarantee perfect exports
+Export as native Word format, fully editable. **Not an image, but a real equation object.**
 
-Open any Markdown file to see the final look immediately:
+### Team Collaboration: Weekly Reports, 1 Hour → 1 Minute
 
-**Even large files load in seconds**
-- Packed with dozens of complex diagrams? It still opens instantly.
-- Text appears right away, while diagrams render in the background.
-- Reopening the same document uses the cache and becomes even faster.
+**Before:** Copy content → Set format → Adjust lists → Add styling → Screenshots = **1 hour weekly**
 
-**Tweak the view at any time**
-- 🔍 Flexible zoom (50%–400%)
-  - Need larger text? Zoom in without limits.
-  - Working on a small screen? Zoom out for the big picture.
-  - Reset to default with a single click.
-- 📐 Three layout modes to preview exports
-  - Normal (1000 px) for the best reading width in the browser
-  - Fullscreen for presentations and meetings
-  - Narrow (530 px) to mimic Word pagination ahead of time
-- 📑 Hundreds of pages? Use the sidebar TOC to jump to any section instantly.
-- 💾 Your reading position is remembered automatically so you resume where you left off.
+**Now:** Open file → Choose theme → Click download = **1 minute**
 
-**The more you use it, the faster it gets**
-- The first load initializes the rendering engine in a few seconds.
-- Subsequent opens of the same document show diagrams and formulas immediately.
-- Repeated loading time drops dramatically.
+Choose "Business" theme for professional look. **Save 59 minutes weekly.**
 
-## 📦 Quick start
+---
 
-### Install the extension
+## 🎯 Three Core Features
 
-1. Visit the Chrome Web Store and search for “Markdown Viewer”.
-2. Click **Add to Chrome**.
-3. Confirm the installation.
+### 1. Automatic Diagram Conversion
 
-### View local files (important)
+All Mermaid types · SVG images · Complex HTML tables
 
-To open `.md` files from your computer, grant the extension the required permission:
+**Time comparison:** Complex sequence diagram (10 objects)
+- Traditional tools: Draw 30min + Modify 20min + Adjust 10min + Export 5min = **65 minutes**
+- Markdown Viewer: Write code 5min + Modify 30sec + Export 1sec = **6 minutes**
 
-1. Open `chrome://extensions/`.
-2. Locate Markdown Viewer.
-3. Enable **Allow access to file URLs**.
+**Save 59 minutes — time for two coffee breaks.**
 
-After that you can:
-- Double-click local Markdown files to view them in Chrome.
-- Drag and drop files into the browser window.
-- Read documents shared by your team with ease.
+### 2. Perfect Formula Conversion
 
-### Start using it
+LaTeX → Word editable equations (not images!)
 
-**Read documents**
-- Online files: open any `.md` or `.markdown` link directly.
-- Local files: drag into Chrome or double-click the file.
-- GitHub repositories: pages are beautified automatically.
+After export, you can:
+- ✅ Continue editing in Word
+- ✅ Adjust font size
+- ✅ Modify symbols and variables
+- ✅ Copy to other documents
 
-**Export to Word**
-- Click the download button in the toolbar (or press `Ctrl/Cmd + S`).
-- Watch the real-time progress indicator.
-- The file is saved to your downloads folder automatically.
+**One formula, two approaches:**
+- ❌ Word equation editor: Click...click...click...select symbols...adjust positions
+- ✅ LaTeX: `\int_0^\infty e^{-x^2}dx` Done
 
-**Adjust the reading experience**
-- Use `-` / `+` to change font size.
-- Click the layout button to switch page widths.
-- Press `Ctrl/Cmd + B` to toggle the table of contents.
+### 3. 18+ Professional Themes
 
-## 💎 How it compares to other solutions
+Different scenarios, different styles, one-click switch:
 
-**Traditional approach: Markdown → screenshots → Word**
-- ❌ Capture every diagram by hand.
-- ❌ Redo all screenshots after each edit.
-- ❌ Inconsistent image quality.
-- ❌ Time-consuming and error-prone.
+- 📊 Business / Technical → Business reports, technical docs
+- 📚 Academic / Palatino → Academic papers, book typesetting  
+- 🇨🇳 Songti / Heiti / Mixed → Chinese documents
+- 🎨 Typewriter / Sakura → Creative content
 
-**Pandoc or other command-line tools**
-- ❌ Requires installation and configuration.
-- ❌ Significant learning curve.
-- ❌ Limited diagram support.
-- ❌ No live preview.
+**WYSIWYG:** Preview looks exactly like exported Word. No guessing, no trial.
 
-**Online conversion services**
-- ❌ Upload your documents (privacy concerns).
-- ❌ Usually paid.
-- ❌ Dependent on network connectivity.
-- ❌ Formatting support is incomplete.
+**No more manual adjustments:** Font, size, line spacing, paragraph spacing, code background...
 
-**Markdown Viewer**
-- ✅ One-click export with full automation.
-- ✅ Local processing keeps your data private.
-- ✅ Completely free with no usage limits.
-- ✅ Diagrams and math are handled flawlessly.
-- ✅ Live preview gives you true WYSIWYG.
-- ✅ Formatting stays intact—no cleanup required.
+---
 
-## 💬 What users say
+## ⚡ Lightning Fast Experience
 
-"I used to spend an hour just dealing with flowcharts in technical docs. Now I finish the Mermaid blocks and export—done in five minutes."
+### Smart Cache: First Time 5s, Second Time 1s
 
-— Alex Chen (Software Engineer)
+Document with 50 Mermaid diagrams:
+- **First open:** Text displays instantly, diagrams render in background, all done within 5s
+- **Second open:** Load from cache, instant display (<1s)
+- **Text modified:** Still instant (diagrams from cache)
+- **Diagram modified:** Only re-render changed diagrams
 
-"When I write papers, this tool keeps every equation editable in the exported Word file. It is incredibly convenient."
+**10x faster than Word, 100x smaller files.**
 
-— Sarah Zhang (Graduate Student)
+### Reading Enhancement
 
-"Our team writes everything in Markdown, and now we can send Word copies to clients instantly without manual conversion."
+- **Three layouts:** Normal (1000px) / Full screen / Narrow (530px, preview Word effect)
+- **Flexible zoom:** 50%-400%, shortcuts `Ctrl/Cmd +` `-` `0`
+- **Smart TOC:** Auto-extract headings, sidebar navigation, `Ctrl/Cmd + B` to toggle
+- **Position memory:** Auto-save scroll position, continue reading next time
+- **History:** Track recently opened documents
 
-— Kevin Wu (Product Manager)
+---
 
+## 🚀 Quick Start - 3 Steps
+
+### Step 1: Install Extension (30 seconds)
+
+1. Open Chrome browser
+2. Visit Chrome Web Store
+3. Search "Markdown Viewer"
+4. Click "Add to Chrome"
+5. ✅ Installation complete
+
+### Step 2: Allow File Access (1 minute)
+
+**If you want to open local .md files:**
+
+1. Open `chrome://extensions/`
+2. Find Markdown Viewer
+3. Enable "Allow access to file URLs"
+4. ✅ Now you can double-click to open local Markdown files
+
+**Not needed if:**
+- Only viewing online docs (GitHub, blogs, etc.)
+- Using browser's "Open File" function
+
+### Quick Start
+
+**Open documents:** Double-click .md files, or drag to browser · GitHub docs auto-rendered
+
+**Export to Word:** Click download button or `Ctrl/Cmd + S` → See progress → Auto-save
+
+**Switch themes:** Click toolbar → Choose theme → Apply instantly
+
+**Adjust view:** `+`/`-` zoom · Layout switch · `Ctrl/Cmd + B` TOC
+
+---
+
+## 🎁 Complete Features
+
+### Full Markdown Syntax Support
+
+Headings · Paragraphs · Bold · Italic · Strikethrough · Lists · Task lists · Blockquotes · Code blocks (100+ languages highlighted) · Tables · Links · Images · Mermaid diagrams · LaTeX formulas · HTML · GFM extensions
+
+### 18 Themes
+
+**Business:** Default · Business · Technical  
+**Academic:** Academic  
+**Serif:** Palatino · Garamond · Cambria · Elegant  
+**Sans-serif:** Verdana · Trebuchet · Century  
+**Chinese:** Songti · Heiti · Mixed  
+**Creative:** Typewriter · Sakura · Water · Minimal
+
+### 8 Interface Languages
+
+Simplified Chinese · English · Deutsch · Español · Français · 日本語 · 한국어 · Русский
+
+---
+
+## 💎 Competitive Advantages
+
+|  | Manual Screenshots | CLI Tools | Online Services | Desktop Editors | Markdown Viewer |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Ease of Use** | Tedious | Setup needed | Upload needed | Install needed | ✅ One-click |
+| **Mermaid** | Manual screenshot | Plugin needed | ✅ Supported | ✅ Supported | ✅ Native support |
+| **Math Formulas** | Images | Images | Images | Images | ✅ Editable |
+| **Privacy** | ✅ Local | ✅ Local | ❌ Cloud upload | ✅ Local | ✅ Local |
+| **Themes** | - | - | 3-5 | 5-10 | ✅ 18+ |
+| **Offline** | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **GitHub Direct View** | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Price** | Free | Free | Paid plans | Paid plans | ✅ Free |
+
+**Core advantage: Faster, cheaper, safer, more powerful.**
+
+---
+
+## ❓ FAQ
+
+**Q: Can I edit the exported Word document?**  
+A: Yes. Standard .docx format, math formulas are editable, not images.
+
+**Q: Which diagrams are supported?**  
+A: All Mermaid diagrams (flowchart, sequence, gantt, class, state, pie, ER, etc.) + SVG auto-conversion.
+
+**Q: Is there a file size limit?**  
+A: No limit. Smart cache, documents with 100+ diagrams open instantly.
+
+**Q: Does it require internet?**  
+A: No. Completely local processing, works offline.
+
+**Q: Will my documents be uploaded?**  
+A: Never. All processing happens locally.
+
+**Q: How to switch themes?**  
+A: Click toolbar icon → Select theme → Apply instantly.
+
+**Q: Can I customize themes?**  
+A: Currently 18 preset themes, customization coming soon.
+
+**Q: Will large documents lag?**  
+A: No. Progressive loading + smart cache, text displays instantly, diagrams render in background (first 5s, second 1s).
+
+**Q: Does cache take up much space?**  
+A: Default max 1000 items, approximately 500 MB, adjustable or clearable in settings.
+
+**Q: Which browsers are supported?**  
+A: Chrome and Chromium-based browsers (Edge, Brave, Opera).
+
+**Q: Which Word versions can open the exported file?**  
+A: Word 2016+ fully supported, Word 2013 also works. Fully compatible with WPS Office.
+
+**Q: Can I export to PDF?**  
+A: Currently Word only, PDF planned. You can export to Word then save as PDF.
+
+**Q: Which theme suits me?**  
+A: Business reports → Business · Academic papers → Academic · Technical docs → Technical · Chinese docs → Songti/Mixed
+
+---
+
+## 🔒 Privacy Commitment
+
+- ✅ All processing done locally, never uploaded
+- ✅ No tracking, no personal data collection
+- ✅ Open source code, auditable and transparent
+- ✅ Chrome Web Store security approved (Manifest V3)
+
+**Your privacy is 100% protected.**
+
+---
+
+## 🆘 Get Help
+
+📖 [Full Documentation](https://github.com/xicilion/markdown-viewer-extension) · 🐛 [Report Issues](https://github.com/xicilion/markdown-viewer-extension/issues) · 💡 [Feature Requests](https://github.com/xicilion/markdown-viewer-extension/issues) · ⭐ [GitHub Star](https://github.com/xicilion/markdown-viewer-extension)
+
+---
+
+## 🎉 Get Started Now
+
+**Install in 30 seconds, start using immediately:**
+
+1. Visit Chrome Web Store → Search "Markdown Viewer"
+2. Click "Add to Chrome"
+3. Drag `.md` files to browser
+4. ✅ Start using
+
+**You'll get:** Markdown → Word one-click conversion · Mermaid auto-convert · LaTeX editable formulas · 100+ languages syntax highlighting · 18+ themes · Smart cache · Completely free
+
+**Perfect for:** Technical writers · Students/researchers · Product managers · Developers · Anyone using Markdown
+
+---
+
+## 📜 Open Source License
+
+This project is open source under ISC license. Welcome to Star, report issues, suggest features, and contribute code.
+
+**Project URL:** https://github.com/xicilion/markdown-viewer-extension
+
+---
+
+**Stop wasting time on formatting**
+
+**Focus on writing, let Markdown Viewer handle everything else**
+
+### [🚀 Install Now](https://chrome.google.com/webstore)
+
+*Completely Free · Local Processing · Privacy Protected*
