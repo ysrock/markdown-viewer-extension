@@ -7,14 +7,6 @@
     "message": "Просматривайте файлы Markdown с подсветкой синтаксиса и умными инструментами экспорта",
     "description": "Описание расширения в Chrome Web Store"
   },
-  "tab_overview": {
-    "message": "Обзор",
-    "description": "Метка вкладки обзора"
-  },
-  "tab_guide": {
-    "message": "Гид",
-    "description": "Метка вкладки руководства"
-  },
   "tab_history": {
     "message": "История",
     "description": "Метка вкладки истории"
@@ -31,73 +23,9 @@
     "message": "Просмотрщик Markdown",
     "description": "Заголовок всплывающего окна"
   },
-    "popup_version_label": {
-    "message": "\u0412\u0435\u0440\u0441\u0438\u044f {0}",
+  "popup_version_label": {
+    "message": "Версия {0}",
     "description": "Отображает версию расширения"
-  },
-  "overview_features_title": {
-    "message": "Возможности",
-    "description": "Заголовок списка функций"
-  },
-  "overview_feature_live_render": {
-    "message": "Мгновенный рендер Markdown",
-    "description": "Пункт списка функций"
-  },
-  "overview_feature_code_highlight": {
-    "message": "Подсветка синтаксиса для блоков кода",
-    "description": "Пункт списка функций"
-  },
-  "overview_feature_math_support": {
-    "message": "Математические формулы на базе KaTeX",
-    "description": "Пункт списка функций"
-  },
-  "overview_feature_theme": {
-    "message": "Переключение светлой и тёмной темы",
-    "description": "Пункт списка функций"
-  },
-  "overview_feature_toc": {
-    "message": "Автоматическое содержание",
-    "description": "Пункт списка функций"
-  },
-  "overview_feature_cache": {
-    "message": "Умный кэш для повторных посещений",
-    "description": "Пункт списка функций"
-  },
-  "overview_version_title": {
-    "message": "Сведения о версии",
-    "description": "Заголовок информации о версии"
-  },
-  "overview_usage_title": {
-    "message": "Как пользоваться",
-    "description": "Заголовок раздела использования"
-  },
-  "overview_usage_step1": {
-    "message": "1. Откройте файл .md или .markdown в Chrome",
-    "description": "Шаг использования"
-  },
-  "overview_usage_step2": {
-    "message": "2. Расширение автоматически отобразит документ",
-    "description": "Шаг использования"
-  },
-  "overview_demo_title": {
-    "message": "📝 Демонстрация",
-    "description": "Заголовок демо"
-  },
-  "overview_demo_button": {
-    "message": "Открыть демонстрационный документ",
-    "description": "Кнопка открытия демо"
-  },
-  "overview_demo_helper": {
-    "message": "Откройте пример Markdown, чтобы изучить все возможности",
-    "description": "Помощь под кнопкой демо"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ Важно",
-    "description": "Заголовок важного уведомления"
-  },
-  "overview_tip_content": {
-    "message": "Включите \"Разрешить доступ к файлам URL\" на странице расширений Chrome, чтобы читать локальные файлы Markdown.",
-    "description": "Важный совет"
   },
   "toolbar_toggle_toc_title": {
     "message": "Показать или скрыть содержание",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "Не удалось экспортировать{0}",
     "description": "Предупреждение при ошибке экспорта"
-  },
-  "cache_loading": {
-    "message": "Загрузка сведений о кэше...",
-    "description": "Показывается при загрузке"
-  },
-  "cache_default_message": {
-    "message": "В кэше пока нет данных — сначала откройте файл Markdown",
-    "description": "Сообщение при пустом кэше"
   },
   "cache_error_message": {
     "message": "Не удалось связаться с кэшем — сначала откройте файл Markdown",
@@ -407,26 +327,6 @@
     "message": "Сбросить",
     "description": "Кнопка сброса"
   },
-  "settings_about_title": {
-    "message": "О программе",
-    "description": "Заголовок раздела"
-  },
-  "settings_about_author_label": {
-    "message": "Автор:",
-    "description": "Подпись автора"
-  },
-  "settings_about_version_label": {
-    "message": "Версия:",
-    "description": "Подпись версии"
-  },
-  "settings_about_updated_label": {
-    "message": "Обновлено:",
-    "description": "Подпись даты"
-  },
-  "settings_about_storage_label": {
-    "message": "Движок хранения:",
-    "description": "Подпись движка"
-  },
   "history_title": {
     "message": "Недавние документы",
     "description": "Заголовок документов истории"
@@ -466,5 +366,21 @@
   "history_open_failed": {
     "message": "Не удалось открыть документ",
     "description": "Сообщение ошибки открытия документа истории"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   }
 }

@@ -7,14 +7,6 @@
     "message": "Markdown-Dateien mit Syntaxhervorhebung und smarten Exportwerkzeugen anzeigen",
     "description": "Beschreibung der Erweiterung im Chrome Web Store"
   },
-  "tab_overview": {
-    "message": "Übersicht",
-    "description": "Beschriftung für den Übersichtstab"
-  },
-  "tab_guide": {
-    "message": "Guide",
-    "description": "Beschriftung für den Guide-Tab"
-  },
   "tab_history": {
     "message": "Verlauf",
     "description": "Beschriftung für den Verlaufs-Tab"
@@ -34,70 +26,6 @@
   "popup_version_label": {
     "message": "Version {0}",
     "description": "Zeigt die Erweiterungsversion im Header"
-  },
-  "overview_features_title": {
-    "message": "Funktionen",
-    "description": "Titel der Funktionsliste"
-  },
-  "overview_feature_live_render": {
-    "message": "Markdown sofort rendern",
-    "description": "Funktionsliste"
-  },
-  "overview_feature_code_highlight": {
-    "message": "Syntaxhervorhebung für Codeblöcke",
-    "description": "Funktionsliste"
-  },
-  "overview_feature_math_support": {
-    "message": "Mathematische Formeln mit KaTeX",
-    "description": "Funktionsliste"
-  },
-  "overview_feature_theme": {
-    "message": "Hell-/Dunkelmodus umschalten",
-    "description": "Funktionsliste"
-  },
-  "overview_feature_toc": {
-    "message": "Automatisches Inhaltsverzeichnis",
-    "description": "Funktionsliste"
-  },
-  "overview_feature_cache": {
-    "message": "Intelligenter Cache für wiederkehrende Besuche",
-    "description": "Funktionsliste"
-  },
-  "overview_version_title": {
-    "message": "Versiondetails",
-    "description": "Überschrift für Versionsinformationen"
-  },
-  "overview_usage_title": {
-    "message": "So geht's",
-    "description": "Titel der Nutzungshinweise"
-  },
-  "overview_usage_step1": {
-    "message": "1. Öffnen Sie eine .md- oder .markdown-Datei in Chrome",
-    "description": "Nutzungsschritt"
-  },
-  "overview_usage_step2": {
-    "message": "2. Die Erweiterung rendert das Dokument automatisch",
-    "description": "Nutzungsschritt"
-  },
-  "overview_demo_title": {
-    "message": "📝 Demo",
-    "description": "Titel des Demoabschnitts"
-  },
-  "overview_demo_button": {
-    "message": "Demo-Dokument öffnen",
-    "description": "Schaltfläche zum Öffnen der Demo"
-  },
-  "overview_demo_helper": {
-    "message": "Öffnen Sie eine Beispieldatei, um alle Funktionen zu entdecken",
-    "description": "Hilfetext unter der Demoschaltfläche"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ Wichtig",
-    "description": "Titel für den wichtigen Hinweis"
-  },
-  "overview_tip_content": {
-    "message": "Aktivieren Sie \"Zugriff auf Datei-URLs zulassen\" auf der Chrome-Erweiterungsseite, um lokale Markdown-Dateien zu lesen.",
-    "description": "Wichtiger Nutzungshinweis"
   },
   "toolbar_toggle_toc_title": {
     "message": "Inhaltsverzeichnis ein- oder ausblenden",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "Export fehlgeschlagen{0}",
     "description": "Warnung bei Exportfehler"
-  },
-  "cache_loading": {
-    "message": "Cache-Details werden geladen...",
-    "description": "Angezeigt während Cache lädt"
-  },
-  "cache_default_message": {
-    "message": "Noch keine Cache-Daten — öffnen Sie zuerst eine Markdown-Datei",
-    "description": "Angezeigt, wenn der Cache leer ist"
   },
   "cache_error_message": {
     "message": "Cache-Kommunikation fehlgeschlagen — öffnen Sie zuerst eine Markdown-Datei",
@@ -407,26 +327,6 @@
     "message": "Zurücksetzen",
     "description": "Zurücksetzen-Schaltfläche"
   },
-  "settings_about_title": {
-    "message": "Über",
-    "description": "Überschrift für Über-Bereich"
-  },
-  "settings_about_author_label": {
-    "message": "Autor:",
-    "description": "Beschriftung Autor"
-  },
-  "settings_about_version_label": {
-    "message": "Version:",
-    "description": "Beschriftung Version"
-  },
-  "settings_about_updated_label": {
-    "message": "Aktualisiert:",
-    "description": "Beschriftung Aktualisiert"
-  },
-  "settings_about_storage_label": {
-    "message": "Speicher-Engine:",
-    "description": "Beschriftung Speicher"
-  },
   "history_title": {
     "message": "Kürzlich geöffnete Dokumente",
     "description": "Titel Verlaufsdokumente"
@@ -466,5 +366,21 @@
   "history_open_failed": {
     "message": "Fehler beim Öffnen des Dokuments",
     "description": "Fehlernachricht Verlaufsdokument öffnen"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   }
 }

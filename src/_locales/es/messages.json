@@ -7,14 +7,6 @@
     "message": "Visualiza archivos Markdown con resaltado de sintaxis y herramientas de exportación inteligentes",
     "description": "Descripción de la extensión mostrada en la Chrome Web Store"
   },
-  "tab_overview": {
-    "message": "Resumen",
-    "description": "Etiqueta para la pestaña de resumen"
-  },
-  "tab_guide": {
-    "message": "Guía",
-    "description": "Etiqueta para la pestaña de guía"
-  },
   "tab_history": {
     "message": "Historial",
     "description": "Etiqueta para la pestaña de historial"
@@ -32,72 +24,8 @@
     "description": "Título del popup"
   },
   "popup_version_label": {
-    "message": "Versi\u00f3n {0}",
+    "message": "Versión {0}",
     "description": "Muestra la versión de la extensión en el encabezado"
-  },
-  "overview_features_title": {
-    "message": "Funciones",
-    "description": "Título para la lista de funciones"
-  },
-  "overview_feature_live_render": {
-    "message": "Renderiza Markdown al instante",
-    "description": "Elemento de la lista de funciones"
-  },
-  "overview_feature_code_highlight": {
-    "message": "Resaltado de sintaxis para bloques de código",
-    "description": "Elemento de la lista de funciones"
-  },
-  "overview_feature_math_support": {
-    "message": "Fórmulas matemáticas con tecnología KaTeX",
-    "description": "Elemento de la lista de funciones"
-  },
-  "overview_feature_theme": {
-    "message": "Alterna entre tema claro y oscuro",
-    "description": "Elemento de la lista de funciones"
-  },
-  "overview_feature_toc": {
-    "message": "Tabla de contenidos automática",
-    "description": "Elemento de la lista de funciones"
-  },
-  "overview_feature_cache": {
-    "message": "Caché inteligente para visitas repetidas",
-    "description": "Elemento de la lista de funciones"
-  },
-  "overview_version_title": {
-    "message": "Detalles de la versión",
-    "description": "Encabezado para la información de versión"
-  },
-  "overview_usage_title": {
-    "message": "Cómo usarlo",
-    "description": "Título de uso"
-  },
-  "overview_usage_step1": {
-    "message": "1. Abre cualquier archivo .md o .markdown en Chrome",
-    "description": "Paso de uso"
-  },
-  "overview_usage_step2": {
-    "message": "2. La extensión renderiza el documento automáticamente",
-    "description": "Paso de uso"
-  },
-  "overview_demo_title": {
-    "message": "📝 Demostración",
-    "description": "Título de la sección demo"
-  },
-  "overview_demo_button": {
-    "message": "Abrir documento de demostración",
-    "description": "Botón para abrir la demo"
-  },
-  "overview_demo_helper": {
-    "message": "Abre un archivo Markdown de ejemplo para explorar todas las funciones",
-    "description": "Texto de ayuda bajo el botón demo"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ Importante",
-    "description": "Título para aviso importante"
-  },
-  "overview_tip_content": {
-    "message": "Activa \"Permitir acceso a URLs de archivos\" en la página de extensiones de Chrome para leer archivos Markdown locales.",
-    "description": "Consejo de uso importante"
   },
   "toolbar_toggle_toc_title": {
     "message": "Mostrar u ocultar la tabla de contenidos",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "Error al exportar{0}",
     "description": "Alerta al fallar la exportación"
-  },
-  "cache_loading": {
-    "message": "Cargando detalles de la caché...",
-    "description": "Se muestra mientras se carga la caché"
-  },
-  "cache_default_message": {
-    "message": "Aún no hay datos en caché — abre primero un archivo Markdown",
-    "description": "Mensaje cuando la caché está vacía"
   },
   "cache_error_message": {
     "message": "Fallo en la comunicación con la caché — abre primero un archivo Markdown",
@@ -407,26 +327,6 @@
     "message": "Restablecer",
     "description": "Botón restablecer"
   },
-  "settings_about_title": {
-    "message": "Acerca de",
-    "description": "Encabezado de la sección Acerca de"
-  },
-  "settings_about_author_label": {
-    "message": "Autor:",
-    "description": "Etiqueta de autor"
-  },
-  "settings_about_version_label": {
-    "message": "Versión:",
-    "description": "Etiqueta de versión"
-  },
-  "settings_about_updated_label": {
-    "message": "Actualizado:",
-    "description": "Etiqueta de fecha de actualización"
-  },
-  "settings_about_storage_label": {
-    "message": "Motor de almacenamiento:",
-    "description": "Etiqueta para información de almacenamiento"
-  },
   "history_title": {
     "message": "Documentos recientes",
     "description": "Título de documentos de historial"
@@ -466,5 +366,21 @@
   "history_open_failed": {
     "message": "Error al abrir el documento",
     "description": "Mensaje de error de abrir documento del historial"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   }
 }

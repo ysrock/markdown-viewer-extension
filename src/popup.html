@@ -342,51 +342,37 @@
       </div>
     </div>
     <div class="tabs">
-      <button class="tab active" data-tab="overview" data-i18n="tab_overview"></button>
-      <button class="tab" data-tab="history" data-i18n="tab_history"></button>
+      <button class="tab active" data-tab="history" data-i18n="tab_history"></button>
       <button class="tab" data-tab="cache" data-i18n="tab_cache"></button>
       <button class="tab" data-tab="settings" data-i18n="tab_settings"></button>
     </div>
 
     <div class="tab-content">
-      <!-- Overview tab -->
-      <div class="tab-panel active" id="overview">
-        <div class="instructions">
-          <strong data-i18n="overview_usage_title"></strong>
-          <p data-i18n="overview_usage_step1"></p>
-          <p data-i18n="overview_usage_step2"></p>
-        </div>
-
-        <div class="info-section">
-          <h3 data-i18n="overview_demo_title"></h3>
-          <div style="text-align: center; margin: 10px 0;">
-            <button class="btn" id="demo-link" style="background: #ecfdf3; border-color: #bbf7d0; color: #047857;"
-              data-i18n="overview_demo_button"></button>
-          </div>
-          <div style="font-size: 11px; opacity: 0.8; text-align: center;" data-i18n="overview_demo_helper">
+      <!-- History tab (merged with overview) -->
+      <div class="tab-panel active" id="history">
+        <!-- File access warning (only shown when permission is disabled) -->
+        <div id="file-access-warning" style="display: none; padding: 0 20px; margin-bottom: 15px;">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 6px; background: #fef3c7; border: 1px solid #fbbf24;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b; flex-shrink: 0;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 500; margin-bottom: 2px; color: #d97706;" data-i18n="file_access_disabled"></div>
+              <div style="font-size: 11px; color: #92400e;" id="file-access-warning-desc"></div>
+            </div>
           </div>
         </div>
 
-        <div class="instructions">
-          <strong data-i18n="overview_tip_title"></strong>
-          <p data-i18n="overview_tip_content"></p>
-        </div>
-      </div>
-
-      <!-- History tab -->
-      <div class="tab-panel" id="history">
+        <!-- History list -->
         <div class="info-section">
           <h3 data-i18n="history_title"></h3>
           <div style="font-size: 12px; margin-bottom: 10px; color: #6b7280;" data-i18n="history_description"></div>
-          <div class="cache-actions">
-            <button class="btn" id="refresh-history" data-i18n="history_refresh"></button>
-            <button class="btn danger" id="clear-history" data-i18n="history_clear"></button>
-          </div>
-        </div>
-
-        <div class="info-section">
+          
           <div class="cache-items" id="history-items" data-empty="true">
             <div class="cache-item cache-item--empty" data-i18n="history_items_empty"></div>
+          </div>
+
+          <div class="cache-actions" style="margin-top: 10px;">
+            <button class="btn" id="refresh-history" data-i18n="history_refresh"></button>
+            <button class="btn danger" id="clear-history" data-i18n="history_clear"></button>
           </div>
         </div>
       </div>

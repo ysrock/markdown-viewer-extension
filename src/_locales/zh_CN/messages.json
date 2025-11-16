@@ -7,14 +7,6 @@
     "message": "查看 Markdown 文件并支持智能导出",
     "description": "扩展简介"
   },
-  "tab_overview": {
-    "message": "概览",
-    "description": "概览标签"
-  },
-  "tab_guide": {
-    "message": "指南",
-    "description": "指南标签"
-  },
   "tab_history": {
     "message": "历史",
     "description": "历史标签"
@@ -34,70 +26,6 @@
   "popup_version_label": {
     "message": "版本 {0}",
     "description": "弹窗中的版本文字"
-  },
-  "overview_features_title": {
-    "message": "功能特性",
-    "description": "功能列表标题"
-  },
-  "overview_feature_live_render": {
-    "message": "实时渲染 Markdown",
-    "description": "功能列表项"
-  },
-  "overview_feature_code_highlight": {
-    "message": "代码语法高亮",
-    "description": "功能列表项"
-  },
-  "overview_feature_math_support": {
-    "message": "数学公式支持 (KaTeX)",
-    "description": "功能列表项"
-  },
-  "overview_feature_theme": {
-    "message": "亮色/暗色主题切换",
-    "description": "功能列表项"
-  },
-  "overview_feature_toc": {
-    "message": "自动生成目录",
-    "description": "功能列表项"
-  },
-  "overview_feature_cache": {
-    "message": "智能缓存系统",
-    "description": "功能列表项"
-  },
-  "overview_version_title": {
-    "message": "版本信息",
-    "description": "版本信息标题"
-  },
-  "overview_usage_title": {
-    "message": "使用方法：",
-    "description": "使用说明标题"
-  },
-  "overview_usage_step1": {
-    "message": "1. 在 Chrome 中打开 .md 或 .markdown 文件",
-    "description": "使用说明步骤"
-  },
-  "overview_usage_step2": {
-    "message": "2. 插件会自动渲染文件内容",
-    "description": "使用说明步骤"
-  },
-  "overview_demo_title": {
-    "message": "📝 在线演示",
-    "description": "演示区标题"
-  },
-  "overview_demo_button": {
-    "message": "打开演示文档",
-    "description": "演示按钮"
-  },
-  "overview_demo_helper": {
-    "message": "点击打开示例 Markdown 文档，体验扩展功能",
-    "description": "演示提示"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ 重要提示：",
-    "description": "重要提示标题"
-  },
-  "overview_tip_content": {
-    "message": "请确保在 Chrome 扩展管理页面中，为此扩展启用\"允许访问文件网址\"选项。",
-    "description": "重要提示内容"
   },
   "toolbar_toggle_toc_title": {
     "message": "显示/隐藏目录",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "导出失败{0}",
     "description": "DOCX 导出失败警告"
-  },
-  "cache_loading": {
-    "message": "正在加载缓存信息...",
-    "description": "缓存加载提示"
-  },
-  "cache_default_message": {
-    "message": "暂无缓存数据，请先打开 Markdown 文件",
-    "description": "缓存默认提示"
   },
   "cache_error_message": {
     "message": "缓存通信失败，请先打开 Markdown 文件",
@@ -268,12 +188,28 @@
     "description": "设置重置失败提示"
   },
   "demo_open_failed": {
-    "message": "打开演示文档失败",
-    "description": "打开演示失败提示"
+    "message": "打开演示失败",
+    "description": "Toast when demo link open fails"
+  },
+  "file_access_disabled": {
+    "message": "未启用",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "要查看本地文件，请访问",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "扩展设置页面",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "并启用「允许访问文件网址」选项",
+    "description": "Suffix for file access warning"
   },
   "cache_manual_limit_title": {
     "message": "⚠️ 缓存访问限制",
-    "description": "缓存手动说明标题"
+    "description": "Manual cache info section title"
   },
   "cache_manual_limit_desc_1": {
     "message": "出于安全限制，popup 无法直接访问 IndexedDB。",
@@ -406,26 +342,6 @@
   "settings_reset_btn": {
     "message": "重置为默认",
     "description": "重置按钮"
-  },
-  "settings_about_title": {
-    "message": "关于扩展",
-    "description": "关于区标题"
-  },
-  "settings_about_author_label": {
-    "message": "开发者:",
-    "description": "关于区标签"
-  },
-  "settings_about_version_label": {
-    "message": "版本:",
-    "description": "关于区标签"
-  },
-  "settings_about_updated_label": {
-    "message": "更新时间:",
-    "description": "关于区标签"
-  },
-  "settings_about_storage_label": {
-    "message": "存储引擎:",
-    "description": "关于区标签"
   },
   "history_title": {
     "message": "最近访问的文档",

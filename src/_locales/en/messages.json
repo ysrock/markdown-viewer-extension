@@ -7,14 +7,6 @@
     "message": "View Markdown files with syntax highlighting and smart export tools",
     "description": "Extension description shown in Chrome Web Store"
   },
-  "tab_overview": {
-    "message": "Overview",
-    "description": "Label for overview tab"
-  },
-  "tab_guide": {
-    "message": "Guide",
-    "description": "Label for guide tab"
-  },
   "tab_history": {
     "message": "History",
     "description": "Label for history tab"
@@ -34,70 +26,6 @@
   "popup_version_label": {
     "message": "Version {0}",
     "description": "Shows the extension version in the header"
-  },
-  "overview_features_title": {
-    "message": "Features",
-    "description": "Title for feature list"
-  },
-  "overview_feature_live_render": {
-    "message": "Render Markdown instantly",
-    "description": "Feature bullet"
-  },
-  "overview_feature_code_highlight": {
-    "message": "Syntax highlighting for code blocks",
-    "description": "Feature bullet"
-  },
-  "overview_feature_math_support": {
-    "message": "Math formulas powered by KaTeX",
-    "description": "Feature bullet"
-  },
-  "overview_feature_theme": {
-    "message": "Light and dark theme toggle",
-    "description": "Feature bullet"
-  },
-  "overview_feature_toc": {
-    "message": "Automatic table of contents",
-    "description": "Feature bullet"
-  },
-  "overview_feature_cache": {
-    "message": "Smart caching for repeat visits",
-    "description": "Feature bullet"
-  },
-  "overview_version_title": {
-    "message": "Version details",
-    "description": "Heading for version information"
-  },
-  "overview_usage_title": {
-    "message": "How to use",
-    "description": "Usage title"
-  },
-  "overview_usage_step1": {
-    "message": "1. Open any .md or .markdown file in Chrome",
-    "description": "Usage step"
-  },
-  "overview_usage_step2": {
-    "message": "2. The extension renders the document automatically",
-    "description": "Usage step"
-  },
-  "overview_demo_title": {
-    "message": "📝 Live demo",
-    "description": "Title for the demo section"
-  },
-  "overview_demo_button": {
-    "message": "Open demo document",
-    "description": "Button to open demo"
-  },
-  "overview_demo_helper": {
-    "message": "Open a sample Markdown file to explore every feature",
-    "description": "Helper text under demo button"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ Important",
-    "description": "Title for important notice"
-  },
-  "overview_tip_content": {
-    "message": "Enable \"Allow access to file URLs\" on the Chrome extensions page to read local Markdown files.",
-    "description": "Important usage tip"
   },
   "toolbar_toggle_toc_title": {
     "message": "Show or hide table of contents",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "Export failed{0}",
     "description": "Alert shown when DOCX export fails"
-  },
-  "cache_loading": {
-    "message": "Loading cache details...",
-    "description": "Shown while cache data loads"
-  },
-  "cache_default_message": {
-    "message": "No cache data yet — open a Markdown file first",
-    "description": "Fallback message when cache is empty"
   },
   "cache_error_message": {
     "message": "Cache communication failed — open a Markdown file first",
@@ -282,6 +202,22 @@
   "demo_open_failed": {
     "message": "Failed to open demo document",
     "description": "Toast when demo link open fails"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   },
   "cache_manual_limit_title": {
     "message": "⚠️ Cache access limits",
@@ -406,26 +342,6 @@
   "settings_reset_btn": {
     "message": "Reset to default",
     "description": "Reset button"
-  },
-  "settings_about_title": {
-    "message": "About",
-    "description": "Heading for about section"
-  },
-  "settings_about_author_label": {
-    "message": "Author:",
-    "description": "Label for author"
-  },
-  "settings_about_version_label": {
-    "message": "Version:",
-    "description": "Label for version"
-  },
-  "settings_about_updated_label": {
-    "message": "Updated:",
-    "description": "Label for update date"
-  },
-  "settings_about_storage_label": {
-    "message": "Storage engine:",
-    "description": "Label for storage engine"
   },
   "history_title": {
     "message": "Recent documents",

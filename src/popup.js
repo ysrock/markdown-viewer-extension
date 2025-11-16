@@ -133,7 +133,7 @@ class BackgroundCacheProxy {
 class PopupManager {
   constructor() {
     this.cacheManager = null;
-    this.currentTab = 'overview';
+    this.currentTab = 'history';
     this.themes = [];
     this.currentTheme = 'default';
     this.settings = {
@@ -148,9 +148,12 @@ class PopupManager {
     await this.loadSettings();
     this.setupEventListeners();
     this.initCacheManager();
+    this.checkFileAccess();
 
     if (this.currentTab === 'cache') {
       this.loadCacheData();
+    } else if (this.currentTab === 'history') {
+      this.loadHistoryData();
     }
   }
 
@@ -222,7 +225,6 @@ class PopupManager {
     const clearBtn = document.getElementById('clear-cache');
     const saveBtn = document.getElementById('save-settings');
     const resetBtn = document.getElementById('reset-settings');
-    const demoBtn = document.getElementById('demo-link');
     const refreshHistoryBtn = document.getElementById('refresh-history');
     const clearHistoryBtn = document.getElementById('clear-history');
 
@@ -247,12 +249,6 @@ class PopupManager {
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         this.resetSettings();
-      });
-    }
-
-    if (demoBtn) {
-      demoBtn.addEventListener('click', () => {
-        this.openDemo();
       });
     }
 
@@ -866,6 +862,52 @@ class PopupManager {
   showError(text) {
     console.error('Popup Error:', text);
     this.showMessage(`Error: ${text}`);
+  }
+
+  async checkFileAccess() {
+    try {
+      // Check if file:// access is allowed
+      const isAllowed = await chrome.extension.isAllowedFileSchemeAccess();
+      
+      const warningSection = document.getElementById('file-access-warning');
+      
+      if (!warningSection) {
+        return;
+      }
+      
+      // Only show warning when permission is disabled
+      if (!isAllowed) {
+        // Get extension ID and create clickable link
+        const extensionId = chrome.runtime.id;
+        const extensionUrl = `chrome://extensions/?id=${extensionId}`;
+        
+        const descEl = document.getElementById('file-access-warning-desc');
+        if (descEl) {
+          const baseText = translate('file_access_disabled_desc_short') || 
+                          '要查看本地文件，请访问';
+          const linkText = translate('file_access_settings_link') || '扩展设置页面';
+          const suffixText = translate('file_access_disabled_suffix') || 
+                            '并启用「允许访问文件网址」选项';
+          
+          descEl.innerHTML = `${baseText} <a href="${extensionUrl}" style="color: #d97706; text-decoration: underline; cursor: pointer;">${linkText}</a> ${suffixText}`;
+          
+          // Add click handler
+          const link = descEl.querySelector('a');
+          if (link) {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              chrome.tabs.create({ url: extensionUrl });
+            });
+          }
+        }
+        
+        warningSection.style.display = 'block';
+      } else {
+        warningSection.style.display = 'none';
+      }
+    } catch (error) {
+      console.error('Failed to check file access:', error);
+    }
   }
 
   async openDemo() {

@@ -7,14 +7,6 @@
     "message": "Markdown ファイルをシンタックスハイライト付きで表示し、スマートな書き出しツールを提供します",
     "description": "Chrome ウェブストアに表示される説明"
   },
-  "tab_overview": {
-    "message": "概要",
-    "description": "概要タブのラベル"
-  },
-  "tab_guide": {
-    "message": "ガイド",
-    "description": "ガイドタブのラベル"
-  },
   "tab_history": {
     "message": "履歴",
     "description": "履歴タブのラベル"
@@ -32,72 +24,8 @@
     "description": "ポップアップのタイトル"
   },
   "popup_version_label": {
-    "message": "\u30d0\u30fc\u30b8\u30e7\u30f3 {0}",
+    "message": "バージョン {0}",
     "description": "ヘッダーに拡張機能のバージョンを表示"
-  },
-  "overview_features_title": {
-    "message": "機能",
-    "description": "機能一覧の見出し"
-  },
-  "overview_feature_live_render": {
-    "message": "Markdown を即時レンダリング",
-    "description": "機能一覧の項目"
-  },
-  "overview_feature_code_highlight": {
-    "message": "コードブロックのシンタックスハイライト",
-    "description": "機能一覧の項目"
-  },
-  "overview_feature_math_support": {
-    "message": "KaTeX による数式サポート",
-    "description": "機能一覧の項目"
-  },
-  "overview_feature_theme": {
-    "message": "ライト/ダークテーマを切り替え",
-    "description": "機能一覧の項目"
-  },
-  "overview_feature_toc": {
-    "message": "自動目次",
-    "description": "機能一覧の項目"
-  },
-  "overview_feature_cache": {
-    "message": "再訪問時のスマートキャッシュ",
-    "description": "機能一覧の項目"
-  },
-  "overview_version_title": {
-    "message": "バージョン情報",
-    "description": "バージョン情報の見出し"
-  },
-  "overview_usage_title": {
-    "message": "使い方",
-    "description": "使い方セクションの見出し"
-  },
-  "overview_usage_step1": {
-    "message": "1. Chrome で .md または .markdown ファイルを開きます",
-    "description": "使い方のステップ"
-  },
-  "overview_usage_step2": {
-    "message": "2. 拡張機能が自動的にドキュメントをレンダリングします",
-    "description": "使い方のステップ"
-  },
-  "overview_demo_title": {
-    "message": "📝 デモ",
-    "description": "デモセクションの見出し"
-  },
-  "overview_demo_button": {
-    "message": "デモドキュメントを開く",
-    "description": "デモを開くボタン"
-  },
-  "overview_demo_helper": {
-    "message": "サンプル Markdown ファイルを開いて全機能を確認しましょう",
-    "description": "デモボタン下の補足"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ 重要",
-    "description": "重要なお知らせの見出し"
-  },
-  "overview_tip_content": {
-    "message": "ローカルの Markdown を読むには Chrome の拡張機能ページで「ファイルの URL へのアクセスを許可する」を有効にしてください。",
-    "description": "重要な注意"
   },
   "toolbar_toggle_toc_title": {
     "message": "目次の表示/非表示を切り替え",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "エクスポートに失敗しました{0}",
     "description": "エクスポート失敗時の警告"
-  },
-  "cache_loading": {
-    "message": "キャッシュ情報を読み込み中...",
-    "description": "キャッシュ読み込み中の表示"
-  },
-  "cache_default_message": {
-    "message": "キャッシュデータがまだありません。先に Markdown ファイルを開いてください",
-    "description": "キャッシュが空の場合のメッセージ"
   },
   "cache_error_message": {
     "message": "キャッシュにアクセスできません。先に Markdown ファイルを開いてください",
@@ -407,26 +327,6 @@
     "message": "リセット",
     "description": "リセットボタン"
   },
-  "settings_about_title": {
-    "message": "情報",
-    "description": "情報セクションの見出し"
-  },
-  "settings_about_author_label": {
-    "message": "作者:",
-    "description": "作者ラベル"
-  },
-  "settings_about_version_label": {
-    "message": "バージョン:",
-    "description": "バージョンラベル"
-  },
-  "settings_about_updated_label": {
-    "message": "更新日:",
-    "description": "更新日ラベル"
-  },
-  "settings_about_storage_label": {
-    "message": "ストレージエンジン:",
-    "description": "ストレージラベル"
-  },
   "history_title": {
     "message": "最近開いたドキュメント",
     "description": "履歴ドキュメントタイトル"
@@ -466,5 +366,21 @@
   "history_open_failed": {
     "message": "ドキュメントを開けませんでした",
     "description": "履歴ドキュメントを開く失敗メッセージ"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   }
 }

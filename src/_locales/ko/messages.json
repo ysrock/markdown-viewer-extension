@@ -7,14 +7,6 @@
     "message": "Markdown 파일을 구문 강조와 스마트 내보내기 도구와 함께 보여 줍니다",
     "description": "Chrome 웹 스토어에 표시되는 설명"
   },
-  "tab_overview": {
-    "message": "개요",
-    "description": "개요 탭 라벨"
-  },
-  "tab_guide": {
-    "message": "가이드",
-    "description": "가이드 탭 라벨"
-  },
   "tab_history": {
     "message": "기록",
     "description": "기록 탭 라벨"
@@ -31,73 +23,9 @@
     "message": "Markdown 뷰어",
     "description": "팝업 제목"
   },
-    "popup_version_label": {
-    "message": "\ubc84\uc804 {0}",
+  "popup_version_label": {
+    "message": "버전 {0}",
     "description": "헤더에 확장 버전을 표시"
-  },
-  "overview_features_title": {
-    "message": "기능",
-    "description": "기능 목록 제목"
-  },
-  "overview_feature_live_render": {
-    "message": "Markdown 즉시 렌더링",
-    "description": "기능 목록 항목"
-  },
-  "overview_feature_code_highlight": {
-    "message": "코드 블록 구문 강조",
-    "description": "기능 목록 항목"
-  },
-  "overview_feature_math_support": {
-    "message": "KaTeX 기반 수식 지원",
-    "description": "기능 목록 항목"
-  },
-  "overview_feature_theme": {
-    "message": "라이트/다크 테마 전환",
-    "description": "기능 목록 항목"
-  },
-  "overview_feature_toc": {
-    "message": "자동 목차",
-    "description": "기능 목록 항목"
-  },
-  "overview_feature_cache": {
-    "message": "재방문을 위한 스마트 캐시",
-    "description": "기능 목록 항목"
-  },
-  "overview_version_title": {
-    "message": "버전 정보",
-    "description": "버전 정보 제목"
-  },
-  "overview_usage_title": {
-    "message": "사용 방법",
-    "description": "사용 섹션 제목"
-  },
-  "overview_usage_step1": {
-    "message": "1. Chrome에서 .md 또는 .markdown 파일을 엽니다",
-    "description": "사용 단계"
-  },
-  "overview_usage_step2": {
-    "message": "2. 확장이 문서를 자동으로 렌더링합니다",
-    "description": "사용 단계"
-  },
-  "overview_demo_title": {
-    "message": "📝 데모",
-    "description": "데모 섹션 제목"
-  },
-  "overview_demo_button": {
-    "message": "데모 문서 열기",
-    "description": "데모 버튼"
-  },
-  "overview_demo_helper": {
-    "message": "샘플 Markdown 파일을 열어 모든 기능을 살펴보세요",
-    "description": "데모 버튼 하단 안내"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ 중요",
-    "description": "중요 안내 제목"
-  },
-  "overview_tip_content": {
-    "message": "로컬 Markdown 파일을 읽으려면 Chrome 확장 프로그램 페이지에서 \"파일 URL에 대한 액세스 허용\"을 활성화하세요.",
-    "description": "중요 사용 팁"
   },
   "toolbar_toggle_toc_title": {
     "message": "목차 표시/숨기기",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "내보내기에 실패했습니다{0}",
     "description": "내보내기 실패 경고"
-  },
-  "cache_loading": {
-    "message": "캐시 정보를 불러오는 중...",
-    "description": "캐시 로딩 중 표시"
-  },
-  "cache_default_message": {
-    "message": "캐시 데이터가 아직 없습니다. 먼저 Markdown 파일을 여세요",
-    "description": "캐시가 비어 있을 때 메시지"
   },
   "cache_error_message": {
     "message": "캐시와 통신하지 못했습니다. 먼저 Markdown 파일을 여세요",
@@ -407,26 +327,6 @@
     "message": "재설정",
     "description": "재설정 버튼"
   },
-  "settings_about_title": {
-    "message": "정보",
-    "description": "정보 섹션 제목"
-  },
-  "settings_about_author_label": {
-    "message": "작성자:",
-    "description": "작성자 라벨"
-  },
-  "settings_about_version_label": {
-    "message": "버전:",
-    "description": "버전 라벨"
-  },
-  "settings_about_updated_label": {
-    "message": "업데이트:",
-    "description": "업데이트 날짜 라벨"
-  },
-  "settings_about_storage_label": {
-    "message": "스토리지 엔진:",
-    "description": "스토리지 라벨"
-  },
   "history_title": {
     "message": "최근 문서",
     "description": "기록 문서 제목"
@@ -466,5 +366,21 @@
   "history_open_failed": {
     "message": "문서를 열지 못했습니다",
     "description": "기록 문서 열기 실패 메시지"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   }
 }

@@ -7,14 +7,6 @@
     "message": "Affichez les fichiers Markdown avec surlignage syntaxique et outils d'export avancés",
     "description": "Description de l'extension affichée dans le Chrome Web Store"
   },
-  "tab_overview": {
-    "message": "Aperçu",
-    "description": "Libellé pour l'onglet aperçu"
-  },
-  "tab_guide": {
-    "message": "Guide",
-    "description": "Libellé pour l'onglet guide"
-  },
   "tab_history": {
     "message": "Historique",
     "description": "Libellé pour l'onglet historique"
@@ -34,70 +26,6 @@
   "popup_version_label": {
     "message": "Version {0}",
     "description": "Affiche la version de l'extension dans l'en-tête"
-  },
-  "overview_features_title": {
-    "message": "Fonctionnalités",
-    "description": "Titre de la liste des fonctionnalités"
-  },
-  "overview_feature_live_render": {
-    "message": "Rendu Markdown instantané",
-    "description": "Élément de la liste des fonctionnalités"
-  },
-  "overview_feature_code_highlight": {
-    "message": "Surlignage syntaxique des blocs de code",
-    "description": "Élément de la liste des fonctionnalités"
-  },
-  "overview_feature_math_support": {
-    "message": "Formules mathématiques via KaTeX",
-    "description": "Élément de la liste des fonctionnalités"
-  },
-  "overview_feature_theme": {
-    "message": "Bascule thème clair/sombre",
-    "description": "Élément de la liste des fonctionnalités"
-  },
-  "overview_feature_toc": {
-    "message": "Table des matières automatique",
-    "description": "Élément de la liste des fonctionnalités"
-  },
-  "overview_feature_cache": {
-    "message": "Cache intelligent pour les visites répétées",
-    "description": "Élément de la liste des fonctionnalités"
-  },
-  "overview_version_title": {
-    "message": "Détails de la version",
-    "description": "Titre pour les informations de version"
-  },
-  "overview_usage_title": {
-    "message": "Mode d'emploi",
-    "description": "Titre de la section d'utilisation"
-  },
-  "overview_usage_step1": {
-    "message": "1. Ouvrez un fichier .md ou .markdown dans Chrome",
-    "description": "Étape d'utilisation"
-  },
-  "overview_usage_step2": {
-    "message": "2. L'extension rend le document automatiquement",
-    "description": "Étape d'utilisation"
-  },
-  "overview_demo_title": {
-    "message": "📝 Démonstration",
-    "description": "Titre de la section démo"
-  },
-  "overview_demo_button": {
-    "message": "Ouvrir le document de démonstration",
-    "description": "Bouton pour ouvrir la démo"
-  },
-  "overview_demo_helper": {
-    "message": "Explorez toutes les fonctionnalités avec un exemple de fichier Markdown",
-    "description": "Texte d'aide sous le bouton de démo"
-  },
-  "overview_tip_title": {
-    "message": "⚠️ Important",
-    "description": "Titre pour l'avis important"
-  },
-  "overview_tip_content": {
-    "message": "Activez \"Autoriser l'accès aux URL de fichiers\" sur la page des extensions Chrome pour lire les fichiers Markdown locaux.",
-    "description": "Conseil d'utilisation essentiel"
   },
   "toolbar_toggle_toc_title": {
     "message": "Afficher ou masquer la table des matières",
@@ -162,14 +90,6 @@
   "docx_export_failed_alert": {
     "message": "Exportation échouée{0}",
     "description": "Alerte affichée quand l'export échoue"
-  },
-  "cache_loading": {
-    "message": "Chargement des détails du cache...",
-    "description": "Affiché pendant le chargement du cache"
-  },
-  "cache_default_message": {
-    "message": "Aucune donnée en cache pour le moment — ouvrez d'abord un fichier Markdown",
-    "description": "Message quand le cache est vide"
   },
   "cache_error_message": {
     "message": "Échec de communication avec le cache — ouvrez d'abord un fichier Markdown",
@@ -407,26 +327,6 @@
     "message": "Réinitialiser",
     "description": "Bouton réinitialiser"
   },
-  "settings_about_title": {
-    "message": "À propos",
-    "description": "En-tête de la section À propos"
-  },
-  "settings_about_author_label": {
-    "message": "Auteur :",
-    "description": "Libellé auteur"
-  },
-  "settings_about_version_label": {
-    "message": "Version :",
-    "description": "Libellé version"
-  },
-  "settings_about_updated_label": {
-    "message": "Mis à jour :",
-    "description": "Libellé date de mise à jour"
-  },
-  "settings_about_storage_label": {
-    "message": "Moteur de stockage :",
-    "description": "Libellé moteur de stockage"
-  },
   "history_title": {
     "message": "Documents récents",
     "description": "Titre documents historique"
@@ -466,5 +366,21 @@
   "history_open_failed": {
     "message": "Échec de l'ouverture du document",
     "description": "Message d'échec ouvrir document historique"
+  },
+  "file_access_disabled": {
+    "message": "Disabled",
+    "description": "Status text when file access is disabled"
+  },
+  "file_access_disabled_desc_short": {
+    "message": "To view local files, visit",
+    "description": "Short description prefix for file access warning"
+  },
+  "file_access_settings_link": {
+    "message": "extension settings page",
+    "description": "Link text to extension settings"
+  },
+  "file_access_disabled_suffix": {
+    "message": "and enable 'Allow access to file URLs'",
+    "description": "Suffix for file access warning"
   }
 }
