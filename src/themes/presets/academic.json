@@ -21,7 +21,7 @@
         "alignment": "center",
         "spacing": {
           "before": "0pt",
-          "after": "18pt"
+          "after": "16pt"
         }
       },
       "h2": {
@@ -29,7 +29,7 @@
         "fontSize": "18pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "18pt",
+          "before": "16pt",
           "after": "10pt"
         }
       },
@@ -38,7 +38,7 @@
         "fontSize": "16pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "16pt",
+          "before": "14pt",
           "after": "8pt"
         }
       },
@@ -47,17 +47,17 @@
         "fontSize": "14pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "14pt",
-          "after": "7pt"
+          "before": "12pt",
+          "after": "6pt"
         }
       },
       "h5": {
         "fontFamily": "SimHei",
-        "fontSize": "12pt",
+        "fontSize": "13pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "12pt",
-          "after": "6pt"
+          "before": "10pt",
+          "after": "5pt"
         }
       },
       "h6": {
@@ -65,8 +65,8 @@
         "fontSize": "12pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "10pt",
-          "after": "5pt"
+          "before": "8pt",
+          "after": "4pt"
         }
       }
     },

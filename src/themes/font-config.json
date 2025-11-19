@@ -48,7 +48,7 @@
     "SimSun": {
       "name": "SimSun",
       "displayName": "宋体 (SimSun)",
-      "webFallback": "SimSun, 宋体, STSong, 'Times New Roman', serif",
+      "webFallback": "'Times New Roman', serif, SimSun, 宋体, STSong",
       "docx": {
         "ascii": "Times New Roman",
         "eastAsia": "SimSun"
@@ -57,7 +57,7 @@
     "SimHei": {
       "name": "SimHei",
       "displayName": "黑体 (SimHei)",
-      "webFallback": "SimHei, 黑体, STHeiti, Arial, sans-serif",
+      "webFallback": "Arial, sans-serif, SimHei, 黑体, STHeiti",
       "docx": {
         "ascii": "Arial",
         "eastAsia": "SimHei"
@@ -66,7 +66,7 @@
     "FangSong": {
       "name": "FangSong",
       "displayName": "仿宋 (FangSong)",
-      "webFallback": "FangSong, 仿宋, STFangsong, Georgia, 'Times New Roman', serif",
+      "webFallback": "Georgia, 'Times New Roman', serif, FangSong, 仿宋, STFangsong",
       "docx": {
         "ascii": "Georgia",
         "eastAsia": "FangSong"
@@ -133,15 +133,6 @@
       "docx": {
         "ascii": "Lucida Sans Unicode",
         "eastAsia": "SimHei"
-      }
-    },
-    "Book Antiqua": {
-      "name": "Palatino",
-      "displayName": "Book Antiqua",
-      "webFallback": "Palatino, Georgia, 'Times New Roman', serif, STSong, SimSun, 宋体",
-      "docx": {
-        "ascii": "Book Antiqua",
-        "eastAsia": "SimSun"
       }
     }
   }

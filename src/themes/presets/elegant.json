@@ -15,27 +15,27 @@
     },
     "headings": {
       "h1": {
-        "fontSize": "26pt",
-        "fontWeight": "bold",
-        "spacing": {
-          "before": "24pt",
-          "after": "14pt"
-        }
-      },
-      "h2": {
-        "fontSize": "22pt",
+        "fontSize": "24pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "20pt",
           "after": "12pt"
         }
       },
+      "h2": {
+        "fontSize": "20pt",
+        "fontWeight": "bold",
+        "spacing": {
+          "before": "18pt",
+          "after": "10pt"
+        }
+      },
       "h3": {
-        "fontSize": "18pt",
+        "fontSize": "17pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "16pt",
-          "after": "10pt"
+          "after": "8pt"
         }
       },
       "h4": {
@@ -43,11 +43,11 @@
         "fontWeight": "bold",
         "spacing": {
           "before": "14pt",
-          "after": "8pt"
+          "after": "7pt"
         }
       },
       "h5": {
-        "fontSize": "13pt",
+        "fontSize": "14pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "12pt",
@@ -55,7 +55,7 @@
         }
       },
       "h6": {
-        "fontSize": "12pt",
+        "fontSize": "13pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "10pt",

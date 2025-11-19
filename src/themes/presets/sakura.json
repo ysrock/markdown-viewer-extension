@@ -15,51 +15,51 @@
     },
     "headings": {
       "h1": {
-        "fontSize": "31.73pt",
+        "fontSize": "28pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "22.5pt",
-          "after": "11.25pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       },
       "h2": {
-        "fontSize": "27pt",
+        "fontSize": "24pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "22.5pt",
-          "after": "11.25pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       },
       "h3": {
-        "fontSize": "23.63pt",
+        "fontSize": "20pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "22.5pt",
-          "after": "11.25pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       },
       "h4": {
-        "fontSize": "20.25pt",
+        "fontSize": "17pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "22.5pt",
-          "after": "11.25pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       },
       "h5": {
-        "fontSize": "16.88pt",
+        "fontSize": "15pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "22.5pt",
-          "after": "11.25pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       },
       "h6": {
         "fontSize": "13.5pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "22.5pt",
-          "after": "11.25pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       }
     },

@@ -16,11 +16,11 @@
     "headings": {
       "h1": {
         "fontFamily": "Georgia",
-        "fontSize": "24pt",
+        "fontSize": "22pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "24pt",
-          "after": "12pt"
+          "before": "20pt",
+          "after": "10pt"
         }
       },
       "h2": {
@@ -28,35 +28,35 @@
         "fontSize": "18pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "18pt",
-          "after": "10pt"
-        }
-      },
-      "h3": {
-        "fontFamily": "Georgia",
-        "fontSize": "15pt",
-        "fontWeight": "bold",
-        "spacing": {
           "before": "16pt",
           "after": "8pt"
         }
       },
-      "h4": {
+      "h3": {
         "fontFamily": "Georgia",
-        "fontSize": "13pt",
+        "fontSize": "16pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "14pt",
           "after": "7pt"
         }
       },
-      "h5": {
+      "h4": {
         "fontFamily": "Georgia",
-        "fontSize": "12pt",
+        "fontSize": "14pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "12pt",
           "after": "6pt"
+        }
+      },
+      "h5": {
+        "fontFamily": "Georgia",
+        "fontSize": "13pt",
+        "fontWeight": "bold",
+        "spacing": {
+          "before": "10pt",
+          "after": "5pt"
         }
       },
       "h6": {
@@ -64,8 +64,8 @@
         "fontSize": "12pt",
         "fontWeight": "bold",
         "spacing": {
-          "before": "10pt",
-          "after": "5pt"
+          "before": "8pt",
+          "after": "4pt"
         }
       }
     },

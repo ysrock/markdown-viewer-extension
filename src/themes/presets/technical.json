@@ -15,7 +15,7 @@
     },
     "headings": {
       "h1": {
-        "fontSize": "24pt",
+        "fontSize": "22pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "16pt",
@@ -23,19 +23,19 @@
         }
       },
       "h2": {
-        "fontSize": "20pt",
+        "fontSize": "18pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "16pt",
-          "after": "10pt"
+          "after": "8pt"
         }
       },
       "h3": {
-        "fontSize": "16pt",
+        "fontSize": "15pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "14pt",
-          "after": "8pt"
+          "after": "7pt"
         }
       },
       "h4": {
@@ -47,7 +47,7 @@
         }
       },
       "h5": {
-        "fontSize": "11pt",
+        "fontSize": "12pt",
         "fontWeight": "bold",
         "spacing": {
           "before": "10pt",
